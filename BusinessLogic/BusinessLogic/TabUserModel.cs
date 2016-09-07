@@ -66,7 +66,8 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="row">UserDS.TabUserRow row</param>
         /// <returns>TabUserModel</returns>
-        public static TabUserModel Parse(UserDS.TabUserRow row)
+        ///<exception cref="UserException">Thrown when user level code is invalid.</exception>
+        public static TabUserModel Parse(UserDS.TabUserRow row) 
         {
             if (row == null)
                 return null;
@@ -77,13 +78,17 @@ namespace BusinessLogic
                 //Model data = Database data
                 userModel.UserID = row.UID;
                 userModel.UserName = row.UserName;
+                userModel.UserLevelCode = row.UserLevel;
 
-                if (row.UserLevel == 3)
-                    userModel._userLevelDescription = "Administrator";
-                else if (row.UserLevel == 2)
-                    userModel._userLevelDescription = "Supervisor";
+                if (userModel.UserLevelCode == Constants.administratorCode)
+                    userModel._userLevelDescription = Constants.administratorDescription;
+                else if (userModel.UserLevelCode == Constants.supervisorCode)
+                    userModel._userLevelDescription = Constants.supervisorDescription;
+                else if (userModel.UserLevelCode == Constants.userCode)
+                    userModel._userLevelDescription = Constants.userDescription;
                 else
-                    userModel._userLevelDescription = "User";
+                    throw new UserException("Invalid user level code for the userID: " + userModel.UserID
+                        + " userName: " + userModel.UserName + " level code: " + row.UserLevel);
 
                 return userModel;
 

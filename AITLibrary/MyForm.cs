@@ -15,6 +15,7 @@ namespace AITLibrary
         public static string staticUserName;
         public static int staticUserLevelCode;
         public static string staticUserLevelDescription;
+        public static string staticUserPassword;
 
 
         public MyForm()

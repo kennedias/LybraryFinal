@@ -13,3 +13,8 @@ C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Re
 C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.pdb
 C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Release\DataAccessLayer.pdb

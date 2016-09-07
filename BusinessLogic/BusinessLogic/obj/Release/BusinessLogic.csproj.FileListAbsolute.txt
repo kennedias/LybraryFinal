@@ -25,3 +25,12 @@ C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Releas
 C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.csproj.GenerateResource.Cache
 C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.dll
 C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\BusinessLogic.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.Properties.Resources.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.csproj.GenerateResource.Cache
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.pdb

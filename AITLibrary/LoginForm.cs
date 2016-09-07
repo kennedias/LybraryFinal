@@ -51,9 +51,20 @@ namespace AITLibrary
                     staticUserLevelCode = tmpListUser[0].UserLevelCode;
                     staticUserLevelDescription = tmpListUser[0].UserLevelDescription;
 
-                    System.Threading.Thread threadUserForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookForm));
-                    threadUserForm.Start();
-                    this.Close();
+                    if (staticUserLevelCode == Constants.userCode)
+                    {
+                        staticUserPassword = textBoxPassword.Text;
+                        System.Threading.Thread threadChangePasswordForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
+                        threadChangePasswordForm.Start();
+                        this.Close();
+                    }
+                    else
+                    {
+
+                        System.Threading.Thread threadUserForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookForm));
+                        threadUserForm.Start();
+                        this.Close();
+                    }
 
                 }
                 else
@@ -67,6 +78,11 @@ namespace AITLibrary
         public void OpenBookForm()
         {
             Application.Run(new BookForm());
+        }
+
+        public void OpenChangePasswordForm()
+        {
+            Application.Run(new ChangePasswordForm());
         }
     }
 }

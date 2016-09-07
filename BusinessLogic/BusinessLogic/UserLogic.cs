@@ -74,7 +74,108 @@ namespace BusinessLogic
             return _users;
         }
 
+        /// <summary>
+        /// Update a user from User table.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="password">string password</param>
+        /// <param name="userLevel">string userLevelDescription</param>
+        /// <param name="userID">int userID</param>
+        /// <returns>int rowsAffected</returns>
+        public int updateUser(string userName, string password, string userLevelDescription, string userID)
+        {
+            int resultQuery;
 
+            resultQuery = _userDAO.SelectCountUserByName(userName);
+
+            if (resultQuery > 0)
+            {
+                throw new UserException("User name is already in use.");
+            }
+
+            try
+            {
+                resultQuery = 0;
+                int userLevelCode = getUserLevelCodeByLevelDescription(userLevelDescription);
+                resultQuery = _userDAO.UpdateUser(userName, password, userLevelCode, Int32.Parse(userID));
+                if (resultQuery < 1)
+                {
+                    throw new UserException("No record were updated.");
+                }
+
+            }
+
+            catch (FormatException ex)
+            {
+                //logging for admin to be inspect IF TRY TO PASS ABC FOR EXAMPLE
+            }
+
+            catch (UserException ex)
+            {
+
+                //logging for admin to be inspect
+            }
+
+            catch (Exception ex)
+            {
+                //logging for admin to be inspect
+            }
+
+            return resultQuery;
+
+        }
+
+        /// <summary>
+        /// Returns the level description from a level code.
+        /// </summary>
+        /// <param name="int">int userLevelCode</param>
+        /// <returns>string userLevelDescription</returns>
+        ///<exception cref="UserException">Thrown when user level code is invalid.</exception>
+        public String getUserLevelDescriptionByLevelCode(int userLevelCode)
+        {
+            string userLevelDescription;
+            switch (userLevelCode)
+            {
+                case Constants.administratorCode:
+                    userLevelDescription = Constants.administratorDescription;
+                    break;
+                case Constants.supervisorCode:
+                    userLevelDescription = Constants.supervisorDescription;
+                    break;
+                case Constants.userCode:
+                    userLevelDescription = Constants.userDescription;
+                    break;
+                default:
+                    throw new UserException("Invalid user level code for the code: " + userLevelCode);
+            }
+            return userLevelDescription;
+        }
+
+        /// <summary>
+        /// Returns the level code from a level description.
+        /// </summary>
+        /// <param name="string">string userLevelDescription</param>
+        /// <returns>int userLevelCode</returns>
+        ///<exception cref="UserException">Thrown when user level description is invalid.</exception>
+        public int getUserLevelCodeByLevelDescription(string userLevelDescription)
+        {
+            int userLevelCode;
+            switch (userLevelDescription)
+            {
+                case Constants.administratorDescription:
+                    userLevelCode = Constants.administratorCode;
+                    break;
+                case Constants.supervisorDescription:
+                    userLevelCode = Constants.supervisorCode;
+                    break;
+                case Constants.userDescription:
+                    userLevelCode = Constants.userCode;
+                    break;
+                default:
+                    throw new UserException("Invalid user level description for the description: " + userLevelDescription);
+            }
+            return userLevelCode;
+        }
     }
 }
 

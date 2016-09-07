@@ -39,11 +39,11 @@
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(39, 62);
+            this.labelUser.Location = new System.Drawing.Point(63, 58);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(29, 13);
+            this.labelUser.Size = new System.Drawing.Size(32, 13);
             this.labelUser.TabIndex = 0;
-            this.labelUser.Text = "User";
+            this.labelUser.Text = "User:";
             // 
             // textBoxUserName
             // 
@@ -55,11 +55,11 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(42, 92);
+            this.labelPassword.Location = new System.Drawing.Point(39, 87);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 13);
+            this.labelPassword.Size = new System.Drawing.Size(56, 13);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Password";
+            this.labelPassword.Text = "Password:";
             // 
             // textBoxPassword
             // 
@@ -91,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 261);
+            this.ClientSize = new System.Drawing.Size(280, 205);
             this.Controls.Add(this.labelReturnMsg);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.textBoxPassword);
