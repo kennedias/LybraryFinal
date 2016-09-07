@@ -1,0 +1,42 @@
+C:\Visual Projects\Library\AITLibrary\bin\Debug\AITLibrary.exe
+C:\Visual Projects\Library\AITLibrary\bin\Debug\AITLibrary.pdb
+C:\Visual Projects\Library\AITLibrary\bin\Debug\BusinessLogic.dll
+C:\Visual Projects\Library\AITLibrary\bin\Debug\DataAccessLayer.dll
+C:\Visual Projects\Library\AITLibrary\bin\Debug\BusinessLogic.pdb
+C:\Visual Projects\Library\AITLibrary\bin\Debug\DataAccessLayer.pdb
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.csprojResolveAssemblyReference.cache
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.Properties.Resources.resources
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.UserForm.resources
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.exe
+C:\Visual Projects\Library\AITLibrary\obj\x86\Debug\AITLibrary.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\AITLibrary.exe
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\AITLibrary.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\BusinessLogic.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.BookForm.resources
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.Properties.Resources.resources
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.UserForm.resources
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.exe
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.LoginForm.resources
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.AdminForm.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.exe
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\AITLibrary.exe
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\AITLibrary.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\BusinessLogic.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\DataAccessLayer.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\BusinessLogic.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\bin\Debug\DataAccessLayer.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.csprojResolveAssemblyReference.cache
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.AdminForm.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.BookForm.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.LoginForm.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.Properties.Resources.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.UserForm.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache
