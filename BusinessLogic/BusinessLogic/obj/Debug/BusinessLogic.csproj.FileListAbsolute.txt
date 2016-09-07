@@ -1,0 +1,27 @@
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.dll
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.pdb
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.Properties.Resources.resources
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csproj.GenerateResource.Cache
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Visual Projects\Library\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.Properties.Resources.resources
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csproj.GenerateResource.Cache
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\BusinessLogic.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\bin\Debug\DataAccessLayer.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.Properties.Resources.resources
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.csproj.GenerateResource.Cache
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\BusinessLogic\BusinessLogic\obj\Debug\BusinessLogic.pdb
