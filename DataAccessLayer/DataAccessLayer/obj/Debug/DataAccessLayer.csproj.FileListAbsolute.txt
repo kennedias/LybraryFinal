@@ -1,0 +1,16 @@
+C:\Visual Projects\Library\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Visual Projects\Library\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Visual Projects\Library\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Visual Projects\Library\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Visual Projects\Library\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\5399\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
