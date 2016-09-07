@@ -58,5 +58,50 @@ namespace DataAccessLayer
             return _userDataSet.TabUser;
         }
 
+        /// <summary>
+        /// Delete a user from User table.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>int rowsAffected</returns>
+        public int DeleteUser(int userId)
+        {
+            return _tabUserTableAdapter.DeleteUser(userId);
+        }
+
+        /// <summary>
+        /// Insert a user from User table.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="password">string password</param>
+        /// <param name="userLevel">int userLevel</param>
+        /// <returns>int rowsAffected</returns>
+        public int InsertUser(string userName, string userPassword, int userLevel)
+        {
+            return _tabUserTableAdapter.InsertUser(userName, userPassword, userLevel);
+        }
+
+        /// <summary>
+        /// Update a user from User table.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="password">string password</param>
+        /// <param name="userLevel">int userLevel</param>
+        /// <param name="userId">int userId</param>
+        /// <returns>int rowsAffected</returns>
+        public int UpdateUser(string userName, string userPassword, int userLevel, int userId)
+        {
+            return _tabUserTableAdapter.UpdateUser(userName, userPassword, userLevel, userId);
+        }
+
+        /// <summary>
+        /// Select count in User table by userName.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <returns>int countResult</returns>
+        public int SelectCountUserByName(string userName)
+        {
+            return (int)_tabUserTableAdapter.SelectCountUserByName(userName);
+        }
+
     }
 }
