@@ -86,7 +86,7 @@ namespace BusinessLogic
         {
             int resultQuery;
 
-            resultQuery = _userDAO.SelectCountUserByName(userName);
+            resultQuery = _userDAO.SelectCountUserByName(userName, Int32.Parse(userID));
 
             if (resultQuery > 0)
             {

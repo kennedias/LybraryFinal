@@ -95,12 +95,14 @@ namespace DataAccessLayer
 
         /// <summary>
         /// Select count in User table by userName.
+        /// The count search for user name despite the name of the actual userID.
         /// </summary>
         /// <param name="username">string username</param>
+        /// <param name="userID">int userID</param>
         /// <returns>int countResult</returns>
-        public int SelectCountUserByName(string userName)
+        public int SelectCountUserByName(string userName, int userID)
         {
-            return (int)_tabUserTableAdapter.SelectCountUserByName(userName);
+            return (int)_tabUserTableAdapter.SelectCountUserByName(userName, userID);
         }
 
     }
