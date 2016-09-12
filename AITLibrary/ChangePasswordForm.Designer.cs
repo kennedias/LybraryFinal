@@ -41,11 +41,11 @@
             // labelPasswordExpiredText
             // 
             this.labelPasswordExpiredText.AutoSize = true;
-            this.labelPasswordExpiredText.Location = new System.Drawing.Point(33, 26);
+            this.labelPasswordExpiredText.Location = new System.Drawing.Point(102, 30);
             this.labelPasswordExpiredText.Name = "labelPasswordExpiredText";
-            this.labelPasswordExpiredText.Size = new System.Drawing.Size(212, 13);
+            this.labelPasswordExpiredText.Size = new System.Drawing.Size(115, 13);
             this.labelPasswordExpiredText.TabIndex = 0;
-            this.labelPasswordExpiredText.Text = "Your password had expired. Please update.";
+            this.labelPasswordExpiredText.Text = "Change your password";
             // 
             // labelNewPassword
             // 
@@ -101,6 +101,7 @@
             this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelReturnMsg
             // 

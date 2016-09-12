@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class UserForm : MyForm
+    public partial class UserForm : LybraryPrincipalForm
     {
         public UserForm()
         {

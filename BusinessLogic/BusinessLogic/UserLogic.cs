@@ -82,11 +82,11 @@ namespace BusinessLogic
         /// <param name="userLevel">string userLevelDescription</param>
         /// <param name="userID">int userID</param>
         /// <returns>int rowsAffected</returns>
-        public int updateUser(string userName, string password, string userLevelDescription, string userID)
+        public int updateUser(string userName, string password, string userLevelDescription, int userID)
         {
             int resultQuery;
 
-            resultQuery = _userDAO.SelectCountUserByName(userName, Int32.Parse(userID));
+            resultQuery = _userDAO.SelectCountUserByName(userName, userID);
 
             if (resultQuery > 0)
             {
@@ -97,7 +97,7 @@ namespace BusinessLogic
             {
                 resultQuery = 0;
                 int userLevelCode = getUserLevelCodeByLevelDescription(userLevelDescription);
-                resultQuery = _userDAO.UpdateUser(userName, password, userLevelCode, Int32.Parse(userID));
+                resultQuery = _userDAO.UpdateUser(userName, password, userLevelCode, userID);
                 if (resultQuery < 1)
                 {
                     throw new UserException("No record were updated.");

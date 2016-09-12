@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ChangePasswordForm : MyForm
+    public partial class ChangePasswordForm : LybraryPrincipalForm
     {
         public ChangePasswordForm()
         {
@@ -53,15 +53,18 @@ namespace AITLibrary
                 try
                 {
                     UserLogic userLogic = new UserLogic();
-                    int resultQuery = userLogic.updateUser(staticUserName, textBoxNewPassword.Text, staticUserLevelDescription, staticUserID.ToString());
+                    int resultQuery = userLogic.updateUser(staticUserName, textBoxNewPassword.Text, staticUserLevelDescription, staticUserID);
                     if (resultQuery < 1)
                     {
                         throw new UserException("No record were updated.");
                     }
+                    else
+                    {
+                        staticUserPassword = textBoxNewPassword.Text;
+                        this.Close();
+                    }
 
-                    System.Threading.Thread threadUserForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookForm));
-                    threadUserForm.Start();
-                    this.Close();
+                    
 
                 }
 
@@ -86,6 +89,11 @@ namespace AITLibrary
         public void OpenBookForm()
         {
             Application.Run(new BookForm());
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

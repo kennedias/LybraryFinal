@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class LoginForm : MyForm
+    public partial class LoginForm : LybraryPrincipalForm
     {
         public LoginForm()
         {
@@ -50,19 +50,22 @@ namespace AITLibrary
                     staticUserName = tmpListUser[0].UserName;
                     staticUserLevelCode = tmpListUser[0].UserLevelCode;
                     staticUserLevelDescription = tmpListUser[0].UserLevelDescription;
+                    staticUserPassword = textBoxPassword.Text;
 
-                    if (staticUserLevelCode == Constants.userCode)
+                    if (staticUserLevelCode == Constants.userCode) //TODO Constants.userCode)
                     {
-                        staticUserPassword = textBoxPassword.Text;
+                        
                         System.Threading.Thread threadChangePasswordForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
                         threadChangePasswordForm.Start();
+                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(LybraryBaseForm));
+                        threadLybraryBaseForm.Start();
                         this.Close();
                     }
                     else
                     {
 
-                        System.Threading.Thread threadUserForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookForm));
-                        threadUserForm.Start();
+                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(LybraryBaseForm));
+                        threadLybraryBaseForm.Start();
                         this.Close();
                     }
 
@@ -75,14 +78,28 @@ namespace AITLibrary
 
         }
 
-        public void OpenBookForm()
+        public void LybraryBaseForm()
         {
-            Application.Run(new BookForm());
+            Application.Run(new LybraryBaseForm());
         }
 
         public void OpenChangePasswordForm()
         {
             Application.Run(new ChangePasswordForm());
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            /* Once this form is loaded, all the user information should be cleaned.
+             * This works for a login/logoff functionality.
+            */
+            staticUserID = 0;
+            staticUserName = null;
+            staticUserLevelCode = 0;
+            staticUserLevelDescription = null;
+        }
+
+
+
     }
 }

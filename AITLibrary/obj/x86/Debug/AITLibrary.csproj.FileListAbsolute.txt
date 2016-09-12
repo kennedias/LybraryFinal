@@ -56,3 +56,5 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibra
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.ChangePasswordForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LybraryBaseForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserDetailsForm.resources

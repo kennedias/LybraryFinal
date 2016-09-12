@@ -51,7 +51,7 @@
             this.dataGridViewListBooks.AllowUserToDeleteRows = false;
             this.dataGridViewListBooks.AllowUserToOrderColumns = true;
             this.dataGridViewListBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListBooks.Location = new System.Drawing.Point(229, 18);
+            this.dataGridViewListBooks.Location = new System.Drawing.Point(229, 41);
             this.dataGridViewListBooks.Name = "dataGridViewListBooks";
             this.dataGridViewListBooks.ReadOnly = true;
             this.dataGridViewListBooks.Size = new System.Drawing.Size(817, 357);
@@ -79,7 +79,7 @@
             this.groupBoxSearchBooks.Controls.Add(this.labelOr);
             this.groupBoxSearchBooks.Controls.Add(this.textBoxISBN);
             this.groupBoxSearchBooks.Controls.Add(this.labelISBN);
-            this.groupBoxSearchBooks.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxSearchBooks.Location = new System.Drawing.Point(12, 35);
             this.groupBoxSearchBooks.Name = "groupBoxSearchBooks";
             this.groupBoxSearchBooks.Size = new System.Drawing.Size(207, 268);
             this.groupBoxSearchBooks.TabIndex = 3;
@@ -170,7 +170,7 @@
             this.labelMessageForUser.AutoSize = true;
             this.labelMessageForUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessageForUser.ForeColor = System.Drawing.Color.Black;
-            this.labelMessageForUser.Location = new System.Drawing.Point(14, 287);
+            this.labelMessageForUser.Location = new System.Drawing.Point(14, 310);
             this.labelMessageForUser.Name = "labelMessageForUser";
             this.labelMessageForUser.Size = new System.Drawing.Size(0, 16);
             this.labelMessageForUser.TabIndex = 4;
@@ -179,12 +179,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 387);
+            this.ClientSize = new System.Drawing.Size(1058, 429);
             this.Controls.Add(this.labelMessageForUser);
             this.Controls.Add(this.groupBoxSearchBooks);
             this.Controls.Add(this.dataGridViewListBooks);
             this.Name = "BookForm";
             this.Text = "Book";
+            this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
+            this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
+            this.Controls.SetChildIndex(this.labelMessageForUser, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();
             this.groupBoxSearchBooks.ResumeLayout(false);
             this.groupBoxSearchBooks.PerformLayout();
