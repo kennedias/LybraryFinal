@@ -1,4 +1,4 @@
-﻿/*Data Access Object for the User data
+﻿/* Data Access Object for the User data
  * 
  * Project: Assignment 1 - AIT
  * Developer: Kennedy Oliveira - ID 5399
@@ -49,12 +49,12 @@ namespace DataAccessLayer
         /// <summary>
         /// Return register from User table based on login details.
         /// </summary>
-        /// <param name="username">string username</param>
+        /// <param name="userName">string userName</param>
         /// <param name="password">string password</param>
         /// <returns>UserDS.TabUserDataTable</returns>
-        public UserDS.TabUserDataTable GetLogin(string username, string password)
+        public UserDS.TabUserDataTable GetLogin(string userName, string password)
         {
-            _tabUserTableAdapter.FillByUserNamePassword(_userDataSet.TabUser, username, password);
+            _tabUserTableAdapter.FillByUserNamePassword(_userDataSet.TabUser, userName, password);
             return _userDataSet.TabUser;
         }
 
@@ -83,7 +83,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Update a user from User table.
         /// </summary>
-        /// <param name="username">string username</param>
+        /// <param name="userName">string userName</param>
         /// <param name="password">string password</param>
         /// <param name="userLevel">int userLevel</param>
         /// <param name="userId">int userId</param>
@@ -97,7 +97,7 @@ namespace DataAccessLayer
         /// Select count in User table by userName.
         /// The count search for user name despite the name of the actual userID.
         /// </summary>
-        /// <param name="username">string username</param>
+        /// <param name="userName">string userName</param>
         /// <param name="userID">int userID</param>
         /// <returns>int countResult</returns>
         public int SelectCountUserByName(string userName, int userID)

@@ -1,4 +1,4 @@
-﻿/*Data Access Object for the Book data
+﻿/* Data Access Object for the Book data
  * 
  * Project: Assignment 1 - AIT
  * Developer: Kennedy Oliveira - ID 5399
