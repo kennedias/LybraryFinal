@@ -24,8 +24,12 @@ namespace DataAccessLayer
     {
 
         private BookDS _bookDataSet;
-        private TabBookTableAdapter _tabBookTableAdapter;
+        private TabBookTableAdapter _tabBookTableAdapter;        
+        private TabReservedTableAdapter _tabReservedTableAdapter;
+        private TabBorrowTableAdapter _tabBorrowTableAdapter;
         private ViewBookTableAdapter _viewBookTableAdapter;
+        private ViewBookAvailableTableAdapter _viewBookAvailableTableAdapter;
+        private ViewBookBorrowedTableAdapter _viewBookBorrowedTableAdapter;
 
         /// <summary>
         /// Class constructor
@@ -35,7 +39,11 @@ namespace DataAccessLayer
             //Initialize objects
             _bookDataSet = new BookDS();
             _tabBookTableAdapter = new TabBookTableAdapter();
+            _tabReservedTableAdapter = new TabReservedTableAdapter();
+            _tabBorrowTableAdapter = new TabBorrowTableAdapter();
             _viewBookTableAdapter = new ViewBookTableAdapter();
+            _viewBookAvailableTableAdapter = new ViewBookAvailableTableAdapter();
+            _viewBookBorrowedTableAdapter = new ViewBookBorrowedTableAdapter();
         }
 
         /// <summary>
@@ -47,6 +55,8 @@ namespace DataAccessLayer
             _viewBookTableAdapter.FillAllBooks(_bookDataSet.ViewBook);
             return _bookDataSet.ViewBook;
         }
+
+        /* BOOK VIEW */
 
         /// <summary>
         /// Return registers from Book view filtred by bookName and Author, only bookName or only bookAuthor.
@@ -72,5 +82,30 @@ namespace DataAccessLayer
             _viewBookTableAdapter.FillByISBN(_bookDataSet.ViewBook, isbn);
             return _bookDataSet.ViewBook;
         }
+
+
+        /* RESERVED BOOK */
+
+        /// <summary>
+        /// Return all registers from Reserved.
+        /// </summary>
+        /// <returns>BookDS.TabReservedDataTable</returns>
+        public BookDS.TabReservedDataTable GetAllReserverdBooks()
+        {
+            _tabReservedTableAdapter.FillAllReservedBooks(_bookDataSet.TabReserved);
+            return _bookDataSet.TabReserved;
+        }
+
+        /// <summary>
+        /// Delete a book reserv from Reserved table.
+        /// </summary>
+        /// <param name="reservId">int reservId</param>
+        /// <returns>int rowsAffected</returns>
+     //   public int DeleteBookReserv(int reservId)
+     //   {
+     //       return _tabUserTableAdapter.DeleteUser(userId);
+     //       return _tabReservedTableAdapter.DeleteBookReserv
+    //    }
+
     }
 }
