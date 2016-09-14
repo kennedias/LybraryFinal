@@ -53,5 +53,17 @@ namespace AITLibrary
             Application.Run(new BookForm());
         }
 
+        private void reserveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadBookReserveForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookReserveForm));
+            threadBookReserveForm.Start();
+            this.Close();
+        }
+
+        public void OpenBookReserveForm()
+        {
+            Application.Run(new BookReserveForm());
+        }
+
     }
 }

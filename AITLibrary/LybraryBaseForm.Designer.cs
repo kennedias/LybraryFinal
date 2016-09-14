@@ -56,20 +56,20 @@
             // toolStripMenuItemUserDetails
             // 
             this.toolStripMenuItemUserDetails.Name = "toolStripMenuItemUserDetails";
-            this.toolStripMenuItemUserDetails.Size = new System.Drawing.Size(142, 22);
+            this.toolStripMenuItemUserDetails.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemUserDetails.Text = "User Details";
             this.toolStripMenuItemUserDetails.Click += new System.EventHandler(this.toolStripMenuItemUserDetails_Click);
             // 
             // myActivitiesToolStripMenuItem
             // 
             this.myActivitiesToolStripMenuItem.Name = "myActivitiesToolStripMenuItem";
-            this.myActivitiesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.myActivitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.myActivitiesToolStripMenuItem.Text = "My Activities";
             // 
             // logOffToolStripMenuItem
             // 
             this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
-            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logOffToolStripMenuItem.Text = "Log Off";
             this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
             // 
@@ -94,6 +94,7 @@
             this.reserveToolStripMenuItem.Name = "reserveToolStripMenuItem";
             this.reserveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reserveToolStripMenuItem.Text = "Reserve";
+            this.reserveToolStripMenuItem.Click += new System.EventHandler(this.reserveToolStripMenuItem_Click);
             // 
             // administrationToolStripMenuItem
             // 
@@ -109,7 +110,7 @@
             this.administrationToolStripMenuItem});
             this.menuStripSystemLybrary.Location = new System.Drawing.Point(0, 0);
             this.menuStripSystemLybrary.Name = "menuStripSystemLybrary";
-            this.menuStripSystemLybrary.Size = new System.Drawing.Size(1032, 24);
+            this.menuStripSystemLybrary.Size = new System.Drawing.Size(1076, 24);
             this.menuStripSystemLybrary.TabIndex = 0;
             // 
             // groupBoxSystemMessage
@@ -135,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 487);
+            this.ClientSize = new System.Drawing.Size(1076, 487);
             this.Controls.Add(this.groupBoxSystemMessage);
             this.Controls.Add(this.menuStripSystemLybrary);
             this.MainMenuStrip = this.menuStripSystemLybrary;

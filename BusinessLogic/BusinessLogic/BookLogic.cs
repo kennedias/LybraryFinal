@@ -81,28 +81,27 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// Inser a book reservation into Reserved table.
+        /// Insert a book reservation into Reserved table.
         /// </summary>
-        /// <param name="username">string username</param>
-        /// <param name="password">string password</param>
-        /// <param name="userLevel">string userLevelDescription</param>
-        /// <param name="userID">int userID</param>
+        /// <param name="userId">int userId</param>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="reservedDate">string reservedDate</param>
         /// <returns>int rowsAffected</returns>
-        public int insertBookReservation(string userName, string password, string userLevelDescription, int userID)
+        public int insertBookReserved(int userId, string isbn, string reservedDate)
         {
-            int resultQuery;
-       //     resultQuery = _bookDAO.InsertBorrowBook
+            int resultQuery = 0;
+            resultQuery = _bookDAO.InsertBookReserved(userId, isbn, reservedDate);
 
-            if (resultQuery > 0)
+            if (resultQuery == 0)
             {
-                throw new UserException("User name is already in use.");
+                throw new BookException("Reserve not inserted.");
             }
 
-            catch (Exception ex)
+        /*    catch (Exception ex)
             {
                 //logging for admin to be inspect
             }
-
+            */
             return resultQuery;
 
         }

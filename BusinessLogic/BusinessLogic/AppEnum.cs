@@ -5,12 +5,15 @@ using System.Text;
 
 namespace BusinessLogic
 {
-    public static class Enum
+    public static class AppEnum
     {
         public enum ViewBook
         {
-            BookNmae,
             Isbn,
+            BookName,
+            Publisher,
+            PublishYear,
+            Pages,
             Author,
             Category,
             Language

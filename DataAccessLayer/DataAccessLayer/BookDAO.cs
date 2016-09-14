@@ -173,13 +173,13 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Inser a book reserve into Reserved table.
+        /// Insert a book reserve into Reserved table.
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <param name="isbn">string isbn</param>
         /// <param name="reservedDate">string reservedDate</param>
         /// <returns>int rowsAffected</returns>
-        public int DeleteBookReserved(int userId, string isbn, string reservedDate)
+        public int InsertBookReserved(int userId, string isbn, string reservedDate)
         {
             try
             {

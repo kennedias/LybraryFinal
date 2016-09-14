@@ -60,3 +60,4 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibra
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserDetailsForm.resources
 C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.exe
 C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.BookReserveForm.resources
