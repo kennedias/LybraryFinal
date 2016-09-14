@@ -17,6 +17,5 @@ C:\Users\Kennedy\Documents\GitHub\libraryAIT\DataAccessLayer\DataAccessLayer\obj
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

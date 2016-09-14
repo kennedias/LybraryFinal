@@ -106,7 +106,7 @@ namespace DataAccessLayer
         /// Return all registers from Reserved table.
         /// </summary>
         /// <returns>BookDS.TabReservedDataTable</returns>
-        public BookDS.TabReservedDataTable GetAllReserverdBooks()
+        public BookDS.TabReservedDataTable GetAllReservedBooks()
         {
             try
             {
@@ -153,7 +153,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>BookDS.TabReservedDataTable</returns>
-        public BookDS.TabReservedDataTable GetAllReserverdBooksByUserId(int userId)
+        public BookDS.TabReservedDataTable GetAllReservedBooksByUserId(int userId)
         {
             try
             {
@@ -184,6 +184,29 @@ namespace DataAccessLayer
             try
             {
                 return _tabReservedTableAdapter.InsertBookReserve(userId, isbn, reservedDate);
+            }
+            catch (SqlException ex)
+            {
+                // Log the error
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Select Count(*) from Reserved by ISBN.
+        /// </summary>
+        /// <param name="reserveId">string isbn</param>
+        /// <returns>int numbers of registers found</returns>
+        public int DeleteBookReserved(string isbn)
+        {
+            try
+            {
+                return (int)_tabReservedTableAdapter.SelectCountReservedBookByISBN(isbn);
             }
             catch (SqlException ex)
             {
