@@ -160,7 +160,7 @@ FROM            TabReserved INNER JOIN
               <Mapping SourceColumn="UserName" DataSetColumn="UserName" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="DB_9AB8B7_5399ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBookReserv" Modifier="Public" Name="DeleteBookReserv" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteBookReserv">
+              <DbSource ConnectionRef="DB_9AB8B7_5399ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteBookReserved" Modifier="Public" Name="DeleteBookReserved" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteBookReserved">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM TabReserved
@@ -185,7 +185,7 @@ WHERE        (TabReserved.UID = @UID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DB_9AB8B7_5399ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertBookReserv" Modifier="Public" Name="InsertBookReserv" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertBookReserv">
+              <DbSource ConnectionRef="DB_9AB8B7_5399ConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertBookReserve" Modifier="Public" Name="InsertBookReserve" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertBookReserve">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO TabReserved
@@ -381,7 +381,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
   <xs:element name="BookDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BookDS" msprop:Generator_UserDSName="BookDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TabBook" msprop:Generator_TableClassName="TabBookDataTable" msprop:Generator_TableVarName="tableTabBook" msprop:Generator_TablePropName="TabBook" msprop:Generator_RowDeletingName="TabBookRowDeleting" msprop:Generator_RowChangingName="TabBookRowChanging" msprop:Generator_RowEvHandlerName="TabBookRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBookRowDeleted" msprop:Generator_UserTableName="TabBook" msprop:Generator_RowChangedName="TabBookRowChanged" msprop:Generator_RowEvArgName="TabBookRowChangeEvent" msprop:Generator_RowClassName="TabBookRow">
+        <xs:element name="TabBook" msprop:Generator_TableClassName="TabBookDataTable" msprop:Generator_TableVarName="tableTabBook" msprop:Generator_RowChangedName="TabBookRowChanged" msprop:Generator_TablePropName="TabBook" msprop:Generator_RowDeletingName="TabBookRowDeleting" msprop:Generator_RowChangingName="TabBookRowChanging" msprop:Generator_RowEvHandlerName="TabBookRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBookRowDeleted" msprop:Generator_RowClassName="TabBookRow" msprop:Generator_UserTableName="TabBook" msprop:Generator_RowEvArgName="TabBookRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_UserColumnName="ISBN">
@@ -413,7 +413,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ViewBook" msprop:Generator_TableClassName="ViewBookDataTable" msprop:Generator_TableVarName="tableViewBook" msprop:Generator_TablePropName="ViewBook" msprop:Generator_RowDeletingName="ViewBookRowDeleting" msprop:Generator_RowChangingName="ViewBookRowChanging" msprop:Generator_RowEvHandlerName="ViewBookRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookRowDeleted" msprop:Generator_UserTableName="ViewBook" msprop:Generator_RowChangedName="ViewBookRowChanged" msprop:Generator_RowEvArgName="ViewBookRowChangeEvent" msprop:Generator_RowClassName="ViewBookRow">
+        <xs:element name="ViewBook" msprop:Generator_TableClassName="ViewBookDataTable" msprop:Generator_TableVarName="tableViewBook" msprop:Generator_RowChangedName="ViewBookRowChanged" msprop:Generator_TablePropName="ViewBook" msprop:Generator_RowDeletingName="ViewBookRowDeleting" msprop:Generator_RowChangingName="ViewBookRowChanging" msprop:Generator_RowEvHandlerName="ViewBookRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookRowDeleted" msprop:Generator_RowClassName="ViewBookRow" msprop:Generator_UserTableName="ViewBook" msprop:Generator_RowEvArgName="ViewBookRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_UserColumnName="ISBN">
@@ -466,7 +466,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabReserved" msprop:Generator_TableClassName="TabReservedDataTable" msprop:Generator_TableVarName="tableTabReserved" msprop:Generator_TablePropName="TabReserved" msprop:Generator_RowDeletingName="TabReservedRowDeleting" msprop:Generator_RowChangingName="TabReservedRowChanging" msprop:Generator_RowEvHandlerName="TabReservedRowChangeEventHandler" msprop:Generator_RowDeletedName="TabReservedRowDeleted" msprop:Generator_UserTableName="TabReserved" msprop:Generator_RowChangedName="TabReservedRowChanged" msprop:Generator_RowEvArgName="TabReservedRowChangeEvent" msprop:Generator_RowClassName="TabReservedRow">
+        <xs:element name="TabReserved" msprop:Generator_TableClassName="TabReservedDataTable" msprop:Generator_TableVarName="tableTabReserved" msprop:Generator_RowChangedName="TabReservedRowChanged" msprop:Generator_TablePropName="TabReserved" msprop:Generator_RowDeletingName="TabReservedRowDeleting" msprop:Generator_RowChangingName="TabReservedRowChanging" msprop:Generator_RowEvHandlerName="TabReservedRowChangeEventHandler" msprop:Generator_RowDeletedName="TabReservedRowDeleted" msprop:Generator_RowClassName="TabReservedRow" msprop:Generator_UserTableName="TabReserved" msprop:Generator_RowEvArgName="TabReservedRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnRID" msprop:Generator_ColumnPropNameInRow="RID" msprop:Generator_ColumnPropNameInTable="RIDColumn" msprop:Generator_UserColumnName="RID" type="xs:int" />
@@ -496,7 +496,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TabBorrow" msprop:Generator_TableClassName="TabBorrowDataTable" msprop:Generator_TableVarName="tableTabBorrow" msprop:Generator_TablePropName="TabBorrow" msprop:Generator_RowDeletingName="TabBorrowRowDeleting" msprop:Generator_RowChangingName="TabBorrowRowChanging" msprop:Generator_RowEvHandlerName="TabBorrowRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBorrowRowDeleted" msprop:Generator_UserTableName="TabBorrow" msprop:Generator_RowChangedName="TabBorrowRowChanged" msprop:Generator_RowEvArgName="TabBorrowRowChangeEvent" msprop:Generator_RowClassName="TabBorrowRow">
+        <xs:element name="TabBorrow" msprop:Generator_TableClassName="TabBorrowDataTable" msprop:Generator_TableVarName="tableTabBorrow" msprop:Generator_RowChangedName="TabBorrowRowChanged" msprop:Generator_TablePropName="TabBorrow" msprop:Generator_RowDeletingName="TabBorrowRowDeleting" msprop:Generator_RowChangingName="TabBorrowRowChanging" msprop:Generator_RowEvHandlerName="TabBorrowRowChangeEventHandler" msprop:Generator_RowDeletedName="TabBorrowRowDeleted" msprop:Generator_RowClassName="TabBorrowRow" msprop:Generator_UserTableName="TabBorrow" msprop:Generator_RowEvArgName="TabBorrowRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnBID" msprop:Generator_ColumnPropNameInRow="BID" msprop:Generator_ColumnPropNameInTable="BIDColumn" msprop:Generator_UserColumnName="BID" type="xs:int" />
@@ -515,7 +515,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ViewBookAvailable" msprop:Generator_TableClassName="ViewBookAvailableDataTable" msprop:Generator_TableVarName="tableViewBookAvailable" msprop:Generator_TablePropName="ViewBookAvailable" msprop:Generator_RowDeletingName="ViewBookAvailableRowDeleting" msprop:Generator_RowChangingName="ViewBookAvailableRowChanging" msprop:Generator_RowEvHandlerName="ViewBookAvailableRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookAvailableRowDeleted" msprop:Generator_UserTableName="ViewBookAvailable" msprop:Generator_RowChangedName="ViewBookAvailableRowChanged" msprop:Generator_RowEvArgName="ViewBookAvailableRowChangeEvent" msprop:Generator_RowClassName="ViewBookAvailableRow">
+        <xs:element name="ViewBookAvailable" msprop:Generator_TableClassName="ViewBookAvailableDataTable" msprop:Generator_TableVarName="tableViewBookAvailable" msprop:Generator_RowChangedName="ViewBookAvailableRowChanged" msprop:Generator_TablePropName="ViewBookAvailable" msprop:Generator_RowDeletingName="ViewBookAvailableRowDeleting" msprop:Generator_RowChangingName="ViewBookAvailableRowChanging" msprop:Generator_RowEvHandlerName="ViewBookAvailableRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookAvailableRowDeleted" msprop:Generator_RowClassName="ViewBookAvailableRow" msprop:Generator_UserTableName="ViewBookAvailable" msprop:Generator_RowEvArgName="ViewBookAvailableRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_UserColumnName="ISBN">
@@ -568,7 +568,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ViewBookBorrowed" msprop:Generator_TableClassName="ViewBookBorrowedDataTable" msprop:Generator_TableVarName="tableViewBookBorrowed" msprop:Generator_TablePropName="ViewBookBorrowed" msprop:Generator_RowDeletingName="ViewBookBorrowedRowDeleting" msprop:Generator_RowChangingName="ViewBookBorrowedRowChanging" msprop:Generator_RowEvHandlerName="ViewBookBorrowedRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookBorrowedRowDeleted" msprop:Generator_UserTableName="ViewBookBorrowed" msprop:Generator_RowChangedName="ViewBookBorrowedRowChanged" msprop:Generator_RowEvArgName="ViewBookBorrowedRowChangeEvent" msprop:Generator_RowClassName="ViewBookBorrowedRow">
+        <xs:element name="ViewBookBorrowed" msprop:Generator_TableClassName="ViewBookBorrowedDataTable" msprop:Generator_TableVarName="tableViewBookBorrowed" msprop:Generator_RowChangedName="ViewBookBorrowedRowChanged" msprop:Generator_TablePropName="ViewBookBorrowed" msprop:Generator_RowDeletingName="ViewBookBorrowedRowDeleting" msprop:Generator_RowChangingName="ViewBookBorrowedRowChanging" msprop:Generator_RowEvHandlerName="ViewBookBorrowedRowChangeEventHandler" msprop:Generator_RowDeletedName="ViewBookBorrowedRowDeleted" msprop:Generator_RowClassName="ViewBookBorrowedRow" msprop:Generator_UserTableName="ViewBookBorrowed" msprop:Generator_RowEvArgName="ViewBookBorrowedRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ISBN" msprop:Generator_ColumnVarNameInTable="columnISBN" msprop:Generator_ColumnPropNameInRow="ISBN" msprop:Generator_ColumnPropNameInTable="ISBNColumn" msprop:Generator_UserColumnName="ISBN">
@@ -650,9 +650,9 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="fk_TabReserved_TabBook" msdata:parent="TabBook" msdata:child="TabReserved" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabReserved" msprop:Generator_ChildPropName="GetTabReservedRows" msprop:Generator_UserRelationName="fk_TabReserved_TabBook" msprop:Generator_ParentPropName="TabBookRow" msprop:Generator_RelationVarName="relationfk_TabReserved_TabBook" msprop:Generator_UserParentTable="TabBook" />
-      <msdata:Relationship name="fk_TabBorrow_TabBook" msdata:parent="TabBook" msdata:child="TabBorrow" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabBorrow" msprop:Generator_ChildPropName="GetTabBorrowRows" msprop:Generator_UserRelationName="fk_TabBorrow_TabBook" msprop:Generator_ParentPropName="TabBookRow" msprop:Generator_RelationVarName="relationfk_TabBorrow_TabBook" msprop:Generator_UserParentTable="TabBook" />
-      <msdata:Relationship name="fk_TabBorrow_TabBook1" msdata:parent="TabReserved" msdata:child="TabBorrow" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabBorrow" msprop:Generator_ChildPropName="GetTabBorrowRows" msprop:Generator_UserRelationName="fk_TabBorrow_TabBook1" msprop:Generator_ParentPropName="TabReservedRow" msprop:Generator_RelationVarName="relationfk_TabBorrow_TabBook1" msprop:Generator_UserParentTable="TabReserved" />
+      <msdata:Relationship name="fk_TabReserved_TabBook" msdata:parent="TabBook" msdata:child="TabReserved" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabReserved" msprop:Generator_ChildPropName="GetTabReservedRows" msprop:Generator_UserRelationName="fk_TabReserved_TabBook" msprop:Generator_RelationVarName="relationfk_TabReserved_TabBook" msprop:Generator_UserParentTable="TabBook" msprop:Generator_ParentPropName="TabBookRow" />
+      <msdata:Relationship name="fk_TabBorrow_TabBook" msdata:parent="TabBook" msdata:child="TabBorrow" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabBorrow" msprop:Generator_ChildPropName="GetTabBorrowRows" msprop:Generator_UserRelationName="fk_TabBorrow_TabBook" msprop:Generator_RelationVarName="relationfk_TabBorrow_TabBook" msprop:Generator_UserParentTable="TabBook" msprop:Generator_ParentPropName="TabBookRow" />
+      <msdata:Relationship name="fk_TabBorrow_TabBook1" msdata:parent="TabReserved" msdata:child="TabBorrow" msdata:parentkey="ISBN" msdata:childkey="ISBN" msprop:Generator_UserChildTable="TabBorrow" msprop:Generator_ChildPropName="GetTabBorrowRows" msprop:Generator_UserRelationName="fk_TabBorrow_TabBook1" msprop:Generator_RelationVarName="relationfk_TabBorrow_TabBook1" msprop:Generator_UserParentTable="TabReserved" msprop:Generator_ParentPropName="TabReservedRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -126,15 +126,15 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Delete a book reserved from Reserved table.
+        /// Delete a reserved book from Reserved table.
         /// </summary>
-        /// <param name="reservId">int reservId</param>
+        /// <param name="reserveId">int reserveId</param>
         /// <returns>int rowsAffected</returns>
-        public int DeleteBookReserv(int reservId)
+        public int DeleteBookReserved(int reserveId)
         {
             try
             {
-                return _tabReservedTableAdapter.DeleteBookReserv(reservId);
+                return _tabReservedTableAdapter.DeleteBookReserved(reserveId);
             }
             catch(SqlException ex)
             {
@@ -163,6 +163,31 @@ namespace DataAccessLayer
             catch (SqlException ex)
             {
                 // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Inser a book reserve into Reserved table.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="reservedDate">string reservedDate</param>
+        /// <returns>int rowsAffected</returns>
+        public int DeleteBookReserved(int userId, string isbn, string reservedDate)
+        {
+            try
+            {
+                return _tabReservedTableAdapter.InsertBookReserve(userId, isbn, reservedDate);
+            }
+            catch (SqlException ex)
+            {
+                // Log the error
                 Console.WriteLine(ex.ToString());
                 throw;
             }

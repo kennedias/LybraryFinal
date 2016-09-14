@@ -80,5 +80,31 @@ namespace BusinessLogic
             return _listBooksView;
         }
 
+        /// <summary>
+        /// Inser a book reservation into Reserved table.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="password">string password</param>
+        /// <param name="userLevel">string userLevelDescription</param>
+        /// <param name="userID">int userID</param>
+        /// <returns>int rowsAffected</returns>
+        public int insertBookReservation(string userName, string password, string userLevelDescription, int userID)
+        {
+            int resultQuery;
+       //     resultQuery = _bookDAO.InsertBorrowBook
+
+            if (resultQuery > 0)
+            {
+                throw new UserException("User name is already in use.");
+            }
+
+            catch (Exception ex)
+            {
+                //logging for admin to be inspect
+            }
+
+            return resultQuery;
+
+        }
     }
 }

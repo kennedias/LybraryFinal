@@ -4666,7 +4666,7 @@ WHERE        (TabReserved.UID = @UID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteBookReserv(int RID) {
+        public virtual int DeleteBookReserved(int RID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             command.Parameters[0].Value = ((int)(RID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -4690,7 +4690,7 @@ WHERE        (TabReserved.UID = @UID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertBookReserv(int UID, string ISBN, string ReservedDate) {
+        public virtual int InsertBookReserve(int UID, string ISBN, string ReservedDate) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(UID));
             if ((ISBN == null)) {
