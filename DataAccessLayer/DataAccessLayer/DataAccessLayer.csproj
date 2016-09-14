@@ -50,6 +50,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MasterDAO.cs" />
     <Compile Include="MasterDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

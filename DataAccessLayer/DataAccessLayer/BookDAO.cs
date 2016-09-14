@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataAccessLayer.BookDSTableAdapters;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -46,6 +47,8 @@ namespace DataAccessLayer
             _viewBookBorrowedTableAdapter = new ViewBookBorrowedTableAdapter();
         }
 
+        #region Book View
+
         /// <summary>
         /// Returns all registers from Book view.
         /// </summary>
@@ -56,7 +59,6 @@ namespace DataAccessLayer
             return _bookDataSet.ViewBook;
         }
 
-        /* BOOK VIEW */
 
         /// <summary>
         /// Return registers from Book view filtred by bookName and Author, only bookName or only bookAuthor.
@@ -79,33 +81,230 @@ namespace DataAccessLayer
         /// <returns>BookDS.ViewBookDataTable</returns>
         public BookDS.ViewBookDataTable GetAllBooksViewByISBN(string isbn)
         {
-            _viewBookTableAdapter.FillByISBN(_bookDataSet.ViewBook, isbn);
-            return _bookDataSet.ViewBook;
+            try
+            {
+                _viewBookTableAdapter.FillByISBN(_bookDataSet.ViewBook, isbn);
+                return _bookDataSet.ViewBook;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());                
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
+        #endregion
 
-        /* RESERVED BOOK */
+        #region Reserved Book
 
         /// <summary>
-        /// Return all registers from Reserved.
+        /// Return all registers from Reserved table.
         /// </summary>
         /// <returns>BookDS.TabReservedDataTable</returns>
         public BookDS.TabReservedDataTable GetAllReserverdBooks()
         {
-            _tabReservedTableAdapter.FillAllReservedBooks(_bookDataSet.TabReserved);
-            return _bookDataSet.TabReserved;
+            try
+            {
+                _tabReservedTableAdapter.FillAllReservedBooks(_bookDataSet.TabReserved);
+                return _bookDataSet.TabReserved;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         /// <summary>
-        /// Delete a book reserv from Reserved table.
+        /// Delete a book reserved from Reserved table.
         /// </summary>
         /// <param name="reservId">int reservId</param>
         /// <returns>int rowsAffected</returns>
-     //   public int DeleteBookReserv(int reservId)
-     //   {
-     //       return _tabUserTableAdapter.DeleteUser(userId);
-     //       return _tabReservedTableAdapter.DeleteBookReserv
-    //    }
+        public int DeleteBookReserv(int reservId)
+        {
+            try
+            {
+                return _tabReservedTableAdapter.DeleteBookReserv(reservId);
+            }
+            catch(SqlException ex)
+            {
+                // Log the error
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
+        /// <summary>
+        /// Return all registers from Reserved table by UserID.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>BookDS.TabReservedDataTable</returns>
+        public BookDS.TabReservedDataTable GetAllReserverdBooksByUserId(int userId)
+        {
+            try
+            {
+                _tabReservedTableAdapter.FillAllReservedBooksByUserID(_bookDataSet.TabReserved, userId);
+                return _bookDataSet.TabReserved;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Borrowed Book
+
+        /// <summary>
+        /// Return all registers from Borrow.
+        /// </summary>
+        /// <returns>BookDS.TabBorrowDataTable</returns>
+        public BookDS.TabBorrowDataTable GetAllBorrowedBooks()
+        {
+            try
+            {
+                _tabBorrowTableAdapter.FillAllBooksBorrowed(_bookDataSet.TabBorrow);
+                return _bookDataSet.TabBorrow;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Return all registers from Borrow by UserID.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>BookDS.TabBorrowDataTable</returns>
+        public BookDS.TabBorrowDataTable GetAllBorrowedBooksByUserId(int userId)
+        {
+            try
+            {
+                _tabBorrowTableAdapter.FillAllBorrowedBooksByUserID(_bookDataSet.TabBorrow, userId);
+                return _bookDataSet.TabBorrow;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insert a book borrow into Borrow table.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="borrowDate">string borrowDate</param>
+        /// <param name="returnDate">string returnDate</param>
+        /// <param name="actualReturnDate">string actualReturnDate</param>
+        /// <param name="lateFee">decimal lateFee</param>
+        /// <returns>int rowsAffected</returns>
+        public int InsertBorrowBook(int userId, string isbn, string borrowDate, string returnDate, string actualReturnDate, decimal lateFee)
+        {
+            try
+            {
+                return _tabBorrowTableAdapter.InsertBookBorrowed(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion 
+
+        #region Available Book View
+
+        /// <summary>
+        /// Returns all registers from Available Book view.
+        /// </summary>
+        /// <returns>BookDS.ViewBookAvailableDataTable</returns>
+        public BookDS.ViewBookAvailableDataTable  GetAllBooksAvailableView()
+        {
+            try
+            {
+                _viewBookAvailableTableAdapter.FillAllBooksAvailable(_bookDataSet.ViewBookAvailable);
+                return _bookDataSet.ViewBookAvailable;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Borrowed Book View
+   
+        /// <summary>
+        /// Returns all registers from Borrowed Book view.
+        /// </summary>
+        /// <returns>BookDS.ViewBookBorrowedDataTable</returns>
+        public BookDS.ViewBookBorrowedDataTable GetAllBooksBorrowedView()
+        {
+            try
+            {
+                _viewBookBorrowedTableAdapter.FillAllBooksBorrowed(_bookDataSet.ViewBookBorrowed);
+                return _bookDataSet.ViewBookBorrowed;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }
