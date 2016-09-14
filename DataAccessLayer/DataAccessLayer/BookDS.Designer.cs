@@ -4594,11 +4594,9 @@ FROM            TabReserved INNER JOIN
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        TabReserved.RID, TabReserved.UID, TabReserved.ISBN, TabReserved.ReservedDate, TabBook.BookName, TabUser.UID AS Expr1
-FROM            TabReserved INNER JOIN
-                         TabBook ON TabReserved.ISBN = TabBook.ISBN INNER JOIN
-                         TabUser ON TabReserved.UID = TabUser.UID
-WHERE        (TabReserved.UID = @UID)";
+            this._commandCollection[2].CommandText = "SELECT        TabReserved.RID, TabReserved.ISBN, TabReserved.ReservedDate, TabBoo" +
+                "k.BookName\r\nFROM            TabReserved INNER JOIN\r\n                         Tab" +
+                "Book ON TabReserved.ISBN = TabBook.ISBN\r\nWHERE        (TabReserved.UID = @UID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();

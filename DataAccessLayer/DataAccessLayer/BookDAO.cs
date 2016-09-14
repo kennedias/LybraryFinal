@@ -128,13 +128,13 @@ namespace DataAccessLayer
         /// <summary>
         /// Delete a reserved book from Reserved table.
         /// </summary>
-        /// <param name="reserveId">int reserveId</param>
+        /// <param name="reservedId">int reservedId</param>
         /// <returns>int rowsAffected</returns>
-        public int DeleteBookReserved(int reserveId)
+        public int DeleteBookReserved(int reservedId)
         {
             try
             {
-                return _tabReservedTableAdapter.DeleteBookReserved(reserveId);
+                return _tabReservedTableAdapter.DeleteBookReserved(reservedId);
             }
             catch(SqlException ex)
             {
@@ -202,7 +202,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="reserveId">string isbn</param>
         /// <returns>int numbers of registers found</returns>
-        public int DeleteBookReserved(string isbn)
+        public int SelectCountBookReservedByIsbn(string isbn)
         {
             try
             {

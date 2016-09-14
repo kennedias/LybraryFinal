@@ -80,6 +80,8 @@ namespace BusinessLogic
             return _listBooksView;
         }
 
+        #region Reserved
+
         /// <summary>
         /// Insert a book reservation into Reserved table.
         /// </summary>
@@ -90,8 +92,14 @@ namespace BusinessLogic
         public int insertBookReserved(int userId, string isbn, string reservedDate)
         {
             int resultQuery = 0;
-            resultQuery = _bookDAO.InsertBookReserved(userId, isbn, reservedDate);
 
+            resultQuery = SelectCountBookReservedByIsbn(isbn);
+            if (resultQuery > 0)
+            {
+                throw new BookException("Book already reserved.");
+            }
+
+            resultQuery = _bookDAO.InsertBookReserved(userId, isbn, reservedDate);
             if (resultQuery == 0)
             {
                 throw new BookException("Reserve not inserted.");
@@ -105,5 +113,43 @@ namespace BusinessLogic
             return resultQuery;
 
         }
+
+        /// <summary>
+        /// Select Count(*) from Reserved by ISBN.
+        /// </summary>
+        /// <param name="reserveId">string isbn</param>
+        /// <returns>int numbers of registers found</returns>
+        public int SelectCountBookReservedByIsbn(string isbn)
+        {
+            try
+            {
+                _bookDAO = new BookDAO();
+                return _bookDAO.SelectCountBookReservedByIsbn(isbn);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Delete book Reserve.
+        /// </summary>
+        /// <param name="reserveId">string isbn</param>
+        /// <returns>int rowsAffected</returns>
+        public int DeleteBookReserved(int reservedId)
+        {
+            try
+            {
+                _bookDAO = new BookDAO();
+                return _bookDAO.DeleteBookReserved(reservedId);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
     }
 }

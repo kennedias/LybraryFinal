@@ -75,22 +75,32 @@ namespace AITLibrary
 
             if (dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0)
             {
-                String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
-                labelSystemMessage.Text = isbn;
 
-                BookLogic bookLogic = new BookLogic();
-                int resultOperation = bookLogic.insertBookReserved(staticUserID, isbn, DateTime.Today.ToString());
+                try
+                {
+                    String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
+                    labelSystemMessage.Text = isbn;
 
-                if (resultOperation == 0)
+                    BookLogic bookLogic = new BookLogic();
+                    int resultOperation = bookLogic.insertBookReserved(staticUserID, isbn, DateTime.Today.ToString());
+                    if (resultOperation == 0)
+                    {
+                        labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                        labelSystemMessage.Text = "Reserve could not be included. Contact the System Administrator.";
+                    }
+                    else
+                    {
+                        labelSystemMessage.ForeColor = System.Drawing.Color.Black;
+                        labelSystemMessage.Text = "Reserve included with success.";
+                    }
+                }
+                catch (BookException ex)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "Reserve could not be included. Contact the System Administrator.";
+                    labelSystemMessage.Text = ex.Message;
                 }
-                else
-                {
-                    labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                    labelSystemMessage.Text = "Reserve included with success.";
-                }
+
+
 
 
             }

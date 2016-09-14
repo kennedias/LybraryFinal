@@ -23,7 +23,7 @@ namespace AITLibrary
             this.Close();
         }
 
-        public void OpenUserDetailsForm()
+        private void OpenUserDetailsForm()
         {
             Application.Run(new UserDetailsForm());
         }
@@ -33,10 +33,9 @@ namespace AITLibrary
             System.Threading.Thread threadLoginForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLoginForm));
             threadLoginForm.Start();
             this.Close();
-
         }
 
-        public void OpenLoginForm()
+        private void OpenLoginForm()
         {
             Application.Run(new LoginForm());
         }
@@ -48,21 +47,31 @@ namespace AITLibrary
             this.Close();
         }
 
-        public void OpenBookForm()
+        private void OpenBookForm()
         {
             Application.Run(new BookForm());
         }
 
-        private void reserveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void consultCancelReserveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reserveABookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Threading.Thread threadBookReserveForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookReserveForm));
             threadBookReserveForm.Start();
             this.Close();
         }
 
-        public void OpenBookReserveForm()
+        private void OpenBookReserveForm()
         {
             Application.Run(new BookReserveForm());
+        }
+
+        private void reserveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

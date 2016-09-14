@@ -35,6 +35,8 @@
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reserveABookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultCancelReserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripSystemLybrary = new System.Windows.Forms.MenuStrip();
             this.groupBoxSystemMessage = new System.Windows.Forms.GroupBox();
@@ -56,20 +58,20 @@
             // toolStripMenuItemUserDetails
             // 
             this.toolStripMenuItemUserDetails.Name = "toolStripMenuItemUserDetails";
-            this.toolStripMenuItemUserDetails.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemUserDetails.Size = new System.Drawing.Size(142, 22);
             this.toolStripMenuItemUserDetails.Text = "User Details";
             this.toolStripMenuItemUserDetails.Click += new System.EventHandler(this.toolStripMenuItemUserDetails_Click);
             // 
             // myActivitiesToolStripMenuItem
             // 
             this.myActivitiesToolStripMenuItem.Name = "myActivitiesToolStripMenuItem";
-            this.myActivitiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.myActivitiesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.myActivitiesToolStripMenuItem.Text = "My Activities";
             // 
             // logOffToolStripMenuItem
             // 
             this.logOffToolStripMenuItem.Name = "logOffToolStripMenuItem";
-            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOffToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.logOffToolStripMenuItem.Text = "Log Off";
             this.logOffToolStripMenuItem.Click += new System.EventHandler(this.logOffToolStripMenuItem_Click);
             // 
@@ -91,10 +93,27 @@
             // 
             // reserveToolStripMenuItem
             // 
+            this.reserveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reserveABookToolStripMenuItem,
+            this.consultCancelReserveToolStripMenuItem});
             this.reserveToolStripMenuItem.Name = "reserveToolStripMenuItem";
             this.reserveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reserveToolStripMenuItem.Text = "Reserve";
             this.reserveToolStripMenuItem.Click += new System.EventHandler(this.reserveToolStripMenuItem_Click);
+            // 
+            // reserveABookToolStripMenuItem
+            // 
+            this.reserveABookToolStripMenuItem.Name = "reserveABookToolStripMenuItem";
+            this.reserveABookToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reserveABookToolStripMenuItem.Text = "Reserve a book";
+            this.reserveABookToolStripMenuItem.Click += new System.EventHandler(this.reserveABookToolStripMenuItem_Click);
+            // 
+            // consultCancelReserveToolStripMenuItem
+            // 
+            this.consultCancelReserveToolStripMenuItem.Name = "consultCancelReserveToolStripMenuItem";
+            this.consultCancelReserveToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.consultCancelReserveToolStripMenuItem.Text = "Consult/Cancel reserve";
+            this.consultCancelReserveToolStripMenuItem.Click += new System.EventHandler(this.consultCancelReserveToolStripMenuItem_Click);
             // 
             // administrationToolStripMenuItem
             // 
@@ -164,6 +183,8 @@
         private System.Windows.Forms.MenuStrip menuStripSystemLybrary;
         private System.Windows.Forms.GroupBox groupBoxSystemMessage;
         protected System.Windows.Forms.Label labelSystemMessage;
+        private System.Windows.Forms.ToolStripMenuItem reserveABookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultCancelReserveToolStripMenuItem;
 
     }
 }
