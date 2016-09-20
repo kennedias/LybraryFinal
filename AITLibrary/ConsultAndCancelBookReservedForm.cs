@@ -29,18 +29,19 @@ namespace AITLibrary
                 {
                     String isbn = dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
                     labelSystemMessage.Text = isbn;
+                    int reserveId = 0;
 
                     BookLogic bookLogic = new BookLogic();
-                    int resultOperation = bookLogic.DeleteBookReserved();
+                    int resultOperation = bookLogic.DeleteBookReserved(reserveId);
                     if (resultOperation == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Reserve could not be included. Contact the System Administrator.";
+                        labelSystemMessage.Text = "Reserve could not be canceled. Contact the System Administrator.";
                     }
                     else
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                        labelSystemMessage.Text = "Reserve included with success.";
+                        labelSystemMessage.Text = "Reserve canceled with success.";
                     }
                 }
                 catch (BookException ex)
@@ -53,6 +54,19 @@ namespace AITLibrary
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
                 labelSystemMessage.Text = "You need to select a book first.";
+            }
+        }
+
+        private void ConsultAndCancelBookReservedForm_Load(object sender, EventArgs e)
+        {
+            labelSystemMessage.Text = "";
+            BookLogic bookLogic = new BookLogic();
+            dataGridViewBookReserved.DataSource = bookLogic.GetAllReservedBooksByUserId(staticUserID);
+
+            if (dataGridViewBookReserved.RowCount == 0)
+            {
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "There are no book reserved.";
             }
         }
     }

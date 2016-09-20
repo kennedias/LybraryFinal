@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataAccessLayer;
+using System.Data.SqlClient;
 
 namespace BusinessLogic
 {
@@ -22,6 +23,13 @@ namespace BusinessLogic
         private BookDAO _bookDAO;
         private List<ViewBookModel> _listBooksView;
         private BookDS.ViewBookDataTable _viewBookView;
+        private List<TabReservedModel> _listTabReservedModel;
+        private BookDS.TabReservedDataTable _tabReservedDataTable;
+        private BookDS.ViewBookBorrowedDataTable _viewBookBorrowedDataTable;
+        private List<ViewBookBorrowedModel> _listBooksBorrowedView;
+        private BookDS.ViewBookAvailableDataTable _viewBookAvailableDataTable;
+        private List<ViewBookAvailableModel> _listBooksAvailableView;
+
 
         /// <summary>
         /// Constructor
@@ -31,8 +39,14 @@ namespace BusinessLogic
             _bookDAO = new BookDAO();
             _listBooksView = new List<ViewBookModel>();
             _viewBookView = new BookDS.ViewBookDataTable();
+            _listTabReservedModel = new List<TabReservedModel>();
+            _tabReservedDataTable = new BookDS.TabReservedDataTable();
+
+            _viewBookAvailableDataTable = new BookDS.ViewBookAvailableDataTable();
+            _listBooksAvailableView = new List<ViewBookAvailableModel>();
         }
 
+        #region Book View
         /// <summary>
         ///  Returns all books data from view Book.
         /// </summary>
@@ -79,6 +93,7 @@ namespace BusinessLogic
 
             return _listBooksView;
         }
+        #endregion
 
         #region Reserved
 
@@ -149,6 +164,148 @@ namespace BusinessLogic
                 throw;
             }
         }
+
+
+        /// <summary>
+        /// Return all registers from Reserved table by UserID.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>List<TabReservedModel></returns>
+        public List<TabReservedModel> GetAllReservedBooksByUserId(int userId)
+        {
+            try
+            {
+                _listTabReservedModel = new List<TabReservedModel>();
+                _tabReservedDataTable = _bookDAO.GetAllReservedBooksByUserId(userId);
+
+                foreach (BookDS.TabReservedDataTable row in _tabReservedDataTable.Rows)
+                {
+                    _listTabReservedModel.Add(TabReservedModel.Parse(row));
+                }
+
+                return _listTabReservedModel;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Book Available
+
+        /// <summary>
+        /// Return all registers from Book Available.
+        /// </summary>
+        /// <returns>List<T</returns>
+        public List<ViewBookAvailableModel> GetAllAvailableBooks()
+        {
+            try
+            {
+                _listBooksAvailableView = new List<ViewBookAvailableModel>();
+                _viewBookAvailableDataTable = _bookDAO.GetAllBooksAvailableView();
+
+                foreach (BookDS.ViewBookAvailableRow row in _viewBookAvailableDataTable.Rows)
+                {
+                    _listBooksAvailableView.Add(ViewBookAvailableModel.Parse(row));
+                }
+
+                return _listBooksAvailableView;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Book Borrowed
+
+        /// <summary>
+        /// Return all registers from Book Borrowed.
+        /// </summary>
+        /// <returns>List<T</returns>
+        public List<ViewBookBorrowedModel> GetAllBorrowedBooks()
+        {
+            try
+            {
+                _listBooksBorrowedView = new List<ViewBookBorrowedModel>();
+                _viewBookBorrowedDataTable = _bookDAO.GetAllBooksBorrowedView();
+
+                foreach (BookDS.ViewBookBorrowedRow row in _viewBookBorrowedDataTable.Rows)
+                {
+                    _listBooksBorrowedView.Add(ViewBookBorrowedModel.Parse(row));
+                }
+
+                return _listBooksBorrowedView;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insert a book borrow into Borrow.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="borrowDate">string borrowDate</param>
+        /// <param name="returnDate">string returnDate</param>
+        /// <param name="actualReturnDate">string actualReturnDate</param>
+        /// <param name="lateFee">decimal lateFee</param>
+        /// <returns>int rowsAffected</returns>
+        public int InsertBorrowBook(int userId, string isbn, string borrowDate, string returnDate, string actualReturnDate, decimal lateFee)
+        {
+
+            int resultQuery = 0;
+
+            resultQuery = _bookDAO.SelectCountBookAvailableViewByIsbn(isbn);
+            if (resultQuery > 0)
+            {
+                throw new BookException("Book not available to borrow.");
+            }
+
+            resultQuery = _bookDAO.InsertBorrowBook(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
+            if (resultQuery == 0)
+            {
+                throw new BookException("Borrow not completed. Contact the Administrator.");
+            }
+
+        /*    catch (Exception ex)
+            {
+                //logging for admin to be inspect
+            }
+            */
+            return resultQuery;
+        }
+
+
+
+
+
+
+
 
         #endregion
     }

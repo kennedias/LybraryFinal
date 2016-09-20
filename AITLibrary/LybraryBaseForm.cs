@@ -54,7 +54,14 @@ namespace AITLibrary
 
         private void consultCancelReserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Threading.Thread threadConsultAndCancelBookReservedForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenConsultAndCancelBookReservedForm));
+            threadConsultAndCancelBookReservedForm.Start();
+            this.Close();
+        }
 
+        private void OpenConsultAndCancelBookReservedForm()
+        {
+            Application.Run(new ConsultAndCancelBookReservedForm());
         }
 
         private void reserveABookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +79,18 @@ namespace AITLibrary
         private void reserveToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void borrowToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadBorrowBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBorrowBookForm));
+            threadBorrowBookForm.Start();
+            this.Close();
+        }
+
+        private void OpenBorrowBookForm()
+        {
+            Application.Run(new BorrowBookForm());
         }
 
     }

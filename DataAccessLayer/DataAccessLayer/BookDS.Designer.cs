@@ -4595,8 +4595,8 @@ FROM            TabReserved INNER JOIN
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT        TabReserved.RID, TabReserved.ISBN, TabReserved.ReservedDate, TabBoo" +
-                "k.BookName\r\nFROM            TabReserved INNER JOIN\r\n                         Tab" +
-                "Book ON TabReserved.ISBN = TabBook.ISBN\r\nWHERE        (TabReserved.UID = @UID)";
+                "k.BookName\r\nFROM            dbo.TabReserved, dbo.TabBook\r\nWHERE  (TabReserved.IS" +
+                "BN = TabBook.ISBN)      \r\nAND  (TabReserved.UID = @UID) \r\n\r\n";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -5404,12 +5404,18 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ISBN, BookName, CategoryName, Publisher, PublishYear, Pages, AuthorName, L" +
                 "anguageName, Author, Category, Language FROM dbo.ViewBookAvailable";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            ViewBookAvailable\r\nWHERE        " +
+                "(ISBN = @ISBN)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5434,6 +5440,40 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             BookDS.ViewBookAvailableDataTable dataTable = new BookDS.ViewBookAvailableDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<int> SelectCountByISBN(string ISBN) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((ISBN == null)) {
+                throw new global::System.ArgumentNullException("ISBN");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(ISBN));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<int>();
+            }
+            else {
+                return new global::System.Nullable<int>(((int)(returnValue)));
+            }
         }
     }
     

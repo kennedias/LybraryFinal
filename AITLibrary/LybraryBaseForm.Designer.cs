@@ -37,6 +37,9 @@
             this.reserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reserveABookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultCancelReserveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrowToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.returnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripSystemLybrary = new System.Windows.Forms.MenuStrip();
             this.groupBoxSystemMessage = new System.Windows.Forms.GroupBox();
@@ -79,7 +82,8 @@
             // 
             this.bookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchToolStripMenuItem,
-            this.reserveToolStripMenuItem});
+            this.reserveToolStripMenuItem,
+            this.borrowToolStripMenuItem});
             this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
             this.bookToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.bookToolStripMenuItem.Text = "Book";
@@ -87,7 +91,7 @@
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
@@ -97,7 +101,7 @@
             this.reserveABookToolStripMenuItem,
             this.consultCancelReserveToolStripMenuItem});
             this.reserveToolStripMenuItem.Name = "reserveToolStripMenuItem";
-            this.reserveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reserveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.reserveToolStripMenuItem.Text = "Reserve";
             this.reserveToolStripMenuItem.Click += new System.EventHandler(this.reserveToolStripMenuItem_Click);
             // 
@@ -114,6 +118,28 @@
             this.consultCancelReserveToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.consultCancelReserveToolStripMenuItem.Text = "Consult/Cancel reserve";
             this.consultCancelReserveToolStripMenuItem.Click += new System.EventHandler(this.consultCancelReserveToolStripMenuItem_Click);
+            // 
+            // borrowToolStripMenuItem
+            // 
+            this.borrowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.borrowToolStripMenuItem1,
+            this.returnToolStripMenuItem});
+            this.borrowToolStripMenuItem.Name = "borrowToolStripMenuItem";
+            this.borrowToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.borrowToolStripMenuItem.Text = "Borrow";
+            // 
+            // borrowToolStripMenuItem1
+            // 
+            this.borrowToolStripMenuItem1.Name = "borrowToolStripMenuItem1";
+            this.borrowToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.borrowToolStripMenuItem1.Text = "Borrow";
+            this.borrowToolStripMenuItem1.Click += new System.EventHandler(this.borrowToolStripMenuItem1_Click);
+            // 
+            // returnToolStripMenuItem
+            // 
+            this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
+            this.returnToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.returnToolStripMenuItem.Text = "Return";
             // 
             // administrationToolStripMenuItem
             // 
@@ -134,8 +160,9 @@
             // 
             // groupBoxSystemMessage
             // 
+            this.groupBoxSystemMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBoxSystemMessage.Controls.Add(this.labelSystemMessage);
-            this.groupBoxSystemMessage.Location = new System.Drawing.Point(12, 443);
+            this.groupBoxSystemMessage.Location = new System.Drawing.Point(12, 540);
             this.groupBoxSystemMessage.Name = "groupBoxSystemMessage";
             this.groupBoxSystemMessage.Size = new System.Drawing.Size(1008, 32);
             this.groupBoxSystemMessage.TabIndex = 1;
@@ -155,7 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1076, 584);
             this.Controls.Add(this.groupBoxSystemMessage);
             this.Controls.Add(this.menuStripSystemLybrary);
             this.MainMenuStrip = this.menuStripSystemLybrary;
@@ -181,10 +208,13 @@
         private System.Windows.Forms.ToolStripMenuItem reserveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administrationToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStripSystemLybrary;
-        private System.Windows.Forms.GroupBox groupBoxSystemMessage;
         protected System.Windows.Forms.Label labelSystemMessage;
         private System.Windows.Forms.ToolStripMenuItem reserveABookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultCancelReserveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrowToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem returnToolStripMenuItem;
+        protected System.Windows.Forms.GroupBox groupBoxSystemMessage;
 
     }
 }

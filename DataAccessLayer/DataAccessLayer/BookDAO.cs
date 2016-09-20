@@ -13,6 +13,8 @@ using System.Text;
 using DataAccessLayer.BookDSTableAdapters;
 using System.Data.SqlClient;
 
+
+
 namespace DataAccessLayer
 {
     /// <summary>
@@ -157,6 +159,7 @@ namespace DataAccessLayer
         {
             try
             {
+                _bookDataSet = new BookDS();
                 _tabReservedTableAdapter.FillAllReservedBooksByUserID(_bookDataSet.TabReserved, userId);
                 return _bookDataSet.TabReserved;
             }
@@ -200,7 +203,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Select Count(*) from Reserved by ISBN.
         /// </summary>
-        /// <param name="reserveId">string isbn</param>
+        /// <param name="isbn">string isbn</param>
         /// <returns>int numbers of registers found</returns>
         public int SelectCountBookReservedByIsbn(string isbn)
         {
@@ -326,6 +329,29 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Select Count(*) from Book Available View by ISBN.
+        /// </summary>
+        /// <param name="isbn">string isbn</param>
+        /// <returns>int numbers of registers found</returns>
+        public int SelectCountBookAvailableViewByIsbn(string isbn)
+        {
+            try
+            {
+                return (int)_viewBookAvailableTableAdapter.SelectCountByISBN(isbn);
+            }
+            catch (SqlException ex)
+            {
+                // Log the error
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         #endregion
 
         #region Borrowed Book View
@@ -333,7 +359,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Returns all registers from Borrowed Book view.
         /// </summary>
-        /// <returns>BookDS.ViewBookBorrowedDataTable</returns>
+        /// <returns>BookDS.ViewBookDataTable</returns>
         public BookDS.ViewBookBorrowedDataTable GetAllBooksBorrowedView()
         {
             try
@@ -352,6 +378,8 @@ namespace DataAccessLayer
                 throw;
             }
         }
+
+
 
         #endregion
     }

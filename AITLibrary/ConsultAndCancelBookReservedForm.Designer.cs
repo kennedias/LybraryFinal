@@ -37,6 +37,7 @@
             // 
             this.dataGridViewBookReserved.AllowUserToAddRows = false;
             this.dataGridViewBookReserved.AllowUserToDeleteRows = false;
+            this.dataGridViewBookReserved.AllowUserToOrderColumns = true;
             this.dataGridViewBookReserved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBookReserved.Location = new System.Drawing.Point(12, 27);
             this.dataGridViewBookReserved.Name = "dataGridViewBookReserved";
@@ -62,7 +63,8 @@
             this.Controls.Add(this.buttonCancelBookReserve);
             this.Controls.Add(this.dataGridViewBookReserved);
             this.Name = "ConsultAndCancelBookReservedForm";
-            this.Text = "ConsultAndCancelBookReservedForm";
+            this.Text = " ";
+            this.Load += new System.EventHandler(this.ConsultAndCancelBookReservedForm_Load);
             this.Controls.SetChildIndex(this.dataGridViewBookReserved, 0);
             this.Controls.SetChildIndex(this.buttonCancelBookReserve, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReserved)).EndInit();
