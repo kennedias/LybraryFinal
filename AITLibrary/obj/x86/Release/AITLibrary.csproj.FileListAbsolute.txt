@@ -61,3 +61,4 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLib
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.UserDetailsForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookReserveForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ConsultAndCancelBookReservedForm.resources
+C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.exe
