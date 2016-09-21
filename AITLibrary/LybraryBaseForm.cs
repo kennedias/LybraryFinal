@@ -76,11 +76,6 @@ namespace AITLibrary
             Application.Run(new BookReserveForm());
         }
 
-        private void reserveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void borrowToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             System.Threading.Thread threadBorrowBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBorrowBookForm));
@@ -90,17 +85,19 @@ namespace AITLibrary
 
         private void OpenBorrowBookForm()
         {
-            Application.Run(new BorrowBookFormXX());
+            Application.Run(new BorrowBookForm());
         }
 
         private void bookToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            System.Threading.Thread threadBookMaintenanceForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookMaintenanceForm));
+            threadBookMaintenanceForm.Start();
+            this.Close();
         }
 
-        private void booksToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenBookMaintenanceForm()
         {
-
+            Application.Run(new BookMaintenanceForm());
         }
 
         private void returnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,6 +147,43 @@ namespace AITLibrary
         private void OpenMyActivityForm()
         {
             Application.Run(new MyActivityForm());
+        }
+
+        private void informationMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadMasterInformationMaintenanceBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenMasterInformationMaintenanceForm));
+            threadMasterInformationMaintenanceBookForm.Start();
+            this.Close();
+
+        }
+
+        private void OpenMasterInformationMaintenanceForm()
+        {
+            Application.Run(new MasterInformationMaintenanceForm());
+        }
+
+        private void userMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadUserMaintenanceBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenUserMaintenanceForm));
+            threadUserMaintenanceBookForm.Start();
+            this.Close();
+        }
+
+        private void OpenUserMaintenanceForm()
+        {
+            Application.Run(new UserMaintenanceForm());
+        }
+
+        private void bookBorrowedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadReportBookBorrowedForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenReportBookBorrowedForm));
+            threadReportBookBorrowedForm.Start();
+            this.Close();
+        }
+
+        private void OpenReportBookBorrowedForm()
+        {
+            Application.Run(new ReportBookBorrowedForm());
         }
     }
 }

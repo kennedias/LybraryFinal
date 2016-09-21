@@ -38,18 +38,18 @@
             this.labelStudentName = new System.Windows.Forms.Label();
             this.labelSearchStudentby = new System.Windows.Forms.Label();
             this.groupBoxUserMaintenance = new System.Windows.Forms.GroupBox();
+            this.comboBoxUserLevel = new System.Windows.Forms.ComboBox();
+            this.labelUserLevel = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelConfirmPassword = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelPassword = new System.Windows.Forms.Label();
             this.radioButtonDelete = new System.Windows.Forms.RadioButton();
             this.radioUpdate = new System.Windows.Forms.RadioButton();
             this.radioInsert = new System.Windows.Forms.RadioButton();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonExecute = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.labelPassword = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.labelConfirmPassword = new System.Windows.Forms.Label();
-            this.comboBoxUserLevel = new System.Windows.Forms.ComboBox();
-            this.labelUserLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxStudentSearch.SuspendLayout();
             this.groupBoxUserMaintenance.SuspendLayout();
@@ -162,6 +162,59 @@
             this.groupBoxUserMaintenance.TabStop = false;
             this.groupBoxUserMaintenance.Text = "User Maintenance ";
             // 
+            // comboBoxUserLevel
+            // 
+            this.comboBoxUserLevel.FormattingEnabled = true;
+            this.comboBoxUserLevel.Items.AddRange(new object[] {
+            "Administrator",
+            "Supervisor",
+            "User"});
+            this.comboBoxUserLevel.Location = new System.Drawing.Point(105, 128);
+            this.comboBoxUserLevel.Name = "comboBoxUserLevel";
+            this.comboBoxUserLevel.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxUserLevel.TabIndex = 18;
+            // 
+            // labelUserLevel
+            // 
+            this.labelUserLevel.AutoSize = true;
+            this.labelUserLevel.Location = new System.Drawing.Point(42, 133);
+            this.labelUserLevel.Name = "labelUserLevel";
+            this.labelUserLevel.Size = new System.Drawing.Size(58, 13);
+            this.labelUserLevel.TabIndex = 17;
+            this.labelUserLevel.Text = "User Level";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 93);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(230, 20);
+            this.textBox2.TabIndex = 16;
+            // 
+            // labelConfirmPassword
+            // 
+            this.labelConfirmPassword.AutoSize = true;
+            this.labelConfirmPassword.Location = new System.Drawing.Point(8, 96);
+            this.labelConfirmPassword.Name = "labelConfirmPassword";
+            this.labelConfirmPassword.Size = new System.Drawing.Size(91, 13);
+            this.labelConfirmPassword.TabIndex = 15;
+            this.labelConfirmPassword.Text = "Confirm Password";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(105, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(230, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Location = new System.Drawing.Point(46, 59);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(53, 13);
+            this.labelPassword.TabIndex = 13;
+            this.labelPassword.Text = "Password";
+            // 
             // radioButtonDelete
             // 
             this.radioButtonDelete.AutoSize = true;
@@ -219,59 +272,6 @@
             this.buttonExecute.TabIndex = 7;
             this.buttonExecute.Text = "Execute";
             this.buttonExecute.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(105, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 14;
-            // 
-            // labelPassword
-            // 
-            this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(46, 59);
-            this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 13);
-            this.labelPassword.TabIndex = 13;
-            this.labelPassword.Text = "Password";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(105, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 20);
-            this.textBox2.TabIndex = 16;
-            // 
-            // labelConfirmPassword
-            // 
-            this.labelConfirmPassword.AutoSize = true;
-            this.labelConfirmPassword.Location = new System.Drawing.Point(8, 96);
-            this.labelConfirmPassword.Name = "labelConfirmPassword";
-            this.labelConfirmPassword.Size = new System.Drawing.Size(91, 13);
-            this.labelConfirmPassword.TabIndex = 15;
-            this.labelConfirmPassword.Text = "Confirm Password";
-            // 
-            // comboBoxUserLevel
-            // 
-            this.comboBoxUserLevel.FormattingEnabled = true;
-            this.comboBoxUserLevel.Items.AddRange(new object[] {
-            "Administrator",
-            "Supervisor",
-            "User"});
-            this.comboBoxUserLevel.Location = new System.Drawing.Point(105, 128);
-            this.comboBoxUserLevel.Name = "comboBoxUserLevel";
-            this.comboBoxUserLevel.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxUserLevel.TabIndex = 18;
-            // 
-            // labelUserLevel
-            // 
-            this.labelUserLevel.AutoSize = true;
-            this.labelUserLevel.Location = new System.Drawing.Point(42, 133);
-            this.labelUserLevel.Name = "labelUserLevel";
-            this.labelUserLevel.Size = new System.Drawing.Size(58, 13);
-            this.labelUserLevel.TabIndex = 17;
-            this.labelUserLevel.Text = "User Level";
             // 
             // UserMaintenanceForm
             // 
