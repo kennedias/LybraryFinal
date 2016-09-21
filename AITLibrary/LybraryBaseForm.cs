@@ -139,14 +139,14 @@ namespace AITLibrary
 
         private void myActivitiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread threadMyActivityBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenMyActivityForm));
-            threadMyActivityBookForm.Start();
+            System.Threading.Thread threadMyActivitiesBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenMyActivitiesForm));
+            threadMyActivitiesBookForm.Start();
             this.Close();
         }
 
-        private void OpenMyActivityForm()
+        private void OpenMyActivitiesForm()
         {
-            Application.Run(new MyActivityForm());
+            Application.Run(new MyActivitiesForm());
         }
 
         private void informationMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)

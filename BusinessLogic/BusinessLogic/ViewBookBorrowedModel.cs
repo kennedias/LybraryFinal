@@ -1,4 +1,4 @@
-﻿/* Model Object for the Book Borrowed view data
+﻿/* Model Object for the BookBorrowed view data
  * 
  * Project: Assignment 2 - AIT
  * Developer: Kennedy Oliveira - ID 5399
@@ -15,7 +15,7 @@ using DataAccessLayer;
 namespace BusinessLogic
 {
     /// <summary>
-    /// Model Object of the Book Borrowed view data.
+    /// Model Object of the BookBorrowed view data.
     /// </summary>
     /// 
     public class ViewBookBorrowedModel

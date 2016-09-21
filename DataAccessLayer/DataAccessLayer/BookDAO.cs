@@ -33,6 +33,8 @@ namespace DataAccessLayer
         private ViewBookTableAdapter _viewBookTableAdapter;
         private ViewBookAvailableTableAdapter _viewBookAvailableTableAdapter;
         private ViewBookBorrowedTableAdapter _viewBookBorrowedTableAdapter;
+        private ViewBookBorrowedWithUserTableAdapter _viewBookBorrowedWithUserTableAdapter;
+        private ViewBookReservedTableAdapter _viewBookReservedTableAdapter;
 
         /// <summary>
         /// Class constructor
@@ -47,6 +49,8 @@ namespace DataAccessLayer
             _viewBookTableAdapter = new ViewBookTableAdapter();
             _viewBookAvailableTableAdapter = new ViewBookAvailableTableAdapter();
             _viewBookBorrowedTableAdapter = new ViewBookBorrowedTableAdapter();
+            _viewBookBorrowedWithUserTableAdapter = new ViewBookBorrowedWithUserTableAdapter();
+            _viewBookReservedTableAdapter = new ViewBookReservedTableAdapter();
         }
 
         #region Book View
@@ -378,9 +382,116 @@ namespace DataAccessLayer
                 throw;
             }
         }
+        #endregion
 
+        #region BookBorrowedWithUserView
+
+        /// <summary>
+        /// Returns all registers from Borrowed BookBorrowedWithUser view.
+        /// </summary>
+        /// <returns>BookDS.ViewBookBorrowedWithUser</returns>
+        public BookDS.ViewBookBorrowedWithUserDataTable GetAllBooksBorrowedWithUserView()
+        {
+            try
+            {
+                _viewBookBorrowedWithUserTableAdapter.FillAllBorrowedBooksWithUser(_bookDataSet.ViewBookBorrowedWithUser);
+                return _bookDataSet.ViewBookBorrowedWithUser;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Returns all registers from Borrowed BookBorrowedWithUser view by userID.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>BookDS.ViewBookBorrowedWithUser</returns>
+        public BookDS.ViewBookBorrowedWithUserDataTable GetAllBooksBorrowedWithUserViewByUserId(int userId)
+        {
+            try
+            {
+                _viewBookBorrowedWithUserTableAdapter.FillAllBorrowedBooksByUserId(_bookDataSet.ViewBookBorrowedWithUser, userId);
+                return _bookDataSet.ViewBookBorrowedWithUser;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
 
         #endregion
+
+
+        #region BookReservedView
+
+        /// <summary>
+        /// Returns all registers from BookReserved view.
+        /// </summary>
+        /// <returns>BookDS.ViewBookReservedDataTable</returns>
+        public BookDS.ViewBookReservedDataTable GetAllBooksReservedView()
+        {
+            try
+            {
+                _viewBookReservedTableAdapter.FillAllReservedBooks(_bookDataSet.ViewBookReserved);
+                return _bookDataSet.ViewBookReserved;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Returns all registers from BookReserved view by userID.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>BookDS.ViewBookReservedDataTable</returns>
+        public BookDS.ViewBookReservedDataTable GetAllBooksReservedViewByUserId(int userId)
+        {
+            try
+            {
+                _viewBookReservedTableAdapter.FillAllReservedBooksByUserId(_bookDataSet.ViewBookReserved, userId);
+                return _bookDataSet.ViewBookReserved;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
+        #endregion
+
+
+
+
+
     }
 }

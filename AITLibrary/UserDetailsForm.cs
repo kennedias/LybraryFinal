@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* Form for maintenance of User details by the User logged
+ * 
+ * Project: Assignment 2 - AIT
+ * Developer: Kennedy Oliveira - ID 5399
+ * Data of release: 19/08/2016
+ * Version: 1.0 - Release
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +18,9 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
+    /// <summary>
+    ///  Form for maintenance of User details by the User logged.
+    /// </summary>
     public partial class UserDetailsForm : LybraryBaseForm
     {
         public UserDetailsForm()
@@ -19,7 +30,7 @@ namespace AITLibrary
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.Text = "...";
+            labelSystemMessage.Text = "";
             System.Threading.Thread threadForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
             threadForm.Start();
         }
@@ -31,6 +42,7 @@ namespace AITLibrary
 
         private void UserDetailsForm_Load(object sender, EventArgs e)
         {
+            /* User can not change his User Level */
             if (staticUserLevelCode == Constants.userCode)
             {
                 comboBoxUserLevel.Enabled = false;
@@ -42,7 +54,7 @@ namespace AITLibrary
 
         private void buttonSaveUserModification_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.Text = "...";
+            labelSystemMessage.Text = "";
 
             if (textBoxUserName.Text == null)
             {

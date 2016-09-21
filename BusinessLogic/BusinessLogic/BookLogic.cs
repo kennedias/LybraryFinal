@@ -21,14 +21,25 @@ namespace BusinessLogic
     public class BookLogic
     {
         private BookDAO _bookDAO;
-        private List<ViewBookModel> _listBooksView;
+        
         private BookDS.ViewBookDataTable _viewBookView;
-        private List<TabReservedModel> _listTabReservedModel;
+        private List<ViewBookModel> _listBooksView;
+
         private BookDS.TabReservedDataTable _tabReservedDataTable;
+        private List<TabReservedModel> _listTabReservedModel;
+
         private BookDS.ViewBookBorrowedDataTable _viewBookBorrowedDataTable;
-        private List<ViewBookBorrowedModel> _listBooksBorrowedView;
+        private List<ViewBookBorrowedModel> _listViewBooksBorrowedModel;
+
         private BookDS.ViewBookAvailableDataTable _viewBookAvailableDataTable;
-        private List<ViewBookAvailableModel> _listBooksAvailableView;
+        private List<ViewBookAvailableModel> _listViewBooksAvailableModel;
+
+        private BookDS.ViewBookReservedDataTable _viewBookReservedDataTable;
+        private List<ViewBookReservedModel> _listViewBooksReservedModel;
+
+        private BookDS.ViewBookBorrowedWithUserDataTable _viewBookBorrowedWithUserDataTable;
+        private List<ViewBookBorrowedWithUserModel> _listViewBooksBorrowedWithUserModel;
+
 
 
         /// <summary>
@@ -43,7 +54,14 @@ namespace BusinessLogic
             _tabReservedDataTable = new BookDS.TabReservedDataTable();
 
             _viewBookAvailableDataTable = new BookDS.ViewBookAvailableDataTable();
-            _listBooksAvailableView = new List<ViewBookAvailableModel>();
+            _listViewBooksAvailableModel = new List<ViewBookAvailableModel>();
+
+            _viewBookReservedDataTable = new BookDS.ViewBookReservedDataTable();
+            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+
+            _viewBookBorrowedWithUserDataTable = new BookDS.ViewBookBorrowedWithUserDataTable();
+            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+
         }
 
         #region Book View
@@ -209,15 +227,15 @@ namespace BusinessLogic
         {
             try
             {
-                _listBooksAvailableView = new List<ViewBookAvailableModel>();
+                _listViewBooksAvailableModel = new List<ViewBookAvailableModel>();
                 _viewBookAvailableDataTable = _bookDAO.GetAllBooksAvailableView();
 
                 foreach (BookDS.ViewBookAvailableRow row in _viewBookAvailableDataTable.Rows)
                 {
-                    _listBooksAvailableView.Add(ViewBookAvailableModel.Parse(row));
+                    _listViewBooksAvailableModel.Add(ViewBookAvailableModel.Parse(row));
                 }
 
-                return _listBooksAvailableView;
+                return _listViewBooksAvailableModel;
             }
             catch (SqlException ex)
             {
@@ -238,20 +256,20 @@ namespace BusinessLogic
         /// <summary>
         /// Return all registers from Book Borrowed.
         /// </summary>
-        /// <returns>List<T</returns>
+        /// <returns>List<ViewBookBorrowedModel></returns>
         public List<ViewBookBorrowedModel> GetAllBorrowedBooks()
         {
             try
             {
-                _listBooksBorrowedView = new List<ViewBookBorrowedModel>();
+                _listViewBooksBorrowedModel = new List<ViewBookBorrowedModel>();
                 _viewBookBorrowedDataTable = _bookDAO.GetAllBooksBorrowedView();
 
                 foreach (BookDS.ViewBookBorrowedRow row in _viewBookBorrowedDataTable.Rows)
                 {
-                    _listBooksBorrowedView.Add(ViewBookBorrowedModel.Parse(row));
+                    _listViewBooksBorrowedModel.Add(ViewBookBorrowedModel.Parse(row));
                 }
 
-                return _listBooksBorrowedView;
+                return _listViewBooksBorrowedModel;
             }
             catch (SqlException ex)
             {
@@ -300,12 +318,117 @@ namespace BusinessLogic
             return resultQuery;
         }
 
+        /// <summary>
+        /// Return all registers from Book Borrowed by UserId.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>List<ViewBookBorrowedModel></returns>
+        public List<ViewBookBorrowedModel> GetAllBorrowedBooksByUserId(int userId)
+        {
+            try
+            {
+                _listViewBooksBorrowedModel = new List<ViewBookBorrowedModel>();
+                _viewBookBorrowedDataTable = _bookDAO.GetAllBooksBorrowedView();
+
+                foreach (BookDS.ViewBookBorrowedRow row in _viewBookBorrowedDataTable.Rows)
+                {
+                    _listViewBooksBorrowedModel.Add(ViewBookBorrowedModel.Parse(row));
+                }
+
+                return _listViewBooksBorrowedModel;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
 
 
 
 
 
+        #endregion
+
+        #region BookViewReserved
+        /// <summary>
+        ///  Returns all books data from view BookViewReserved.
+        /// </summary>
+        /// <returns>List<ViewBookReservedModel></returns>
+        public List<ViewBookReservedModel> GetAllBooksReservedView()
+        {
+            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+            _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedView();
+
+            foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+            {
+                _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
+            }
+
+            return _listViewBooksReservedModel;
+        }
+
+        /// <summary>
+        ///  Returns all books data from view BookViewReserved By UserId.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>List<ViewBookReservedModel></returns>
+        public List<ViewBookReservedModel> GetAllBooksReservedViewByUserId(int userId)
+        {
+            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+            _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedViewByUserId(userId);
+
+            foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+            {
+                _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
+            }
+
+            return _listViewBooksReservedModel;
+        }
+
+        #endregion
+
+        #region BookViewBorrowedWithUser
+        /// <summary>
+        ///  Returns all books data from view ViewBookBorrowedWithUser.
+        /// </summary>
+        /// <returns>List<ViewBookBorrowedWithUserModel></returns>
+        public List<ViewBookBorrowedWithUserModel> GetAllBooksBorrowedWithUserView()
+        {
+            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+            _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserView();
+
+            foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+            {
+                _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+            }
+
+            return _listViewBooksBorrowedWithUserModel;
+        }
+
+        /// <summary>
+        ///  Returns all books data from view ViewBookBorrowedWithUser By UserId.
+        /// </summary>
+        /// <param name="userId">int userId</param>
+        /// <returns>List<ViewBookBorrowedWithUserModel></returns>
+        public List<ViewBookBorrowedWithUserModel> GetAllBooksBorrowedWithUserViewByUserId(int userId)
+        {
+            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+            _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserViewByUserId(userId);
+
+            foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+            {
+                _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+            }
+
+            return _listViewBooksBorrowedWithUserModel;
+        }
 
         #endregion
     }

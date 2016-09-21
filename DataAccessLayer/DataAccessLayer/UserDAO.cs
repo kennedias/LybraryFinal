@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataAccessLayer.UserDSTableAdapters;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -42,6 +43,7 @@ namespace DataAccessLayer
         /// <returns>UserDS.TabUserDataTable</returns>
         public UserDS.TabUserDataTable GetAllUser()
         {
+            _userDataSet = new UserDS();
             _tabUserTableAdapter.FillAllUsers(_userDataSet.TabUser);
             return _userDataSet.TabUser;
         }
@@ -54,6 +56,7 @@ namespace DataAccessLayer
         /// <returns>UserDS.TabUserDataTable</returns>
         public UserDS.TabUserDataTable GetLogin(string userName, string password)
         {
+            _userDataSet = new UserDS();
             _tabUserTableAdapter.FillByUserNamePassword(_userDataSet.TabUser, userName, password);
             return _userDataSet.TabUser;
         }
@@ -104,6 +107,37 @@ namespace DataAccessLayer
         {
             return (int)_tabUserTableAdapter.SelectCountUserByName(userName, userID);
         }
+
+        /// <summary>
+        /// Search Users by UserName.
+        /// </summary>
+        /// <param name="userName">string userName</param>
+        /// <returns>UserDS.TabUserDataTable</returns>
+        public UserDS.TabUserDataTable GetLogin(string userName)
+        {
+            try
+            {
+                _userDataSet = new UserDS();
+                _tabUserTableAdapter.FillByUserName(_userDataSet.TabUser, userName);
+                return _userDataSet.TabUser;
+            }
+            catch (SqlException ex)
+            {
+                // Error log
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            catch
+            {
+                throw;
+            }
+
+
+
+
+
+        }
+
 
     }
 }

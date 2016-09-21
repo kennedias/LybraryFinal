@@ -61,7 +61,7 @@ namespace AITLibrary
         {
             labelSystemMessage.Text = "";
             BookLogic bookLogic = new BookLogic();
-            dataGridViewBookReserved.DataSource = bookLogic.GetAllReservedBooksByUserId(staticUserID);
+            dataGridViewBookReserved.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
 
             if (dataGridViewBookReserved.RowCount == 0)
             {

@@ -88,12 +88,6 @@
     <Compile Include="BorrowBookForm.Designer.cs">
       <DependentUpon>BorrowBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowBookFormXX.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BorrowBookFormXX.Designer.cs">
-      <DependentUpon>BorrowBookFormXX.cs</DependentUpon>
-    </Compile>
     <Compile Include="ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +99,6 @@
     </Compile>
     <Compile Include="ConsultAndCancelBookReservedForm.Designer.cs">
       <DependentUpon>ConsultAndCancelBookReservedForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MyActivityForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MyActivityForm.Designer.cs">
-      <DependentUpon>MyActivityForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -136,8 +124,20 @@
     <Compile Include="MasterInformationMaintenanceForm.Designer.cs">
       <DependentUpon>MasterInformationMaintenanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyActivitiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyActivitiesForm.Designer.cs">
+      <DependentUpon>MyActivitiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportBookBorrowedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportBookBorrowedForm.Designer.cs">
+      <DependentUpon>ReportBookBorrowedForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturnBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,17 +183,11 @@
     <EmbeddedResource Include="BorrowBookForm.resx">
       <DependentUpon>BorrowBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowBookFormXX.resx">
-      <DependentUpon>BorrowBookFormXX.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultAndCancelBookReservedForm.resx">
       <DependentUpon>ConsultAndCancelBookReservedForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyActivityForm.resx">
-      <DependentUpon>MyActivityForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -204,6 +198,9 @@
     <EmbeddedResource Include="MasterInformationMaintenanceForm.resx">
       <DependentUpon>MasterInformationMaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MyActivitiesForm.resx">
+      <DependentUpon>MyActivitiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,6 +210,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportBookBorrowedForm.resx">
+      <DependentUpon>ReportBookBorrowedForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReturnBookForm.resx">
       <DependentUpon>ReturnBookForm.cs</DependentUpon>
     </EmbeddedResource>

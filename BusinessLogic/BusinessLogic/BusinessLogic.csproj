@@ -44,6 +44,7 @@
     <Compile Include="BookLogic.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="AppEnum.cs" />
+    <Compile Include="ViewBookReservedModel.cs" />
     <Compile Include="ViewBookBorrowedModel.cs" />
     <Compile Include="LoginLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="UserException.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="ViewBookAvailableModel.cs" />
+    <Compile Include="ViewBookBorrowedWithUserModel.cs" />
     <Compile Include="ViewBookModel.cs" />
   </ItemGroup>
   <ItemGroup>
