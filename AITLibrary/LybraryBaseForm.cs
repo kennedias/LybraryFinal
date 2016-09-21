@@ -49,7 +49,7 @@ namespace AITLibrary
 
         private void OpenBookForm()
         {
-            Application.Run(new BookForm());
+            Application.Run(new BookSearchForm());
         }
 
         private void consultCancelReserveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -90,8 +90,66 @@ namespace AITLibrary
 
         private void OpenBorrowBookForm()
         {
-            Application.Run(new BorrowBookForm());
+            Application.Run(new BorrowBookFormXX());
         }
 
+        private void bookToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void booksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void returnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadReturnBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenReturnBookForm));
+            threadReturnBookForm.Start();
+            this.Close();
+        }
+
+        private void OpenReturnBookForm()
+        {
+            Application.Run(new ReturnBookForm());
+        }
+
+        private void browseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadBrowseBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookBrowseForm));
+            threadBrowseBookForm.Start();
+            this.Close();
+
+        }
+
+        private void OpenBookBrowseForm()
+        {
+            Application.Run(new BookBrowseForm());
+        }
+
+        private void viewBorrowedReservedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadBorrowedReservedBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBooksBorrowedAndReservedForm));
+            threadBorrowedReservedBookForm.Start();
+            this.Close();
+        }
+
+        private void OpenBooksBorrowedAndReservedForm()
+        {
+            Application.Run(new BooksBorrowedAndReservedForm());
+        }
+
+        private void myActivitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadMyActivityBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenMyActivityForm));
+            threadMyActivityBookForm.Start();
+            this.Close();
+        }
+
+        private void OpenMyActivityForm()
+        {
+            Application.Run(new MyActivityForm());
+        }
     }
 }

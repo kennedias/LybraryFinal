@@ -88,7 +88,7 @@ namespace AITLibrary
 
         public void OpenBookForm()
         {
-            Application.Run(new BookForm());
+            Application.Run(new BookSearchForm());
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

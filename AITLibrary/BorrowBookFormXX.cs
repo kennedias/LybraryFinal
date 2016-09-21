@@ -10,14 +10,14 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class BorrowBookForm : LybraryBaseForm
+    public partial class BorrowBookFormXX : LybraryBaseForm
     {
-        public BorrowBookForm()
+        public BorrowBookFormXX()
         {
             InitializeComponent();
         }
 
-        private void buttonSearchBooks_Click(object sender, EventArgs e)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
             labelSystemMessage.Text = "";
             BookLogic bookLogic = new BookLogic();
