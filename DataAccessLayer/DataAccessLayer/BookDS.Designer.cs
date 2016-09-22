@@ -5721,9 +5721,10 @@ FROM            TabReserved INNER JOIN
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "RID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        TabReserved.RID, TabReserved.ISBN, TabReserved.ReservedDate, TabBoo" +
-                "k.BookName\r\nFROM            dbo.TabReserved, dbo.TabBook\r\nWHERE  (TabReserved.IS" +
-                "BN = TabBook.ISBN)      \r\nAND  (TabReserved.UID = @UID) \r\n\r\n";
+            this._commandCollection[2].CommandText = @"SELECT        TabReserved.RID, TabReserved.ISBN, TabReserved.ReservedDate, TabBook.BookName, TabReserved.UID
+FROM            TabReserved INNER JOIN
+                         TabBook ON TabReserved.ISBN = TabBook.ISBN
+WHERE        (TabReserved.UID = @UID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -6932,8 +6933,8 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        ISBN, BookName, AuthorName, BorrowDate, ReturnDate, LateFee\r\nFROM  " +
-                "          ViewBookBorrowedWithUser\r\nWHERE        (UID = @UID)";
+            this._commandCollection[1].CommandText = "SELECT        ISBN, BookName, AuthorName, BorrowDate, ReturnDate, LateFee, UserNa" +
+                "me, UID\r\nFROM            ViewBookBorrowedWithUser\r\nWHERE        (UID = @UID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -7138,8 +7139,8 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        ISBN, BookName, AuthorName, ReservedDate, RID\r\nFROM            View" +
-                "BookReserved\r\nWHERE        (UID = @UID)";
+            this._commandCollection[1].CommandText = "SELECT        ISBN, BookName, AuthorName, ReservedDate, RID, UserName, UID\r\nFROM " +
+                "           ViewBookReserved\r\nWHERE        (UID = @UID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
