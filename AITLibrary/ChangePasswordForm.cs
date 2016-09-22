@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ChangePasswordForm : LybraryTemplateForm
+    public partial class ChangePasswordForm : LybraryBaseForm
     {
         public ChangePasswordForm()
         {
@@ -19,38 +19,39 @@ namespace AITLibrary
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
-            labelReturnMsg.Text = "";
-            LoginLogic loginLogic = new LoginLogic();
+            try
+            {
+                labelReturnMsg.Text = "";
+                LoginLogic loginLogic = new LoginLogic();
 
-            if (textBoxNewPassword.Text == staticUserPassword)
-            {
-                labelReturnMsg.Text = "New Password is equals to the previous.";
-            }
-            else if (textBoxNewPassword.Text == "")
-            {
-                labelReturnMsg.Text = "New Password is blank.";
-            }
-            else if (!loginLogic.passwordFormatValidation(textBoxNewPassword.Text))
-            {
-                labelReturnMsg.Text = "New Password. " + loginLogic.MessageOfValidation;
+                if (textBoxNewPassword.Text == staticUserPassword)
+                {
+                    labelReturnMsg.Text = "New Password is equals to the previous.";
+                }
+                else if (textBoxNewPassword.Text == "")
+                {
+                    labelReturnMsg.Text = "New Password is blank.";
+                }
+                else if (!loginLogic.passwordFormatValidation(textBoxNewPassword.Text))
+                {
+                    labelReturnMsg.Text = "New Password. " + loginLogic.MessageOfValidation;
 
-            } else if (textBoxConfirmPassword.Text == "")
-            {
-                labelReturnMsg.Text = "Confirm Password is blank.";
-            }
-            else if (!loginLogic.passwordFormatValidation(textBoxConfirmPassword.Text))
-            {
-                labelReturnMsg.Text = "Confirm Password. " + loginLogic.MessageOfValidation;
+                }
+                else if (textBoxConfirmPassword.Text == "")
+                {
+                    labelReturnMsg.Text = "Confirm Password is blank.";
+                }
+                else if (!loginLogic.passwordFormatValidation(textBoxConfirmPassword.Text))
+                {
+                    labelReturnMsg.Text = "Confirm Password. " + loginLogic.MessageOfValidation;
 
-            }
-            else if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
-            {
-                labelReturnMsg.Text = "New and Confirm Password have to be equals.";
+                }
+                else if (textBoxNewPassword.Text != textBoxConfirmPassword.Text)
+                {
+                    labelReturnMsg.Text = "New and Confirm Password have to be equals.";
 
-            }
-            else
-            {
-                try
+                }
+                else
                 {
                     UserLogic userLogic = new UserLogic();
                     int resultQuery = userLogic.updateUser(staticUserName, textBoxNewPassword.Text, staticUserLevelDescription, staticUserID);
@@ -63,31 +64,56 @@ namespace AITLibrary
                         staticUserPassword = textBoxNewPassword.Text;
                         this.Close();
                     }
-
-                    
-
                 }
-
-                catch (FormatException ex)
-                {
-                    //logging for admin to be inspect IF TRY TO PASS ABC FOR EXAMPLE
-                }
-
-                catch (Exception ex)
-                {
-                    //logging for admin to be inspect
-                }
+            }
+            catch (BusinessLogicException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelReturnMsg.ForeColor = System.Drawing.Color.Red;
+                labelReturnMsg.Text = "This action can not be completed! Please contact the system support team.";
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelReturnMsg.ForeColor = System.Drawing.Color.Red;
+                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
             }
         }
 
         public void OpenBookForm()
         {
-            Application.Run(new BookSearchForm());
+            try
+            {
+                Application.Run(new BookSearchForm());
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelReturnMsg.ForeColor = System.Drawing.Color.Red;
+                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelReturnMsg.ForeColor = System.Drawing.Color.Red;
+                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
     }
 }

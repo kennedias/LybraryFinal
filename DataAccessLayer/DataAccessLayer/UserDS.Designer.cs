@@ -860,8 +860,8 @@ SELECT UID, UserName, Password, UserLevel FROM TabUser WHERE (UID = @UID)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "UID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        UID, UserName\r\nFROM            TabUser\r\nWHERE        (UserName LIKE" +
-                " @USERNAME)";
+            this._commandCollection[2].CommandText = "SELECT        UID, UserName, Password, UserLevel\r\nFROM            TabUser\r\nWHERE " +
+                "       (UserName LIKE @USERNAME)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USERNAME", global::System.Data.SqlDbType.VarChar, 8, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();

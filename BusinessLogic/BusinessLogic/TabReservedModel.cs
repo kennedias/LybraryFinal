@@ -35,37 +35,37 @@ namespace BusinessLogic
 
         #region Properties
 
-        public string ReservedBookName
+        public string Name
         {
             set { _reservedBookName = value; }
             get { return _reservedBookName; }
         }
 
-        public string ReservedBookIsbn
+        public string ISBN
         {
             set { _reservedBookIsbn = value; }
             get { return _reservedBookIsbn; }
         }
 
-        public string ReservedBookDate
+        public string ReserveDate
         {
             set { _reservedBookDate = value; }
             get { return _reservedBookDate; }
         }
 
-        public string ReservedBookUserName
+        public string User
         {
             set { _reservedBookUserName = value; }
             get { return _reservedBookUserName; }
         }
 
-        public int ReservedBookId
+        public int ReserveId
         {
             set { _reservedBookId = value; }
             get { return _reservedBookId; }
         }
 
-        public int ReservedBookUserId
+        public int UserId
         {
             set { _reservedBookUserId = value; }
             get { return _reservedBookUserId; }

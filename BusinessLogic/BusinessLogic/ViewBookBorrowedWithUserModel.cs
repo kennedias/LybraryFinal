@@ -35,49 +35,49 @@ namespace BusinessLogic
 
         #region Properties
 
-        public string BookBorrowedISBN
+        public string ISBN
         {
             set { _bookBorrowedISBN = value; }
             get { return _bookBorrowedISBN; }
         }
 
-        public string BooBorrowedkName
+        public string Name
         {
             set { _bookBorrowedName = value; }
             get { return _bookBorrowedName; }
         }
 
-        public string BookBorrowedAuthorName
+        public string Author
         {
             set { _bookBorrowedAuthorName = value; }
             get { return _bookBorrowedAuthorName; }
         }
 
-        public string BookBorrowedUserName
+        public string User
         {
             set { _bookBorrowedUserName = value; }
             get { return _bookBorrowedUserName; }
         }
 
-        public DateTime BookBorrowedBorrowDate
+        public DateTime Borrow
         {
             set { _bookBorrowedBorrowDate = value; }
             get { return _bookBorrowedBorrowDate; }
         }
 
-        public DateTime BookBorrowedReturnDate
+        public DateTime Return
         {
             set { _bookBorrowedReturnDate = value; }
             get { return _bookBorrowedReturnDate; }
         }
 
-        public decimal BookBorrowedLateFee
+        public decimal LateFee
         {
             set { _bookBorrowedLateFee = value; }
             get { return _bookBorrowedLateFee; }
         }
 
-        public int BookBorrowedUserId
+        public int UserId
         {
             set { _bookBorrowedUserId = value; }
             get { return _bookBorrowedUserId; }

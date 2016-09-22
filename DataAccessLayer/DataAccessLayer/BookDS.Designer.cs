@@ -6532,7 +6532,7 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ISBN, BookName, CategoryName, Publisher, PublishYear, Pages, AuthorName, L" +
@@ -6540,10 +6540,18 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            ViewBookAvailable\r\nWHERE        " +
-                "(ISBN = @ISBN)";
+            this._commandCollection[1].CommandText = "SELECT        ISBN, BookName, CategoryName, Publisher, PublishYear, Pages, Author" +
+                "Name, LanguageName, Author, Category, Language\r\nFROM            ViewBookAvailabl" +
+                "e\r\nWHERE        (BookName LIKE @BOOKNAME) AND (AuthorName LIKE @AUTHORNAME)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BOOKNAME", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "BookName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AUTHORNAME", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "AuthorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        COUNT(*) AS Expr1\r\nFROM            ViewBookAvailable\r\nWHERE        " +
+                "(ISBN = @ISBN)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ISBN", global::System.Data.SqlDbType.VarChar, 13, global::System.Data.ParameterDirection.Input, 0, 0, "ISBN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6573,8 +6581,56 @@ SELECT BID, UID, ISBN, BorrowDate, ReturnDate, ActualReturnDate, LateFee FROM Ta
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillAllAvailableBooksByNameAndAuthor(BookDS.ViewBookAvailableDataTable dataTable, string BOOKNAME, string AUTHORNAME) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((BOOKNAME == null)) {
+                throw new global::System.ArgumentNullException("BOOKNAME");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BOOKNAME));
+            }
+            if ((AUTHORNAME == null)) {
+                throw new global::System.ArgumentNullException("AUTHORNAME");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(AUTHORNAME));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual BookDS.ViewBookAvailableDataTable GetAllAvailableBooksByNameAndAuthor(string BOOKNAME, string AUTHORNAME) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((BOOKNAME == null)) {
+                throw new global::System.ArgumentNullException("BOOKNAME");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BOOKNAME));
+            }
+            if ((AUTHORNAME == null)) {
+                throw new global::System.ArgumentNullException("AUTHORNAME");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(AUTHORNAME));
+            }
+            BookDS.ViewBookAvailableDataTable dataTable = new BookDS.ViewBookAvailableDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> SelectCountByISBN(string ISBN) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((ISBN == null)) {
                 throw new global::System.ArgumentNullException("ISBN");
             }

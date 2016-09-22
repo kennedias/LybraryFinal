@@ -283,6 +283,39 @@ namespace BusinessLogic
             }
         }
 
+        /// <summary>
+        /// Search availabe books using ISBN, book name and author, only book name and only author.
+        /// The book name and author are searched with partialy letter, it is not mandotory
+        /// to inform the exact name.
+        /// </summary>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">string author</param>
+        /// <returns>List<ViewBookAvailableModel></returns>
+        public List<ViewBookAvailableModel> GetAllBooksAvailableByBookNameAndAuthor(string bookName, string author)
+        {
+            try
+            {
+                _listViewBooksAvailableModel = new List<ViewBookAvailableModel>();
+
+                if (bookName != "" || author != "")
+                {
+                    _viewBookAvailableDataTable = _bookDAO.GetAllBooksAvailableByBookNameAndAuthorView(bookName, author);
+                    foreach (BookDS.ViewBookAvailableRow row in _viewBookAvailableDataTable.Rows)
+                    {
+                        _listViewBooksAvailableModel.Add(ViewBookAvailableModel.Parse(row));
+                    }
+                }
+                return _listViewBooksAvailableModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+        }
+
         #endregion
 
         #region Book Borrowed

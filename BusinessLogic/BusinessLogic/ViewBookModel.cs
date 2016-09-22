@@ -35,49 +35,49 @@ namespace BusinessLogic
 
         #region Properties
 
-        public string BookISBN
+        public string ISBN
         {
             set { _bookISBN = value; }
             get { return _bookISBN; }
         }
 
-        public string BookName
+        public string Name
         {
             set { _bookName = value; }
             get { return _bookName; }
         }
 
-        public string BookPublisher
+        public string Publisher
         {
             set { _bookPublisher = value; }
             get { return _bookPublisher; }
         }
 
-        public int BookPublishYear
+        public int PublishYear
         {
             set { _bookPublishYear = value; }
             get { return _bookPublishYear; }
         }
 
-        public int BookPages
+        public int Pages
         {
             set { _bookPages = value; }
             get { return _bookPages; }
         }
 
-        public string BookAuthorName
+        public string Author
         {
             set { _bookAuthorName = value; }
             get { return _bookAuthorName; }
         }
 
-        public String BookCategoryName
+        public String Category
         {
             set { _bookCategoryName = value; }
             get { return _bookCategoryName; }
         }
 
-        public string BookLanguageName
+        public string Language
         {
             set { _bookLanguageName = value; }
             get { return _bookLanguageName; }

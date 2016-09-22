@@ -71,6 +71,9 @@ namespace AITLibrary
 
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewUserBookActivity.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
+                dataGridViewUserBookActivity.Columns["User"].Visible = false;
+                dataGridViewUserBookActivity.Columns["ReserveId"].Visible = false;
+                dataGridViewUserBookActivity.Columns["UserId"].Visible = false;
             }
             catch (BusinessLogicException ex)
             {

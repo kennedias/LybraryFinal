@@ -64,6 +64,34 @@ namespace BusinessLogic
         /// Get the user data based on the username and password.
         /// </summary>
         /// <param name="username">string username</param>
+        /// <returns>List<TabUserModel></returns>
+        public List<TabUserModel> GetUsersByName(string username)
+        {
+            try
+            {
+                _users = new List<TabUserModel>();
+
+                _tabUserTable = _userDAO.GetUsersByUserName(username);
+
+                foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
+                {
+                    _users.Add(TabUserModel.Parse(row));
+                }
+                return _users;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get the user data based on the username and password.
+        /// </summary>
+        /// <param name="username">string username</param>
         /// <param name="password">string password</param>
         /// <returns>List<TabUserModel></returns>
         public List<TabUserModel> PerformLogin(string username, string password)
@@ -71,16 +99,13 @@ namespace BusinessLogic
             try
             {
                 _users = new List<TabUserModel>();
+                _tabUserTable = _userDAO.GetLogin(username, password);
 
-                if (true)
+                foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
                 {
-                    _tabUserTable = _userDAO.GetLogin(username, password);
-
-                    foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
-                    {
-                        _users.Add(TabUserModel.Parse(row));
-                    }
+                    _users.Add(TabUserModel.Parse(row));
                 }
+               
                 return _users;
             }
             catch (Exception ex)

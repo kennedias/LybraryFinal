@@ -49,10 +49,10 @@ namespace AITLibrary
                     if (tmpListUser.Count > 0)
                     {
                         //pass to Myform the informations of the user
-                        staticUserID = tmpListUser[0].UserID;
-                        staticUserName = tmpListUser[0].UserName;
-                        staticUserLevelCode = tmpListUser[0].UserLevelCode;
-                        staticUserLevelDescription = tmpListUser[0].UserLevelDescription;
+                        staticUserID = tmpListUser[0].ID;
+                        staticUserName = tmpListUser[0].Name;
+                        staticUserLevelCode = tmpListUser[0].LevelCode;
+                        staticUserLevelDescription = tmpListUser[0].LevelDescription;
                         staticUserPassword = textBoxPassword.Text;
 
                         if (staticUserLevelCode == Constants.userCode) //TODO Constants.userCode)

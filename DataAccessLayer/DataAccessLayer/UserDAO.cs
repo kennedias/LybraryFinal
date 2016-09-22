@@ -173,10 +173,11 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userName">string userName</param>
         /// <returns>UserDS.TabUserDataTable</returns>
-        public UserDS.TabUserDataTable GetLogin(string userName)
+        public UserDS.TabUserDataTable GetUsersByUserName(string userName)
         {
             try
             {
+                userName = "%" + userName + "%";
                 _userDataSet = new UserDS();
                 _tabUserTableAdapter.FillByUserName(_userDataSet.TabUser, userName);
                 return _userDataSet.TabUser;

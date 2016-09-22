@@ -31,25 +31,25 @@ namespace BusinessLogic
 
         # region properties
 
-        public int UserID
+        public int ID
         {
             get { return _userID; }
             set { _userID = value; }
         }
 
-        public string UserName
+        public string Name
         {
             get { return _userName; }
             set { _userName = value; }
         }
 
-        public int UserLevelCode
+        public int LevelCode
         {
             get { return _userLevelCode; }
             set { _userLevelCode = value; }
         }
 
-        public string UserLevelDescription
+        public string LevelDescription
         {
             get { return _userLevelDescription; }
             set { _userLevelDescription = value; }
@@ -76,19 +76,19 @@ namespace BusinessLogic
                 TabUserModel userModel = new TabUserModel();
 
                 //Model data = Database data
-                userModel.UserID = row.UID;
-                userModel.UserName = row.UserName;
-                userModel.UserLevelCode = row.UserLevel;
+                userModel.ID = row.UID;
+                userModel.Name = row.UserName;
+                userModel.LevelCode = row.UserLevel;
 
-                if (userModel.UserLevelCode == Constants.administratorCode)
+                if (userModel.LevelCode == Constants.administratorCode)
                     userModel._userLevelDescription = Constants.administratorDescription;
-                else if (userModel.UserLevelCode == Constants.supervisorCode)
+                else if (userModel.LevelCode == Constants.supervisorCode)
                     userModel._userLevelDescription = Constants.supervisorDescription;
-                else if (userModel.UserLevelCode == Constants.userCode)
+                else if (userModel.LevelCode == Constants.userCode)
                     userModel._userLevelDescription = Constants.userDescription;
                 else
-                    throw new BusinessLogicException("Invalid user level code for the userID: " + userModel.UserID
-                        + " userName: " + userModel.UserName + " level code: " + row.UserLevel);
+                    throw new BusinessLogicException("Invalid user level code for the userID: " + userModel.ID
+                        + " userName: " + userModel.Name + " level code: " + row.UserLevel);
 
                 return userModel;
 

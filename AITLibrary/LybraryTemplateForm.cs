@@ -126,7 +126,7 @@ namespace AITLibrary
 
         private void OpenBookBrowseForm()
         {
-          //  Application.Run(new BookBrowseForm());
+            Application.Run(new BookBrowseForm());
         }
 
         private void viewBorrowedReservedToolStripMenuItem_Click(object sender, EventArgs e)

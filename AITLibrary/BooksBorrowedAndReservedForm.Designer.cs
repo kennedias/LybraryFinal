@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewBooks = new System.Windows.Forms.DataGridView();
             this.groupBoxActivity = new System.Windows.Forms.GroupBox();
             this.radioButtonReserved = new System.Windows.Forms.RadioButton();
             this.radioBorrowed = new System.Windows.Forms.RadioButton();
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).BeginInit();
             this.groupBoxActivity.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewBooks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(964, 339);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridViewBooks.AllowUserToAddRows = false;
+            this.dataGridViewBooks.AllowUserToDeleteRows = false;
+            this.dataGridViewBooks.AllowUserToOrderColumns = true;
+            this.dataGridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBooks.Location = new System.Drawing.Point(12, 85);
+            this.dataGridViewBooks.MultiSelect = false;
+            this.dataGridViewBooks.Name = "dataGridViewBooks";
+            this.dataGridViewBooks.ReadOnly = true;
+            this.dataGridViewBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBooks.Size = new System.Drawing.Size(964, 339);
+            this.dataGridViewBooks.TabIndex = 2;
             // 
             // groupBoxActivity
             // 
@@ -70,6 +71,7 @@
             this.radioButtonReserved.TabStop = true;
             this.radioButtonReserved.Text = "Reserved";
             this.radioButtonReserved.UseVisualStyleBackColor = true;
+            this.radioButtonReserved.CheckedChanged += new System.EventHandler(this.radioButtonReserved_CheckedChanged);
             // 
             // radioBorrowed
             // 
@@ -81,6 +83,7 @@
             this.radioBorrowed.TabStop = true;
             this.radioBorrowed.Text = "Borrowed";
             this.radioBorrowed.UseVisualStyleBackColor = true;
+            this.radioBorrowed.CheckedChanged += new System.EventHandler(this.radioBorrowed_CheckedChanged);
             // 
             // BooksBorrowedAndReservedForm
             // 
@@ -88,14 +91,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxActivity);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewBooks);
             this.Name = "BooksBorrowedAndReservedForm";
             this.Text = "BooksBorrowedForm";
-
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
+            this.Controls.SetChildIndex(this.dataGridViewBooks, 0);
             this.Controls.SetChildIndex(this.groupBoxActivity, 0);
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooks)).EndInit();
             this.groupBoxActivity.ResumeLayout(false);
             this.groupBoxActivity.PerformLayout();
             this.ResumeLayout(false);
@@ -105,7 +107,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewBooks;
         private System.Windows.Forms.GroupBox groupBoxActivity;
         private System.Windows.Forms.RadioButton radioButtonReserved;
         private System.Windows.Forms.RadioButton radioBorrowed;

@@ -19,6 +19,17 @@ namespace BusinessLogic
             Language
         }
 
+        public enum ViewBookReserved
+        {
+            Isbn,
+            Name,
+            Author,
+            User,
+            ReserveDate,
+            ReserveId,
+            UserId,
+
+        }
 
         /*
          * label.text = dataGridView.SelectedRows[].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();

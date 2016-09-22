@@ -71,3 +71,4 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibra
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserMaintenanceForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.MyActivitiesForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LybraryTemplateForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.BookBrowseForm.resources

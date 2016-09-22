@@ -32,31 +32,31 @@ namespace BusinessLogic
 
         #region Properties
 
-        public string BookBorrowedISBN
+        public string ISBN
         {
             set { _bookBorrowedISBN = value; }
             get { return _bookBorrowedISBN; }
         }
 
-        public string BooBorrowedkName
+        public string Name
         {
             set { _bookBorrowedName = value; }
             get { return _bookBorrowedName; }
         }
 
-        public string BookBorrowedAuthorName
+        public string Author
         {
             set { _bookBorrowedAuthorName = value; }
             get { return _bookBorrowedAuthorName; }
         }
 
-        public DateTime BookBorrowedReserveDate
+        public DateTime ReserveDate
         {
             set { _bookBorrowedReserveDate = value; }
             get { return _bookBorrowedReserveDate; }
         }
 
-        public int BookBorrowedReserveId
+        public int ReserveId
         {
             set { _bookBorrowedReserveId = value; }
             get { return _bookBorrowedReserveId; }
@@ -82,10 +82,8 @@ namespace BusinessLogic
                 viewBookReservedForUserModel._bookBorrowedISBN = row.ISBN;
                 viewBookReservedForUserModel._bookBorrowedName = row.BookName;
                 viewBookReservedForUserModel._bookBorrowedAuthorName = row.AuthorName;
-
                 viewBookReservedForUserModel._bookBorrowedReserveDate = row.ReservedDate;
                 viewBookReservedForUserModel._bookBorrowedReserveId = row.RID;
-
                 return viewBookReservedForUserModel;
             }
         }

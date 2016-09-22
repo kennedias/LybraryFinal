@@ -20,16 +20,15 @@ namespace AITLibrary
 
         private void buttonCancelBookReserve_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-            labelSystemMessage.Text = "";
-
-            if (dataGridViewBookReserved.DataSource != null && dataGridViewBookReserved.SelectedRows.Count > 0)
+            try
             {
-                try
+                labelSystemMessage.ForeColor = System.Drawing.Color.Black;
+                labelSystemMessage.Text = "";
+
+                if (dataGridViewBookReserved.DataSource != null && dataGridViewBookReserved.SelectedRows.Count > 0)
                 {
-                    String isbn = dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
-                    labelSystemMessage.Text = isbn;
-                    int reserveId = 0;
+                    int reserveId = (int) dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBookReserved.ReserveId].Value;
+                    labelSystemMessage.Text = reserveId.ToString();
 
                     BookLogic bookLogic = new BookLogic();
                     int resultOperation = bookLogic.DeleteBookReserved(reserveId);
@@ -42,29 +41,34 @@ namespace AITLibrary
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                         labelSystemMessage.Text = "Reserve canceled with success.";
+                        dataGridViewBookReserved.Refresh();
+                        dataGridViewBookReserved.RefreshEdit();
+                        dataGridViewBookReserved.Update();
+                        //TODO
+
                     }
                 }
-                catch (BusinessLogicException ex)
+                else
                 {
-                    //Error log simulate
-                    Console.WriteLine(ex.ToString());
-                    Console.WriteLine(ex.GetBaseException().ToString());
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
-                }
-                catch (Exception ex)
-                {
-                    //Error log simulate
-                    Console.WriteLine(ex.ToString());
-                    Console.WriteLine(ex.GetBaseException().ToString());
-                    labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                    labelSystemMessage.Text = "You need to select a book first.";
                 }
             }
-            else
+            catch (BusinessLogicException ex)
             {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "You need to select a book first.";
+                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
             }
         }
 
@@ -83,7 +87,9 @@ namespace AITLibrary
                 }
                 else
                 {
-                    dataGridViewBookReserved.Columns["UserName"].Visible = false;
+                    dataGridViewBookReserved.Columns["User"].Visible = false;
+                    dataGridViewBookReserved.Columns["ReserveId"].Visible = false;
+                    dataGridViewBookReserved.Columns["UserId"].Visible = false;
                 }
             }
             catch (BusinessLogicException ex)

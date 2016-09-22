@@ -30,7 +30,6 @@
         {
             this.dataGridViewBookReserved = new System.Windows.Forms.DataGridView();
             this.buttonCancelBookReserve = new System.Windows.Forms.Button();
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReserved)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,14 +40,16 @@
             this.dataGridViewBookReserved.AllowUserToOrderColumns = true;
             this.dataGridViewBookReserved.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBookReserved.Location = new System.Drawing.Point(12, 27);
+            this.dataGridViewBookReserved.MultiSelect = false;
             this.dataGridViewBookReserved.Name = "dataGridViewBookReserved";
             this.dataGridViewBookReserved.ReadOnly = true;
-            this.dataGridViewBookReserved.Size = new System.Drawing.Size(792, 248);
+            this.dataGridViewBookReserved.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBookReserved.Size = new System.Drawing.Size(919, 495);
             this.dataGridViewBookReserved.TabIndex = 2;
             // 
             // buttonCancelBookReserve
             // 
-            this.buttonCancelBookReserve.Location = new System.Drawing.Point(668, 293);
+            this.buttonCancelBookReserve.Location = new System.Drawing.Point(795, 542);
             this.buttonCancelBookReserve.Name = "buttonCancelBookReserve";
             this.buttonCancelBookReserve.Size = new System.Drawing.Size(136, 23);
             this.buttonCancelBookReserve.TabIndex = 3;
@@ -64,12 +65,11 @@
             this.Controls.Add(this.buttonCancelBookReserve);
             this.Controls.Add(this.dataGridViewBookReserved);
             this.Name = "ConsultAndCancelBookReservedForm";
-            this.Text = " ";
+            this.Text = " Consult and Cancel Books Reserves";
             this.Load += new System.EventHandler(this.ConsultAndCancelBookReservedForm_Load);
-
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
             this.Controls.SetChildIndex(this.dataGridViewBookReserved, 0);
             this.Controls.SetChildIndex(this.buttonCancelBookReserve, 0);
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReserved)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

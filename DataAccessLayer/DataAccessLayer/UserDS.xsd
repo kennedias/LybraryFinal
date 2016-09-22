@@ -77,7 +77,7 @@ WHERE        (UID = @UID)</CommandText>
               <DbSource ConnectionRef="DB_9AB8B7_5399ConnectionString (Settings)" DbObjectName="DB_9AB8B7_5399.dbo.TabUser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByUserName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetByUserName" GeneratorSourceName="FillByUserName" GetMethodModifier="Public" GetMethodName="GetByUserName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetByUserName" UserSourceName="FillByUserName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        UID, UserName
+                    <CommandText>SELECT        UID, UserName, Password, UserLevel
 FROM            TabUser
 WHERE        (UserName LIKE @USERNAME)</CommandText>
                     <Parameters>
@@ -153,7 +153,7 @@ SELECT UID, UserName, Password, UserLevel FROM TabUser WHERE (UID = @UID)</Comma
   <xs:element name="UserDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="UserDS" msprop:Generator_UserDSName="UserDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TabUser" msprop:Generator_TableClassName="TabUserDataTable" msprop:Generator_TableVarName="tableTabUser" msprop:Generator_TablePropName="TabUser" msprop:Generator_RowDeletingName="TabUserRowDeleting" msprop:Generator_RowChangingName="TabUserRowChanging" msprop:Generator_RowEvHandlerName="TabUserRowChangeEventHandler" msprop:Generator_RowDeletedName="TabUserRowDeleted" msprop:Generator_UserTableName="TabUser" msprop:Generator_RowChangedName="TabUserRowChanged" msprop:Generator_RowEvArgName="TabUserRowChangeEvent" msprop:Generator_RowClassName="TabUserRow">
+        <xs:element name="TabUser" msprop:Generator_TableClassName="TabUserDataTable" msprop:Generator_TableVarName="tableTabUser" msprop:Generator_RowChangedName="TabUserRowChanged" msprop:Generator_TablePropName="TabUser" msprop:Generator_RowDeletingName="TabUserRowDeleting" msprop:Generator_RowChangingName="TabUserRowChanging" msprop:Generator_RowEvHandlerName="TabUserRowChangeEventHandler" msprop:Generator_RowDeletedName="TabUserRowDeleted" msprop:Generator_RowClassName="TabUserRow" msprop:Generator_UserTableName="TabUser" msprop:Generator_RowEvArgName="TabUserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUID" msprop:Generator_ColumnPropNameInRow="UID" msprop:Generator_ColumnPropNameInTable="UIDColumn" msprop:Generator_UserColumnName="UID" type="xs:int" />

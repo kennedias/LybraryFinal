@@ -79,16 +79,16 @@ namespace DataAccessLayer
         /// <summary>
         /// Return registers from Book view filtred by bookName and Author, only bookName or only bookAuthor.
         /// </summary>
-        /// <param name="bookname">string bookname</param>
-        /// <param name="authorname">string authorname</param>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">string author</param>
         /// <returns>BookDS.ViewBookDataTable</returns>
-        public BookDS.ViewBookDataTable GetAllBooksViewByBookNameAndAuthor(string bookname, string authorname)
+        public BookDS.ViewBookDataTable GetAllBooksViewByBookNameAndAuthor(string bookName, string author)
         {
             try
             {
-                bookname = "%" + bookname + "%";
-                authorname = "%" + authorname + "%";
-                _viewBookTableAdapter.FillByBookNameAndAuthorName(_bookDataSet.ViewBook, bookname, authorname);
+                bookName = "%" + bookName + "%";
+                author = "%" + author + "%";
+                _viewBookTableAdapter.FillByBookNameAndAuthorName(_bookDataSet.ViewBook, bookName, author);
                 return _bookDataSet.ViewBook;
             }
             catch (Exception ex)
@@ -324,6 +324,30 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        /// Returns all registers from Available Book view by Book Name And Author.
+        /// </summary>
+        /// <param name="bookname">string bookName</param>
+        /// <param name="authorname">string author</param>
+        /// <returns>BookDS.ViewBookAvailableDataTable</returns>
+        public BookDS.ViewBookAvailableDataTable GetAllBooksAvailableByBookNameAndAuthorView(string bookName, string author)
+        {
+            try
+            {
+                bookName = "%" + bookName + "%";
+                author = "%" + author + "%";
+                _viewBookAvailableTableAdapter.FillAllAvailableBooksByNameAndAuthor(_bookDataSet.ViewBookAvailable, bookName, author);
+                return _bookDataSet.ViewBookAvailable;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Select Count(*) from Book Available View by ISBN.
         /// </summary>
         /// <param name="isbn">string isbn</param>
@@ -446,6 +470,7 @@ namespace DataAccessLayer
         {
             try
             {
+                _bookDataSet = new BookDS();
                 _viewBookReservedTableAdapter.FillAllReservedBooksByUserId(_bookDataSet.ViewBookReserved, userId);
                 return _bookDataSet.ViewBookReserved;
             }
