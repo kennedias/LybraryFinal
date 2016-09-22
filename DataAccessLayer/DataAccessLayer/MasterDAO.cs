@@ -48,8 +48,19 @@ namespace DataAccessLayer
         /// <returns>MasterDS.TabAuthorDataTable</returns>
         public MasterDS.TabAuthorDataTable GetAllAuthors()
         {
-            _tabAuthorTableAdapter.FillAll(_masterDataSet.TabAuthor);
-            return _masterDataSet.TabAuthor;
+            try
+            {
+                _tabAuthorTableAdapter.FillAll(_masterDataSet.TabAuthor);
+                return _masterDataSet.TabAuthor;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -61,7 +72,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int DeleteAuthor(int authorID)
         {
-            return (int)_tabAuthorTableAdapter.DeleteAuthor(authorID);
+            try
+            {
+                return (int)_tabAuthorTableAdapter.DeleteAuthor(authorID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -71,7 +92,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int InsertAuthor(string authorName)
         {
-            return (int)_tabAuthorTableAdapter.InsertAuthor(authorName);
+            try
+            {
+                return (int)_tabAuthorTableAdapter.InsertAuthor(authorName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -81,7 +112,17 @@ namespace DataAccessLayer
         /// <returns>int countResult</returns>
         public int SelectCountUserByAuthorName(string authorName)
         {
-            return (int)_tabAuthorTableAdapter.SelectCountByAuthorName(authorName);
+            try
+            {
+                return (int)_tabAuthorTableAdapter.SelectCountByAuthorName(authorName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -93,7 +134,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int UpdateAuthor(string authorName, int authorID)
         {
-            return (int)_tabAuthorTableAdapter.UpdateAuthor(authorName, authorID);
+            try
+            {
+                return (int)_tabAuthorTableAdapter.UpdateAuthor(authorName, authorID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -106,8 +157,18 @@ namespace DataAccessLayer
         /// <returns>MasterDS.TabCategoryDataTable</returns>
         public MasterDS.TabCategoryDataTable GetAllCategories()
         {
-            _tabCategoryTableAdapter.FillAll(_masterDataSet.TabCategory);
-            return _masterDataSet.TabCategory;
+            try
+            {
+                _tabCategoryTableAdapter.FillAll(_masterDataSet.TabCategory);
+                return _masterDataSet.TabCategory;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -119,7 +180,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int DeleteCategory(int categoryID)
         {
-            return (int)_tabCategoryTableAdapter.DeleteCategory(categoryID);
+            try
+            {
+                return (int)_tabCategoryTableAdapter.DeleteCategory(categoryID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -129,7 +200,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int InsertCategory(string categoryName)
         {
-            return (int)_tabCategoryTableAdapter.InsertCategory(categoryName);
+            try
+            {
+                return (int)_tabCategoryTableAdapter.InsertCategory(categoryName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -139,7 +220,17 @@ namespace DataAccessLayer
         /// <returns>int countResult</returns>
         public int SelectCountUserByCategoryName(string categoryName)
         {
-            return (int)_tabCategoryTableAdapter.SelectCountByCategoryName(categoryName);
+            try
+            {
+                return (int)_tabCategoryTableAdapter.SelectCountByCategoryName(categoryName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -151,7 +242,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int UpdateCategory(string categoryName, int authorID)
         {
-            return (int)_tabCategoryTableAdapter.UpdateCategory(categoryName, authorID);
+            try
+            {
+                return (int)_tabCategoryTableAdapter.UpdateCategory(categoryName, authorID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -164,8 +265,18 @@ namespace DataAccessLayer
         /// <returns>MasterDS.TabLanguageDataTable</returns>
         public MasterDS.TabLanguageDataTable GetAllLanguages()
         {
-            _tabLanguageTableAdapter.FillAll(_masterDataSet.TabLanguage);
-            return _masterDataSet.TabLanguage;
+            try
+            {
+                _tabLanguageTableAdapter.FillAll(_masterDataSet.TabLanguage);
+                return _masterDataSet.TabLanguage;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -177,7 +288,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int DeleteLanguage(int languageID)
         {
-            return (int)_tabLanguageTableAdapter.DeleteLanguage(languageID);
+            try
+            {
+                return (int)_tabLanguageTableAdapter.DeleteLanguage(languageID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -187,7 +308,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int InsertLanguage(string languageName)
         {
-            return (int)_tabLanguageTableAdapter.InsertLanguage(languageName);
+            try
+            {
+                return (int)_tabLanguageTableAdapter.InsertLanguage(languageName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -197,7 +328,17 @@ namespace DataAccessLayer
         /// <returns>int countResult</returns>
         public int SelectCountUserByLanguageName(string languageName)
         {
-            return (int)_tabLanguageTableAdapter.SelectCountByLanguageName(languageName);
+            try
+            {
+                return (int)_tabLanguageTableAdapter.SelectCountByLanguageName(languageName);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -209,7 +350,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int UpdateLanguage(string languageName, int languageID)
         {
-            return (int)_tabLanguageTableAdapter.UpdateLanguage(languageName, languageID);
+            try
+            {
+                return (int)_tabLanguageTableAdapter.UpdateLanguage(languageName, languageID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
     }

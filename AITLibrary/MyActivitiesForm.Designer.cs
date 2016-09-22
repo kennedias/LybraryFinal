@@ -32,10 +32,11 @@
             this.radioButtonReserved = new System.Windows.Forms.RadioButton();
             this.radioButtonBorrowed = new System.Windows.Forms.RadioButton();
             this.dataGridViewUserBookActivity = new System.Windows.Forms.DataGridView();
-            this.groupBoxSystemMessage.SuspendLayout();
+
             this.groupBoxMyBooksActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserBookActivity)).BeginInit();
             this.SuspendLayout();
+
             // 
             // groupBoxMyBooksActivity
             // 
@@ -81,23 +82,22 @@
             this.dataGridViewUserBookActivity.Location = new System.Drawing.Point(12, 83);
             this.dataGridViewUserBookActivity.Name = "dataGridViewUserBookActivity";
             this.dataGridViewUserBookActivity.ReadOnly = true;
-            this.dataGridViewUserBookActivity.Size = new System.Drawing.Size(1044, 475);
+            this.dataGridViewUserBookActivity.Size = new System.Drawing.Size(960, 475);
             this.dataGridViewUserBookActivity.TabIndex = 4;
             // 
             // MyActivitiesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 634);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.dataGridViewUserBookActivity);
             this.Controls.Add(this.groupBoxMyBooksActivity);
             this.Name = "MyActivitiesForm";
             this.Text = "MyActivitiesForm";
-            this.Controls.SetChildIndex(this.groupBoxSystemMessage, 0);
+
             this.Controls.SetChildIndex(this.groupBoxMyBooksActivity, 0);
             this.Controls.SetChildIndex(this.dataGridViewUserBookActivity, 0);
-            this.groupBoxSystemMessage.ResumeLayout(false);
-            this.groupBoxSystemMessage.PerformLayout();
+
             this.groupBoxMyBooksActivity.ResumeLayout(false);
             this.groupBoxMyBooksActivity.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserBookActivity)).EndInit();

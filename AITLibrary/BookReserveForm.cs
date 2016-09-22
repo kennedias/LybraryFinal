@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class BookReserveForm : LybraryBaseForm
+    public partial class BookReserveForm : LybraryTemplateForm
     {
         public BookReserveForm()
         {
@@ -99,17 +99,13 @@ namespace AITLibrary
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
                     labelSystemMessage.Text = ex.Message;
                 }
-
-
-
-
             }
             else
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
                 labelSystemMessage.Text = "You need to select a book first.";
             }
-           // 
+           
             
         }
 

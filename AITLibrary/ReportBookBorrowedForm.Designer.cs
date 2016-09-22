@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
+
             // 
             // dataGridView1
             // 
@@ -48,11 +50,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ReportBookBorrowedForm";
             this.Text = "ReportBookBorrowedForm";
+
             this.Controls.SetChildIndex(this.dataGridView1, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

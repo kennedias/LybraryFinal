@@ -11,7 +11,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ConsultAndCancelBookReservedForm : LybraryBaseForm
+    public partial class ConsultAndCancelBookReservedForm : LybraryTemplateForm
     {
         public ConsultAndCancelBookReservedForm()
         {
@@ -30,6 +30,9 @@ namespace AITLibrary
                     String isbn = dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
                     labelSystemMessage.Text = isbn;
                     int reserveId = 0;
+
+                    
+
 
                     BookLogic bookLogic = new BookLogic();
                     int resultOperation = bookLogic.DeleteBookReserved(reserveId);
@@ -67,6 +70,10 @@ namespace AITLibrary
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
                 labelSystemMessage.Text = "There are no book reserved.";
+            }
+            else
+            {
+                dataGridViewBookReserved.Columns["UserName"].Visible = false;
             }
         }
     }

@@ -43,9 +43,19 @@ namespace DataAccessLayer
         /// <returns>UserDS.TabUserDataTable</returns>
         public UserDS.TabUserDataTable GetAllUser()
         {
-            _userDataSet = new UserDS();
-            _tabUserTableAdapter.FillAllUsers(_userDataSet.TabUser);
-            return _userDataSet.TabUser;
+            try
+            {
+                _userDataSet = new UserDS();
+                _tabUserTableAdapter.FillAllUsers(_userDataSet.TabUser);
+                return _userDataSet.TabUser;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -56,9 +66,19 @@ namespace DataAccessLayer
         /// <returns>UserDS.TabUserDataTable</returns>
         public UserDS.TabUserDataTable GetLogin(string userName, string password)
         {
-            _userDataSet = new UserDS();
-            _tabUserTableAdapter.FillByUserNamePassword(_userDataSet.TabUser, userName, password);
-            return _userDataSet.TabUser;
+            try
+            {
+                _userDataSet = new UserDS();
+                _tabUserTableAdapter.FillByUserNamePassword(_userDataSet.TabUser, userName, password);
+                return _userDataSet.TabUser;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -68,7 +88,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int DeleteUser(int userId)
         {
-            return _tabUserTableAdapter.DeleteUser(userId);
+            try
+            {
+                return _tabUserTableAdapter.DeleteUser(userId);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -80,7 +110,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int InsertUser(string userName, string userPassword, int userLevel)
         {
-            return _tabUserTableAdapter.InsertUser(userName, userPassword, userLevel);
+            try
+            {
+                return _tabUserTableAdapter.InsertUser(userName, userPassword, userLevel);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,7 +133,17 @@ namespace DataAccessLayer
         /// <returns>int rowsAffected</returns>
         public int UpdateUser(string userName, string userPassword, int userLevel, int userId)
         {
-            return _tabUserTableAdapter.UpdateUser(userName, userPassword, userLevel, userId);
+            try
+            {
+                return _tabUserTableAdapter.UpdateUser(userName, userPassword, userLevel, userId);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -105,7 +155,17 @@ namespace DataAccessLayer
         /// <returns>int countResult</returns>
         public int SelectCountUserByName(string userName, int userID)
         {
-            return (int)_tabUserTableAdapter.SelectCountUserByName(userName, userID);
+            try
+            {
+                return (int)_tabUserTableAdapter.SelectCountUserByName(userName, userID);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -121,23 +181,13 @@ namespace DataAccessLayer
                 _tabUserTableAdapter.FillByUserName(_userDataSet.TabUser, userName);
                 return _userDataSet.TabUser;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
-            catch
-            {
-                throw;
-            }
-
-
-
-
-
         }
-
-
     }
 }

@@ -30,27 +30,31 @@
         {
             this.dataGridViewBooksBorrowed = new System.Windows.Forms.DataGridView();
             this.groupBoxReturnBook = new System.Windows.Forms.GroupBox();
+            this.buttonSearchBorroedBook = new System.Windows.Forms.Button();
             this.textBoxBookName = new System.Windows.Forms.TextBox();
             this.labelBookName = new System.Windows.Forms.Label();
             this.labelSearchBy = new System.Windows.Forms.Label();
             this.labelOrBookSearch = new System.Windows.Forms.Label();
             this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.labelISBN = new System.Windows.Forms.Label();
-            this.buttonSearchBorroedBook = new System.Windows.Forms.Button();
             this.buttonReturnBook = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooksBorrowed)).BeginInit();
             this.groupBoxReturnBook.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // dataGridViewBooksBorrowed
             // 
             this.dataGridViewBooksBorrowed.AllowUserToAddRows = false;
             this.dataGridViewBooksBorrowed.AllowUserToDeleteRows = false;
+            this.dataGridViewBooksBorrowed.AllowUserToOrderColumns = true;
             this.dataGridViewBooksBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBooksBorrowed.Location = new System.Drawing.Point(226, 62);
             this.dataGridViewBooksBorrowed.Name = "dataGridViewBooksBorrowed";
             this.dataGridViewBooksBorrowed.ReadOnly = true;
-            this.dataGridViewBooksBorrowed.Size = new System.Drawing.Size(818, 143);
+            this.dataGridViewBooksBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBooksBorrowed.Size = new System.Drawing.Size(746, 143);
             this.dataGridViewBooksBorrowed.TabIndex = 2;
             // 
             // groupBoxReturnBook
@@ -68,6 +72,16 @@
             this.groupBoxReturnBook.TabIndex = 3;
             this.groupBoxReturnBook.TabStop = false;
             this.groupBoxReturnBook.Text = "Borrowed Book Search";
+            // 
+            // buttonSearchBorroedBook
+            // 
+            this.buttonSearchBorroedBook.Location = new System.Drawing.Point(103, 119);
+            this.buttonSearchBorroedBook.Name = "buttonSearchBorroedBook";
+            this.buttonSearchBorroedBook.Size = new System.Drawing.Size(100, 23);
+            this.buttonSearchBorroedBook.TabIndex = 12;
+            this.buttonSearchBorroedBook.Text = "Search";
+            this.buttonSearchBorroedBook.UseVisualStyleBackColor = true;
+            this.buttonSearchBorroedBook.Click += new System.EventHandler(this.buttonSearchBorroedBook_Click);
             // 
             // textBoxBookName
             // 
@@ -119,15 +133,6 @@
             this.labelISBN.TabIndex = 6;
             this.labelISBN.Text = "ISBN";
             // 
-            // buttonSearchBorroedBook
-            // 
-            this.buttonSearchBorroedBook.Location = new System.Drawing.Point(103, 119);
-            this.buttonSearchBorroedBook.Name = "buttonSearchBorroedBook";
-            this.buttonSearchBorroedBook.Size = new System.Drawing.Size(100, 23);
-            this.buttonSearchBorroedBook.TabIndex = 12;
-            this.buttonSearchBorroedBook.Text = "Search";
-            this.buttonSearchBorroedBook.UseVisualStyleBackColor = true;
-            // 
             // buttonReturnBook
             // 
             this.buttonReturnBook.Location = new System.Drawing.Point(115, 212);
@@ -141,15 +146,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.buttonReturnBook);
             this.Controls.Add(this.groupBoxReturnBook);
             this.Controls.Add(this.dataGridViewBooksBorrowed);
             this.Name = "ReturnBookForm";
             this.Text = "ReturnBookForm";
+
             this.Controls.SetChildIndex(this.dataGridViewBooksBorrowed, 0);
             this.Controls.SetChildIndex(this.groupBoxReturnBook, 0);
             this.Controls.SetChildIndex(this.buttonReturnBook, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBooksBorrowed)).EndInit();
             this.groupBoxReturnBook.ResumeLayout(false);
             this.groupBoxReturnBook.PerformLayout();

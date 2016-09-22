@@ -30,8 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxActivity = new System.Windows.Forms.GroupBox();
-            this.radioBorrowed = new System.Windows.Forms.RadioButton();
             this.radioButtonReserved = new System.Windows.Forms.RadioButton();
+            this.radioBorrowed = new System.Windows.Forms.RadioButton();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxActivity.SuspendLayout();
             this.SuspendLayout();
@@ -59,17 +60,6 @@
             this.groupBoxActivity.TabStop = false;
             this.groupBoxActivity.Text = "Activity";
             // 
-            // radioBorrowed
-            // 
-            this.radioBorrowed.AutoSize = true;
-            this.radioBorrowed.Location = new System.Drawing.Point(6, 19);
-            this.radioBorrowed.Name = "radioBorrowed";
-            this.radioBorrowed.Size = new System.Drawing.Size(70, 17);
-            this.radioBorrowed.TabIndex = 0;
-            this.radioBorrowed.TabStop = true;
-            this.radioBorrowed.Text = "Borrowed";
-            this.radioBorrowed.UseVisualStyleBackColor = true;
-            // 
             // radioButtonReserved
             // 
             this.radioButtonReserved.AutoSize = true;
@@ -81,17 +71,30 @@
             this.radioButtonReserved.Text = "Reserved";
             this.radioButtonReserved.UseVisualStyleBackColor = true;
             // 
-            // BooksBorrowedForm
+            // radioBorrowed
+            // 
+            this.radioBorrowed.AutoSize = true;
+            this.radioBorrowed.Location = new System.Drawing.Point(6, 19);
+            this.radioBorrowed.Name = "radioBorrowed";
+            this.radioBorrowed.Size = new System.Drawing.Size(70, 17);
+            this.radioBorrowed.TabIndex = 0;
+            this.radioBorrowed.TabStop = true;
+            this.radioBorrowed.Text = "Borrowed";
+            this.radioBorrowed.UseVisualStyleBackColor = true;
+            // 
+            // BooksBorrowedAndReservedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxActivity);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "BooksBorrowedForm";
+            this.Name = "BooksBorrowedAndReservedForm";
             this.Text = "BooksBorrowedForm";
+
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.groupBoxActivity, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxActivity.ResumeLayout(false);
             this.groupBoxActivity.PerformLayout();

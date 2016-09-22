@@ -52,12 +52,6 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookBrowseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookBrowseForm.Designer.cs">
-      <DependentUpon>BookBrowseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="BookMaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +112,12 @@
     <Compile Include="LybraryPrincipalForm.Designer.cs">
       <DependentUpon>LybraryPrincipalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LybraryTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LybraryTemplateForm.Designer.cs">
+      <DependentUpon>LybraryTemplateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MasterInformationMaintenanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,9 +165,6 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookBrowseForm.resx">
-      <DependentUpon>BookBrowseForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="BookMaintenanceForm.resx">
       <DependentUpon>BookMaintenanceForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LybraryBaseForm.resx">
       <DependentUpon>LybraryBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LybraryTemplateForm.resx">
+      <DependentUpon>LybraryTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterInformationMaintenanceForm.resx">
       <DependentUpon>MasterInformationMaintenanceForm.cs</DependentUpon>

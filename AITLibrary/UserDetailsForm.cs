@@ -21,7 +21,7 @@ namespace AITLibrary
     /// <summary>
     ///  Form for maintenance of User details by the User logged.
     /// </summary>
-    public partial class UserDetailsForm : LybraryBaseForm
+    public partial class UserDetailsForm : LybraryTemplateForm
     {
         public UserDetailsForm()
         {

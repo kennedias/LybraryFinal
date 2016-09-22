@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class MyActivitiesForm : LybraryBaseForm
+    public partial class MyActivitiesForm : LybraryTemplateForm
     {
         public MyActivitiesForm()
         {
@@ -32,6 +32,9 @@ namespace AITLibrary
         {
             labelSystemMessage.Text = "";
             labelSystemMessage.Text = "Reserved";
+
+            BookLogic bookLogic = new BookLogic();
+            dataGridViewUserBookActivity.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
         }
     }
 }

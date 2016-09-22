@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace AITLibrary
 {
-    public partial class LybraryBaseForm : LybraryPrincipalForm
+    public partial class LybraryTemplateForm : LybraryPrincipalForm
     {
-        public LybraryBaseForm()
+        public LybraryTemplateForm()
         {
             InitializeComponent();
         }
@@ -122,7 +122,7 @@ namespace AITLibrary
 
         private void OpenBookBrowseForm()
         {
-           // Application.Run(new BookBrowseForm());
+          //  Application.Run(new BookBrowseForm());
         }
 
         private void viewBorrowedReservedToolStripMenuItem_Click(object sender, EventArgs e)

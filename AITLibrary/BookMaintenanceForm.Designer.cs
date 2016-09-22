@@ -29,17 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBoxUserMaintenance = new System.Windows.Forms.GroupBox();
+            this.textBoxPublisher = new System.Windows.Forms.TextBox();
+            this.labelPublisher = new System.Windows.Forms.Label();
+            this.textBoxPages = new System.Windows.Forms.TextBox();
+            this.labelPages = new System.Windows.Forms.Label();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
+            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
+            this.labelCategory = new System.Windows.Forms.Label();
             this.comboBoxAuthor = new System.Windows.Forms.ComboBox();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.textBoxYear = new System.Windows.Forms.TextBox();
             this.labelYear = new System.Windows.Forms.Label();
             this.textBoxISBNMaintenace = new System.Windows.Forms.TextBox();
+            this.textBoxNameMaintenance = new System.Windows.Forms.TextBox();
+            this.labelNameMaintenance = new System.Windows.Forms.Label();
             this.labelISBNMaintenance = new System.Windows.Forms.Label();
             this.radioButtonDelete = new System.Windows.Forms.RadioButton();
             this.radioUpdate = new System.Windows.Forms.RadioButton();
             this.radioInsert = new System.Windows.Forms.RadioButton();
-            this.textBoxNameMaintenance = new System.Windows.Forms.TextBox();
-            this.labelNameMaintenance = new System.Windows.Forms.Label();
             this.buttonExecute = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBoxBookSearch = new System.Windows.Forms.GroupBox();
@@ -50,18 +58,15 @@
             this.labelOrStudentSearch = new System.Windows.Forms.Label();
             this.labelBookName = new System.Windows.Forms.Label();
             this.labelSearchStudentby = new System.Windows.Forms.Label();
-            this.comboBoxCategory = new System.Windows.Forms.ComboBox();
-            this.labelCategory = new System.Windows.Forms.Label();
-            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
-            this.labelLanguage = new System.Windows.Forms.Label();
-            this.textBoxPages = new System.Windows.Forms.TextBox();
-            this.labelPages = new System.Windows.Forms.Label();
-            this.textBoxPublisher = new System.Windows.Forms.TextBox();
-            this.labelPublisher = new System.Windows.Forms.Label();
+            
             this.groupBoxUserMaintenance.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxBookSearch.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBoxSystemMessage
+            // 
+            
             // 
             // groupBoxUserMaintenance
             // 
@@ -91,6 +96,81 @@
             this.groupBoxUserMaintenance.TabIndex = 19;
             this.groupBoxUserMaintenance.TabStop = false;
             this.groupBoxUserMaintenance.Text = "Book Maintenance ";
+            // 
+            // textBoxPublisher
+            // 
+            this.textBoxPublisher.Location = new System.Drawing.Point(386, 106);
+            this.textBoxPublisher.Name = "textBoxPublisher";
+            this.textBoxPublisher.Size = new System.Drawing.Size(230, 20);
+            this.textBoxPublisher.TabIndex = 26;
+            // 
+            // labelPublisher
+            // 
+            this.labelPublisher.AutoSize = true;
+            this.labelPublisher.Location = new System.Drawing.Point(335, 109);
+            this.labelPublisher.Name = "labelPublisher";
+            this.labelPublisher.Size = new System.Drawing.Size(50, 13);
+            this.labelPublisher.TabIndex = 25;
+            this.labelPublisher.Text = "Publisher";
+            // 
+            // textBoxPages
+            // 
+            this.textBoxPages.Location = new System.Drawing.Point(386, 78);
+            this.textBoxPages.MaxLength = 5;
+            this.textBoxPages.Name = "textBoxPages";
+            this.textBoxPages.Size = new System.Drawing.Size(41, 20);
+            this.textBoxPages.TabIndex = 24;
+            // 
+            // labelPages
+            // 
+            this.labelPages.AutoSize = true;
+            this.labelPages.Location = new System.Drawing.Point(346, 81);
+            this.labelPages.Name = "labelPages";
+            this.labelPages.Size = new System.Drawing.Size(37, 13);
+            this.labelPages.TabIndex = 23;
+            this.labelPages.Text = "Pages";
+            // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Items.AddRange(new object[] {
+            "Administrator",
+            "Supervisor",
+            "User"});
+            this.comboBoxLanguage.Location = new System.Drawing.Point(105, 105);
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.comboBoxLanguage.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxLanguage.TabIndex = 22;
+            // 
+            // labelLanguage
+            // 
+            this.labelLanguage.AutoSize = true;
+            this.labelLanguage.Location = new System.Drawing.Point(51, 108);
+            this.labelLanguage.Name = "labelLanguage";
+            this.labelLanguage.Size = new System.Drawing.Size(55, 13);
+            this.labelLanguage.TabIndex = 21;
+            this.labelLanguage.Text = "Language";
+            // 
+            // comboBoxCategory
+            // 
+            this.comboBoxCategory.FormattingEnabled = true;
+            this.comboBoxCategory.Items.AddRange(new object[] {
+            "Administrator",
+            "Supervisor",
+            "User"});
+            this.comboBoxCategory.Location = new System.Drawing.Point(105, 78);
+            this.comboBoxCategory.Name = "comboBoxCategory";
+            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCategory.TabIndex = 20;
+            // 
+            // labelCategory
+            // 
+            this.labelCategory.AutoSize = true;
+            this.labelCategory.Location = new System.Drawing.Point(55, 81);
+            this.labelCategory.Name = "labelCategory";
+            this.labelCategory.Size = new System.Drawing.Size(49, 13);
+            this.labelCategory.TabIndex = 19;
+            this.labelCategory.Text = "Category";
             // 
             // comboBoxAuthor
             // 
@@ -137,6 +217,22 @@
             this.textBoxISBNMaintenace.Size = new System.Drawing.Size(230, 20);
             this.textBoxISBNMaintenace.TabIndex = 14;
             // 
+            // textBoxNameMaintenance
+            // 
+            this.textBoxNameMaintenance.Location = new System.Drawing.Point(386, 25);
+            this.textBoxNameMaintenance.Name = "textBoxNameMaintenance";
+            this.textBoxNameMaintenance.Size = new System.Drawing.Size(230, 20);
+            this.textBoxNameMaintenance.TabIndex = 9;
+            // 
+            // labelNameMaintenance
+            // 
+            this.labelNameMaintenance.AutoSize = true;
+            this.labelNameMaintenance.Location = new System.Drawing.Point(345, 28);
+            this.labelNameMaintenance.Name = "labelNameMaintenance";
+            this.labelNameMaintenance.Size = new System.Drawing.Size(35, 13);
+            this.labelNameMaintenance.TabIndex = 8;
+            this.labelNameMaintenance.Text = "Name";
+            // 
             // labelISBNMaintenance
             // 
             this.labelISBNMaintenance.AutoSize = true;
@@ -179,22 +275,6 @@
             this.radioInsert.Text = "Insert";
             this.radioInsert.UseVisualStyleBackColor = true;
             // 
-            // textBoxNameMaintenance
-            // 
-            this.textBoxNameMaintenance.Location = new System.Drawing.Point(386, 25);
-            this.textBoxNameMaintenance.Name = "textBoxNameMaintenance";
-            this.textBoxNameMaintenance.Size = new System.Drawing.Size(230, 20);
-            this.textBoxNameMaintenance.TabIndex = 9;
-            // 
-            // labelNameMaintenance
-            // 
-            this.labelNameMaintenance.AutoSize = true;
-            this.labelNameMaintenance.Location = new System.Drawing.Point(345, 28);
-            this.labelNameMaintenance.Name = "labelNameMaintenance";
-            this.labelNameMaintenance.Size = new System.Drawing.Size(35, 13);
-            this.labelNameMaintenance.TabIndex = 8;
-            this.labelNameMaintenance.Text = "Name";
-            // 
             // buttonExecute
             // 
             this.buttonExecute.Location = new System.Drawing.Point(367, 168);
@@ -212,7 +292,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(242, 36);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(817, 134);
+            this.dataGridView1.Size = new System.Drawing.Size(730, 134);
             this.dataGridView1.TabIndex = 18;
             // 
             // groupBoxBookSearch
@@ -290,86 +370,11 @@
             this.labelSearchStudentby.TabIndex = 8;
             this.labelSearchStudentby.Text = "Search Book by:";
             // 
-            // comboBoxCategory
-            // 
-            this.comboBoxCategory.FormattingEnabled = true;
-            this.comboBoxCategory.Items.AddRange(new object[] {
-            "Administrator",
-            "Supervisor",
-            "User"});
-            this.comboBoxCategory.Location = new System.Drawing.Point(105, 78);
-            this.comboBoxCategory.Name = "comboBoxCategory";
-            this.comboBoxCategory.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCategory.TabIndex = 20;
-            // 
-            // labelCategory
-            // 
-            this.labelCategory.AutoSize = true;
-            this.labelCategory.Location = new System.Drawing.Point(55, 81);
-            this.labelCategory.Name = "labelCategory";
-            this.labelCategory.Size = new System.Drawing.Size(49, 13);
-            this.labelCategory.TabIndex = 19;
-            this.labelCategory.Text = "Category";
-            // 
-            // comboBoxLanguage
-            // 
-            this.comboBoxLanguage.FormattingEnabled = true;
-            this.comboBoxLanguage.Items.AddRange(new object[] {
-            "Administrator",
-            "Supervisor",
-            "User"});
-            this.comboBoxLanguage.Location = new System.Drawing.Point(105, 105);
-            this.comboBoxLanguage.Name = "comboBoxLanguage";
-            this.comboBoxLanguage.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxLanguage.TabIndex = 22;
-            // 
-            // labelLanguage
-            // 
-            this.labelLanguage.AutoSize = true;
-            this.labelLanguage.Location = new System.Drawing.Point(51, 108);
-            this.labelLanguage.Name = "labelLanguage";
-            this.labelLanguage.Size = new System.Drawing.Size(55, 13);
-            this.labelLanguage.TabIndex = 21;
-            this.labelLanguage.Text = "Language";
-            // 
-            // textBoxPages
-            // 
-            this.textBoxPages.Location = new System.Drawing.Point(386, 78);
-            this.textBoxPages.MaxLength = 5;
-            this.textBoxPages.Name = "textBoxPages";
-            this.textBoxPages.Size = new System.Drawing.Size(41, 20);
-            this.textBoxPages.TabIndex = 24;
-            // 
-            // labelPages
-            // 
-            this.labelPages.AutoSize = true;
-            this.labelPages.Location = new System.Drawing.Point(346, 81);
-            this.labelPages.Name = "labelPages";
-            this.labelPages.Size = new System.Drawing.Size(37, 13);
-            this.labelPages.TabIndex = 23;
-            this.labelPages.Text = "Pages";
-            // 
-            // textBoxPublisher
-            // 
-            this.textBoxPublisher.Location = new System.Drawing.Point(386, 106);
-            this.textBoxPublisher.Name = "textBoxPublisher";
-            this.textBoxPublisher.Size = new System.Drawing.Size(230, 20);
-            this.textBoxPublisher.TabIndex = 26;
-            // 
-            // labelPublisher
-            // 
-            this.labelPublisher.AutoSize = true;
-            this.labelPublisher.Location = new System.Drawing.Point(335, 109);
-            this.labelPublisher.Name = "labelPublisher";
-            this.labelPublisher.Size = new System.Drawing.Size(50, 13);
-            this.labelPublisher.TabIndex = 25;
-            this.labelPublisher.Text = "Publisher";
-            // 
             // BookMaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxUserMaintenance);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxBookSearch);

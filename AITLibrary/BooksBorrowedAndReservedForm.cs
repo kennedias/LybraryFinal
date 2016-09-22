@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AITLibrary
 {
-    public partial class BooksBorrowedAndReservedForm : LybraryBaseForm
+    public partial class BooksBorrowedAndReservedForm : LybraryTemplateForm
     {
         public BooksBorrowedAndReservedForm()
         {

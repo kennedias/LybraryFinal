@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ReportBookBorrowedForm : LybraryBaseForm
+    public partial class ReportBookBorrowedForm : LybraryTemplateForm
     {
         public ReportBookBorrowedForm()
         {

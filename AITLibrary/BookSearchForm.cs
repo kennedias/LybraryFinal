@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class BookSearchForm : LybraryBaseForm
+    public partial class BookSearchForm : LybraryTemplateForm
     {
         public BookSearchForm()
         {

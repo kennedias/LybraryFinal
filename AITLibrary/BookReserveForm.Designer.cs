@@ -44,6 +44,7 @@
             this.groupBoxSearchBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.SuspendLayout();
+
             // 
             // groupBoxSearchBooks
             // 
@@ -164,7 +165,7 @@
             this.dataGridViewListBooks.Name = "dataGridViewListBooks";
             this.dataGridViewListBooks.ReadOnly = true;
             this.dataGridViewListBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewListBooks.Size = new System.Drawing.Size(817, 357);
+            this.dataGridViewListBooks.Size = new System.Drawing.Size(738, 357);
             this.dataGridViewListBooks.TabIndex = 5;
             // 
             // buttonReserve
@@ -181,15 +182,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.buttonReserve);
             this.Controls.Add(this.dataGridViewListBooks);
             this.Controls.Add(this.groupBoxSearchBooks);
             this.Name = "BookReserveForm";
             this.Text = "BookReserveForm";
+
             this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
             this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.buttonReserve, 0);
+
             this.groupBoxSearchBooks.ResumeLayout(false);
             this.groupBoxSearchBooks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();

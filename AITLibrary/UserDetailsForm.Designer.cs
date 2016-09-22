@@ -35,8 +35,10 @@
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.labelUserLevel = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
+
             this.groupBoxUserInformation.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // groupBoxUserInformation
             // 
@@ -114,12 +116,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1032, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxUserInformation);
             this.Name = "UserDetailsForm";
             this.Text = "UserDetailsForm";
             this.Load += new System.EventHandler(this.UserDetailsForm_Load);
+
             this.Controls.SetChildIndex(this.groupBoxUserInformation, 0);
+
             this.groupBoxUserInformation.ResumeLayout(false);
             this.groupBoxUserInformation.PerformLayout();
             this.ResumeLayout(false);

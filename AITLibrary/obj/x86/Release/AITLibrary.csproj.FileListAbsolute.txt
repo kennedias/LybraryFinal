@@ -61,14 +61,13 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLib
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookReserveForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ConsultAndCancelBookReservedForm.resources
 C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.exe
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookBrowseForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookMaintenanceForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookSearchForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BooksBorrowedAndReservedForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BorrowBookForm.resources
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.MyActivityForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.MasterInformationMaintenanceForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ReportBookBorrowedForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ReturnBookForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.UserMaintenanceForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.MyActivitiesForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.LybraryTemplateForm.resources

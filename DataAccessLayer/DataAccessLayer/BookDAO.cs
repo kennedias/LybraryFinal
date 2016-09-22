@@ -61,8 +61,18 @@ namespace DataAccessLayer
         /// <returns>BookDS.ViewBookDataTable</returns>
         public BookDS.ViewBookDataTable GetAllBooksView()
         {
-            _viewBookTableAdapter.FillAllBooks(_bookDataSet.ViewBook);
-            return _bookDataSet.ViewBook;
+            try
+            {
+                _viewBookTableAdapter.FillAllBooks(_bookDataSet.ViewBook);
+                return _bookDataSet.ViewBook;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
 
@@ -74,10 +84,20 @@ namespace DataAccessLayer
         /// <returns>BookDS.ViewBookDataTable</returns>
         public BookDS.ViewBookDataTable GetAllBooksViewByBookNameAndAuthor(string bookname, string authorname)
         {
-            bookname = "%" + bookname + "%";
-            authorname = "%" + authorname + "%";
-            _viewBookTableAdapter.FillByBookNameAndAuthorName(_bookDataSet.ViewBook, bookname, authorname);
-            return _bookDataSet.ViewBook;
+            try
+            {
+                bookname = "%" + bookname + "%";
+                authorname = "%" + authorname + "%";
+                _viewBookTableAdapter.FillByBookNameAndAuthorName(_bookDataSet.ViewBook, bookname, authorname);
+                return _bookDataSet.ViewBook;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -92,15 +112,12 @@ namespace DataAccessLayer
                 _viewBookTableAdapter.FillByISBN(_bookDataSet.ViewBook, isbn);
                 return _bookDataSet.ViewBook;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
-                Console.WriteLine(ex.ToString());                
-                throw;
-            }
-            catch
-            {
-                throw;
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -119,15 +136,12 @@ namespace DataAccessLayer
                 _tabReservedTableAdapter.FillAllReservedBooks(_bookDataSet.TabReserved);
                 return _bookDataSet.TabReserved;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -142,15 +156,12 @@ namespace DataAccessLayer
             {
                 return _tabReservedTableAdapter.DeleteBookReserved(reservedId);
             }
-            catch(SqlException ex)
+            catch (Exception ex)
             {
-                // Log the error
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -167,15 +178,12 @@ namespace DataAccessLayer
                 _tabReservedTableAdapter.FillAllReservedBooksByUserID(_bookDataSet.TabReserved, userId);
                 return _bookDataSet.TabReserved;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -192,15 +200,12 @@ namespace DataAccessLayer
             {
                 return _tabReservedTableAdapter.InsertBookReserve(userId, isbn, reservedDate);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Log the error
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -215,15 +220,12 @@ namespace DataAccessLayer
             {
                 return (int)_tabReservedTableAdapter.SelectCountReservedBookByISBN(isbn);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Log the error
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -242,15 +244,12 @@ namespace DataAccessLayer
                 _tabBorrowTableAdapter.FillAllBooksBorrowed(_bookDataSet.TabBorrow);
                 return _bookDataSet.TabBorrow;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -266,15 +265,12 @@ namespace DataAccessLayer
                 _tabBorrowTableAdapter.FillAllBorrowedBooksByUserID(_bookDataSet.TabBorrow, userId);
                 return _bookDataSet.TabBorrow;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -294,15 +290,12 @@ namespace DataAccessLayer
             {
                 return _tabBorrowTableAdapter.InsertBookBorrowed(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -321,15 +314,12 @@ namespace DataAccessLayer
                 _viewBookAvailableTableAdapter.FillAllBooksAvailable(_bookDataSet.ViewBookAvailable);
                 return _bookDataSet.ViewBookAvailable;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -344,15 +334,12 @@ namespace DataAccessLayer
             {
                 return (int)_viewBookAvailableTableAdapter.SelectCountByISBN(isbn);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Log the error
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -371,15 +358,12 @@ namespace DataAccessLayer
                 _viewBookBorrowedTableAdapter.FillAllBooksBorrowed(_bookDataSet.ViewBookBorrowed);
                 return _bookDataSet.ViewBookBorrowed;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
         #endregion
@@ -397,15 +381,12 @@ namespace DataAccessLayer
                 _viewBookBorrowedWithUserTableAdapter.FillAllBorrowedBooksWithUser(_bookDataSet.ViewBookBorrowedWithUser);
                 return _bookDataSet.ViewBookBorrowedWithUser;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -421,15 +402,12 @@ namespace DataAccessLayer
                 _viewBookBorrowedWithUserTableAdapter.FillAllBorrowedBooksByUserId(_bookDataSet.ViewBookBorrowedWithUser, userId);
                 return _bookDataSet.ViewBookBorrowedWithUser;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -450,15 +428,12 @@ namespace DataAccessLayer
                 _viewBookReservedTableAdapter.FillAllReservedBooks(_bookDataSet.ViewBookReserved);
                 return _bookDataSet.ViewBookReserved;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
@@ -474,24 +449,15 @@ namespace DataAccessLayer
                 _viewBookReservedTableAdapter.FillAllReservedBooksByUserId(_bookDataSet.ViewBookReserved, userId);
                 return _bookDataSet.ViewBookReserved;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
             }
         }
 
-
         #endregion
-
-
-
-
-
     }
 }

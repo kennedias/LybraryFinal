@@ -41,9 +41,11 @@
             this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.labelISBN = new System.Windows.Forms.Label();
             this.labelMessageForUser = new System.Windows.Forms.Label();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.groupBoxSearchBooks.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // dataGridViewListBooks
             // 
@@ -175,19 +177,21 @@
             this.labelMessageForUser.Size = new System.Drawing.Size(0, 16);
             this.labelMessageForUser.TabIndex = 4;
             // 
-            // BookForm
+            // BookSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 429);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.labelMessageForUser);
             this.Controls.Add(this.groupBoxSearchBooks);
             this.Controls.Add(this.dataGridViewListBooks);
-            this.Name = "BookForm";
+            this.Name = "BookSearchForm";
             this.Text = "Book";
+
             this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
             this.Controls.SetChildIndex(this.labelMessageForUser, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();
             this.groupBoxSearchBooks.ResumeLayout(false);
             this.groupBoxSearchBooks.PerformLayout();

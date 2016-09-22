@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class MasterInformationMaintenanceForm : LybraryBaseForm
+    public partial class MasterInformationMaintenanceForm : LybraryTemplateForm
     {
         public MasterInformationMaintenanceForm()
         {

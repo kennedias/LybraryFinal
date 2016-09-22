@@ -30,6 +30,7 @@
         {
             this.dataGridViewBookReserved = new System.Windows.Forms.DataGridView();
             this.buttonCancelBookReserve = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReserved)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,14 +60,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.buttonCancelBookReserve);
             this.Controls.Add(this.dataGridViewBookReserved);
             this.Name = "ConsultAndCancelBookReservedForm";
             this.Text = " ";
             this.Load += new System.EventHandler(this.ConsultAndCancelBookReservedForm_Load);
+
             this.Controls.SetChildIndex(this.dataGridViewBookReserved, 0);
             this.Controls.SetChildIndex(this.buttonCancelBookReserve, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBookReserved)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

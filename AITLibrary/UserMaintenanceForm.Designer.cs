@@ -50,10 +50,12 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonExecute = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxStudentSearch.SuspendLayout();
             this.groupBoxUserMaintenance.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // dataGridView1
             // 
@@ -277,15 +279,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxUserMaintenance);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxStudentSearch);
             this.Name = "UserMaintenanceForm";
             this.Text = "UserMaintenanceForm";
+
             this.Controls.SetChildIndex(this.groupBoxStudentSearch, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.groupBoxUserMaintenance, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxStudentSearch.ResumeLayout(false);
             this.groupBoxStudentSearch.PerformLayout();

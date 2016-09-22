@@ -50,11 +50,13 @@
             this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.labelISBN = new System.Windows.Forms.Label();
             this.dataGridViewListBooks = new System.Windows.Forms.DataGridView();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxStudentSearch.SuspendLayout();
             this.groupBoxSearchBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.SuspendLayout();
+
             // 
             // dataGridView1
             // 
@@ -273,7 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBoxStudentSearch);
             this.Controls.Add(this.buttonBorrowBook);
@@ -281,11 +283,13 @@
             this.Controls.Add(this.dataGridViewListBooks);
             this.Name = "BorrowBookForm";
             this.Text = "BorrowBookForm";
+
             this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
             this.Controls.SetChildIndex(this.buttonBorrowBook, 0);
             this.Controls.SetChildIndex(this.groupBoxStudentSearch, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxStudentSearch.ResumeLayout(false);
             this.groupBoxStudentSearch.PerformLayout();

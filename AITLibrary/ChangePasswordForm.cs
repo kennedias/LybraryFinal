@@ -10,7 +10,7 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ChangePasswordForm : LybraryPrincipalForm
+    public partial class ChangePasswordForm : LybraryTemplateForm
     {
         public ChangePasswordForm()
         {

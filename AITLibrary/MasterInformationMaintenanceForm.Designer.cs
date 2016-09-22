@@ -34,14 +34,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonExecute = new System.Windows.Forms.Button();
             this.groupBoxInformationMaintenance = new System.Windows.Forms.GroupBox();
-            this.labelName = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.radioInsert = new System.Windows.Forms.RadioButton();
-            this.radioUpdate = new System.Windows.Forms.RadioButton();
             this.radioButtonDelete = new System.Windows.Forms.RadioButton();
+            this.radioUpdate = new System.Windows.Forms.RadioButton();
+            this.radioInsert = new System.Windows.Forms.RadioButton();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.labelName = new System.Windows.Forms.Label();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBoxInformationMaintenance.SuspendLayout();
             this.SuspendLayout();
+
             // 
             // comboBox1
             // 
@@ -74,7 +76,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(328, 58);
+            this.dataGridView1.Location = new System.Drawing.Point(323, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(650, 194);
@@ -104,32 +106,16 @@
             this.groupBoxInformationMaintenance.TabStop = false;
             this.groupBoxInformationMaintenance.Text = "Information  Maintenance ";
             // 
-            // labelName
+            // radioButtonDelete
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(7, 20);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(35, 13);
-            this.labelName.TabIndex = 8;
-            this.labelName.Text = "Name";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(49, 20);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(230, 20);
-            this.textBoxName.TabIndex = 9;
-            // 
-            // radioInsert
-            // 
-            this.radioInsert.AutoSize = true;
-            this.radioInsert.Location = new System.Drawing.Point(49, 47);
-            this.radioInsert.Name = "radioInsert";
-            this.radioInsert.Size = new System.Drawing.Size(51, 17);
-            this.radioInsert.TabIndex = 10;
-            this.radioInsert.TabStop = true;
-            this.radioInsert.Text = "Insert";
-            this.radioInsert.UseVisualStyleBackColor = true;
+            this.radioButtonDelete.AutoSize = true;
+            this.radioButtonDelete.Location = new System.Drawing.Point(223, 47);
+            this.radioButtonDelete.Name = "radioButtonDelete";
+            this.radioButtonDelete.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonDelete.TabIndex = 12;
+            this.radioButtonDelete.TabStop = true;
+            this.radioButtonDelete.Text = "Delete";
+            this.radioButtonDelete.UseVisualStyleBackColor = true;
             // 
             // radioUpdate
             // 
@@ -142,22 +128,38 @@
             this.radioUpdate.Text = "Update";
             this.radioUpdate.UseVisualStyleBackColor = true;
             // 
-            // radioButtonDelete
+            // radioInsert
             // 
-            this.radioButtonDelete.AutoSize = true;
-            this.radioButtonDelete.Location = new System.Drawing.Point(223, 47);
-            this.radioButtonDelete.Name = "radioButtonDelete";
-            this.radioButtonDelete.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonDelete.TabIndex = 12;
-            this.radioButtonDelete.TabStop = true;
-            this.radioButtonDelete.Text = "Delete";
-            this.radioButtonDelete.UseVisualStyleBackColor = true;
+            this.radioInsert.AutoSize = true;
+            this.radioInsert.Location = new System.Drawing.Point(49, 47);
+            this.radioInsert.Name = "radioInsert";
+            this.radioInsert.Size = new System.Drawing.Size(51, 17);
+            this.radioInsert.TabIndex = 10;
+            this.radioInsert.TabStop = true;
+            this.radioInsert.Text = "Insert";
+            this.radioInsert.UseVisualStyleBackColor = true;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(49, 20);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(230, 20);
+            this.textBoxName.TabIndex = 9;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(7, 20);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(35, 13);
+            this.labelName.TabIndex = 8;
+            this.labelName.Text = "Name";
             // 
             // MasterInformationMaintenanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 487);
+            this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxInformationMaintenance);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonList);
@@ -165,11 +167,13 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "MasterInformationMaintenanceForm";
             this.Text = "MasterInformationMaintenanceForm";
+
             this.Controls.SetChildIndex(this.comboBox1, 0);
             this.Controls.SetChildIndex(this.labelSelectInformation, 0);
             this.Controls.SetChildIndex(this.buttonList, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
             this.Controls.SetChildIndex(this.groupBoxInformationMaintenance, 0);
+
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBoxInformationMaintenance.ResumeLayout(false);
             this.groupBoxInformationMaintenance.PerformLayout();

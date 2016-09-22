@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AITLibrary
 {
-    public partial class UserMaintenanceForm : LybraryBaseForm
+    public partial class UserMaintenanceForm : LybraryTemplateForm
     {
         public UserMaintenanceForm()
         {

@@ -10,11 +10,24 @@ using BusinessLogic;
 
 namespace AITLibrary
 {
-    public partial class ReturnBookForm : LybraryBaseForm
+    public partial class ReturnBookForm : LybraryTemplateForm
     {
         public ReturnBookForm()
         {
             InitializeComponent();
+        }
+
+        private void buttonSearchBorroedBook_Click(object sender, EventArgs e)
+        {
+          //  labelMessageForUser.Text = "";
+            BookLogic bookLogic = new BookLogic();
+            dataGridViewBooksBorrowed.DataSource = bookLogic.GetAllBooksBorrowedWithUserView();
+
+            if (dataGridViewBooksBorrowed.RowCount == 0)
+            {
+           //     labelMessageForUser.ForeColor = System.Drawing.Color.Red;
+           //     labelMessageForUser.Text = "No matches found.";
+            }
         }
     }
 }

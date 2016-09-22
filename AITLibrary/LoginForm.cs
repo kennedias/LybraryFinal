@@ -57,14 +57,14 @@ namespace AITLibrary
                         
                         System.Threading.Thread threadChangePasswordForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
                         threadChangePasswordForm.Start();
-                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(LybraryBaseForm));
+                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLybraryTemplateForm));
                         threadLybraryBaseForm.Start();
                         this.Close();
                     }
                     else
                     {
 
-                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(LybraryBaseForm));
+                        System.Threading.Thread threadLybraryBaseForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenLybraryTemplateForm));
                         threadLybraryBaseForm.Start();
                         this.Close();
                     }
@@ -78,9 +78,9 @@ namespace AITLibrary
 
         }
 
-        public void LybraryBaseForm()
+        public void OpenLybraryTemplateForm()
         {
-            Application.Run(new LybraryBaseForm());
+            Application.Run(new LybraryTemplateForm());
         }
 
         public void OpenChangePasswordForm()
