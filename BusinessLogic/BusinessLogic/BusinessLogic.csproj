@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookException.cs" />
+    <Compile Include="BusinessLogicException.cs" />
     <Compile Include="BookLogic.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="AppEnum.cs" />
@@ -56,7 +56,6 @@
     </Compile>
     <Compile Include="TabReservedModel.cs" />
     <Compile Include="TabUserModel.cs" />
-    <Compile Include="UserException.cs" />
     <Compile Include="UserLogic.cs" />
     <Compile Include="ViewBookAvailableModel.cs" />
     <Compile Include="ViewBookBorrowedWithUserModel.cs" />

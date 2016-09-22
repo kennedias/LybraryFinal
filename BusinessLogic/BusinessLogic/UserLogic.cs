@@ -40,16 +40,24 @@ namespace BusinessLogic
         /// <returns>List<TabUserModel></returns>
         public List<TabUserModel> GetAllUser()
         {
-            _users = new List<TabUserModel>();
-
-            _tabUserTable = _userDAO.GetAllUser();
-
-            foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
+            try
             {
-                _users.Add(TabUserModel.Parse(row));
+                _users = new List<TabUserModel>();
+                _tabUserTable = _userDAO.GetAllUser();
 
+                foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
+                {
+                    _users.Add(TabUserModel.Parse(row));
+                }
+                return _users;
             }
-            return _users;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -60,18 +68,28 @@ namespace BusinessLogic
         /// <returns>List<TabUserModel></returns>
         public List<TabUserModel> PerformLogin(string username, string password)
         {
-            _users = new List<TabUserModel>();
-
-            if (true)
+            try
             {
-                _tabUserTable = _userDAO.GetLogin(username, password);
+                _users = new List<TabUserModel>();
 
-                foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
+                if (true)
                 {
-                    _users.Add(TabUserModel.Parse(row));
+                    _tabUserTable = _userDAO.GetLogin(username, password);
+
+                    foreach (UserDS.TabUserRow row in _tabUserTable.Rows)
+                    {
+                        _users.Add(TabUserModel.Parse(row));
+                    }
                 }
+                return _users;
             }
-            return _users;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -84,45 +102,33 @@ namespace BusinessLogic
         /// <returns>int rowsAffected</returns>
         public int updateUser(string userName, string password, string userLevelDescription, int userID)
         {
-            int resultQuery;
-
-            resultQuery = _userDAO.SelectCountUserByName(userName, userID);
-
-            if (resultQuery > 0)
-            {
-                throw new UserException("User name is already in use.");
-            }
-
             try
             {
+                int resultQuery;
+
+                resultQuery = _userDAO.SelectCountUserByName(userName, userID);
+
+                if (resultQuery > 0)
+                {
+                    throw new BusinessLogicException("User name is already in use.");
+                }
+
                 resultQuery = 0;
                 int userLevelCode = getUserLevelCodeByLevelDescription(userLevelDescription);
                 resultQuery = _userDAO.UpdateUser(userName, password, userLevelCode, userID);
                 if (resultQuery < 1)
                 {
-                    throw new UserException("No record were updated.");
+                    throw new BusinessLogicException("No record were updated.");
                 }
-
+                return resultQuery;
             }
-
-            catch (FormatException ex)
-            {
-                //logging for admin to be inspect IF TRY TO PASS ABC FOR EXAMPLE
-            }
-
-            catch (UserException ex)
-            {
-
-                //logging for admin to be inspect
-            }
-
             catch (Exception ex)
             {
-                //logging for admin to be inspect
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
-
-            return resultQuery;
-
         }
 
         /// <summary>
@@ -133,22 +139,32 @@ namespace BusinessLogic
         ///<exception cref="UserException">Thrown when user level code is invalid.</exception>
         public String getUserLevelDescriptionByLevelCode(int userLevelCode)
         {
-            string userLevelDescription;
-            switch (userLevelCode)
+            try
             {
-                case Constants.administratorCode:
-                    userLevelDescription = Constants.administratorDescription;
-                    break;
-                case Constants.supervisorCode:
-                    userLevelDescription = Constants.supervisorDescription;
-                    break;
-                case Constants.userCode:
-                    userLevelDescription = Constants.userDescription;
-                    break;
-                default:
-                    throw new UserException("Invalid user level code for the code: " + userLevelCode);
+                string userLevelDescription;
+                switch (userLevelCode)
+                {
+                    case Constants.administratorCode:
+                        userLevelDescription = Constants.administratorDescription;
+                        break;
+                    case Constants.supervisorCode:
+                        userLevelDescription = Constants.supervisorDescription;
+                        break;
+                    case Constants.userCode:
+                        userLevelDescription = Constants.userDescription;
+                        break;
+                    default:
+                        throw new BusinessLogicException("Invalid user level code for the code: " + userLevelCode);
+                }
+                return userLevelDescription;
             }
-            return userLevelDescription;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -159,22 +175,32 @@ namespace BusinessLogic
         ///<exception cref="UserException">Thrown when user level description is invalid.</exception>
         public int getUserLevelCodeByLevelDescription(string userLevelDescription)
         {
-            int userLevelCode;
-            switch (userLevelDescription)
+            try
             {
-                case Constants.administratorDescription:
-                    userLevelCode = Constants.administratorCode;
-                    break;
-                case Constants.supervisorDescription:
-                    userLevelCode = Constants.supervisorCode;
-                    break;
-                case Constants.userDescription:
-                    userLevelCode = Constants.userCode;
-                    break;
-                default:
-                    throw new UserException("Invalid user level description for the description: " + userLevelDescription);
+                int userLevelCode;
+                switch (userLevelDescription)
+                {
+                    case Constants.administratorDescription:
+                        userLevelCode = Constants.administratorCode;
+                        break;
+                    case Constants.supervisorDescription:
+                        userLevelCode = Constants.supervisorCode;
+                        break;
+                    case Constants.userDescription:
+                        userLevelCode = Constants.userCode;
+                        break;
+                    default:
+                        throw new BusinessLogicException("Invalid user level description for the description: " + userLevelDescription);
+                }
+                return userLevelCode;
             }
-            return userLevelCode;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
     }
 }

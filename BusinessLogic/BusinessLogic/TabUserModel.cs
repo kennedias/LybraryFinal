@@ -87,7 +87,7 @@ namespace BusinessLogic
                 else if (userModel.UserLevelCode == Constants.userCode)
                     userModel._userLevelDescription = Constants.userDescription;
                 else
-                    throw new UserException("Invalid user level code for the userID: " + userModel.UserID
+                    throw new BusinessLogicException("Invalid user level code for the userID: " + userModel.UserID
                         + " userName: " + userModel.UserName + " level code: " + row.UserLevel);
 
                 return userModel;

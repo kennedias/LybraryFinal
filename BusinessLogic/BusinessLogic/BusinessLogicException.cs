@@ -1,8 +1,8 @@
-﻿/* Exception used with User data
+﻿/* Exception used with Book data
  * 
  * Project: Assignment 2 - AIT
  * Developer: Kennedy Oliveira - ID 5399
- * Data of release: 07/09/2016
+ * Data of release: 14/09/2016
  * Version: 1.0 - Release
  * 
  */
@@ -14,17 +14,18 @@ using System.Text;
 namespace BusinessLogic
 {
     /// <summary>
-    /// Exceptions related with the User.
+    /// Exceptions related with the Book.
     /// </summary>
-    public class UserException: Exception
+    public class BusinessLogicException: Exception
     {
         /// <summary>
-        /// Exception from User.
+        /// Exception from Book.
         /// </summary>
         /// <param name="message">string message</param>
-        public UserException(string message)
-        : base(message)
+        public BusinessLogicException(string message)
+            : base(message)
         {
         }
     }
+
 }

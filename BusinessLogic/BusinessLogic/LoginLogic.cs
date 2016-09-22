@@ -38,44 +38,54 @@ namespace BusinessLogic
         /// <returns>Boolean</returns>
         public Boolean passwordFormatValidation(string password)
         {
-            Boolean passwordFormatIsValid = false;
-            messageOfValidation = "";
-
-            // Rule for verify if the password contains at least one letter, lowcase or uppercase. 
-            // The mask should go further for constants
-            Regex regexContainLetter = new Regex(characterExpression);
-
-            // Rule for verify if the password contains at least one number.
-            // The mask should go further for constants
-            Regex regexContainNumber = new Regex(numberExpression);
-
-            if (password.Length < passwordMinLenght)
+            try
             {
-                passwordFormatIsValid = false;
-                messageOfValidation = "Password format invalid. It must have at least " + passwordMinLenght + " characters.";
-            }
-            else if (password.Length > passwordMaxLenght)
-            {
-                passwordFormatIsValid = false;
-                messageOfValidation = "Password format invalid. It must have at most " + passwordMaxLenght + " characters.";
-            }
-            else if (regexContainLetter.Matches(password).Count < passwordMinOfLetters) 
-            {
-                passwordFormatIsValid = false;
-                messageOfValidation = "Password format invalid. It must have at least" +passwordMinOfLetters+ " letters.";
-            }
-            else if (regexContainNumber.Matches(password).Count < passwordMinOfNumbers)
-            {
-                passwordFormatIsValid = false;
-                messageOfValidation = "Password format invalid. It must have at least" +passwordMinOfNumbers+ " numbers.";
-            }
-            else //login format is valid
-            {
-                passwordFormatIsValid = true;
+                Boolean passwordFormatIsValid = false;
                 messageOfValidation = "";
-            }
 
-            return passwordFormatIsValid;
+                // Rule for verify if the password contains at least one letter, lowcase or uppercase. 
+                // The mask should go further for constants
+                Regex regexContainLetter = new Regex(characterExpression);
+
+                // Rule for verify if the password contains at least one number.
+                // The mask should go further for constants
+                Regex regexContainNumber = new Regex(numberExpression);
+
+                if (password.Length < passwordMinLenght)
+                {
+                    passwordFormatIsValid = false;
+                    messageOfValidation = "Password format invalid. It must have at least " + passwordMinLenght + " characters.";
+                }
+                else if (password.Length > passwordMaxLenght)
+                {
+                    passwordFormatIsValid = false;
+                    messageOfValidation = "Password format invalid. It must have at most " + passwordMaxLenght + " characters.";
+                }
+                else if (regexContainLetter.Matches(password).Count < passwordMinOfLetters)
+                {
+                    passwordFormatIsValid = false;
+                    messageOfValidation = "Password format invalid. It must have at least" + passwordMinOfLetters + " letters.";
+                }
+                else if (regexContainNumber.Matches(password).Count < passwordMinOfNumbers)
+                {
+                    passwordFormatIsValid = false;
+                    messageOfValidation = "Password format invalid. It must have at least" + passwordMinOfNumbers + " numbers.";
+                }
+                else //login format is valid
+                {
+                    passwordFormatIsValid = true;
+                    messageOfValidation = "";
+                }
+
+                return passwordFormatIsValid;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>

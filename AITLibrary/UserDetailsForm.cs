@@ -30,53 +30,95 @@ namespace AITLibrary
 
         private void buttonChangePassword_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.Text = "";
-            System.Threading.Thread threadForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
-            threadForm.Start();
+            try
+            {
+                labelSystemMessage.Text = "";
+                System.Threading.Thread threadForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
+                threadForm.Start();
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
 
         public void OpenChangePasswordForm()
         {
-            Application.Run(new ChangePasswordForm());
+            try
+            {
+                Application.Run(new ChangePasswordForm());
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
 
         private void UserDetailsForm_Load(object sender, EventArgs e)
         {
-            /* User can not change his User Level */
-            if (staticUserLevelCode == Constants.userCode)
+            try
             {
-                comboBoxUserLevel.Enabled = false;
-            }
+                /* User can not change his User Level */
+                if (staticUserLevelCode == Constants.userCode)
+                {
+                    comboBoxUserLevel.Enabled = false;
+                }
 
-            textBoxUserName.Text = staticUserName;
-            comboBoxUserLevel.SelectedText = staticUserLevelDescription;
+                textBoxUserName.Text = staticUserName;
+                comboBoxUserLevel.SelectedText = staticUserLevelDescription;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
 
         private void buttonSaveUserModification_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.Text = "";
+            try
+            {
+                labelSystemMessage.Text = "";
 
-            if (textBoxUserName.Text == null)
-            {
-                labelSystemMessage.Text = "User Name is blank.";
-            }
-            else
-            {
-                UserLogic userLogic = new UserLogic();
-                int returnOperation = userLogic.updateUser(textBoxUserName.Text, staticUserPassword, comboBoxUserLevel.Text, staticUserID);
-                if (returnOperation < 1)
+                if (textBoxUserName.Text == null)
                 {
-                    labelSystemMessage.Text = "No record were updated!";
-                   // throw new UserException("No record were updated.");
+                    labelSystemMessage.Text = "User Name is blank.";
                 }
                 else
                 {
-                    labelSystemMessage.Text = "Operation completed with success!";
-                    staticUserName = textBoxUserName.Text;
+                    UserLogic userLogic = new UserLogic();
+                    int returnOperation = userLogic.updateUser(textBoxUserName.Text, staticUserPassword, comboBoxUserLevel.Text, staticUserID);
+                    if (returnOperation < 1)
+                    {
+                        labelSystemMessage.Text = "No record were updated!";
+                        // throw new UserException("No record were updated.");
+                    }
+                    else
+                    {
+                        labelSystemMessage.Text = "Operation completed with success!";
+                        staticUserName = textBoxUserName.Text;
+                    }
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
         }
     }
 }

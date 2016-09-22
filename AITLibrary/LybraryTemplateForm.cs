@@ -14,6 +14,10 @@ namespace AITLibrary
         public LybraryTemplateForm()
         {
             InitializeComponent();
+            staticUserID = 1;
+            staticUserName = "user";
+            staticUserLevelCode = 1;
+            staticUserLevelDescription = "User";
         }
 
         private void toolStripMenuItemUserDetails_Click(object sender, EventArgs e)

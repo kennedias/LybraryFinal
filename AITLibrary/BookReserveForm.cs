@@ -94,7 +94,7 @@ namespace AITLibrary
                         labelSystemMessage.Text = "Reserve included with success.";
                     }
                 }
-                catch (BookException ex)
+                catch (BusinessLogicException ex)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
                     labelSystemMessage.Text = ex.Message;

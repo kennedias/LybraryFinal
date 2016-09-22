@@ -56,7 +56,7 @@ namespace AITLibrary
                     int resultQuery = userLogic.updateUser(staticUserName, textBoxNewPassword.Text, staticUserLevelDescription, staticUserID);
                     if (resultQuery < 1)
                     {
-                        throw new UserException("No record were updated.");
+                        throw new BusinessLogicException("No record were updated.");
                     }
                     else
                     {
@@ -71,12 +71,6 @@ namespace AITLibrary
                 catch (FormatException ex)
                 {
                     //logging for admin to be inspect IF TRY TO PASS ABC FOR EXAMPLE
-                }
-
-                catch (UserException ex)
-                {
-
-                    //logging for admin to be inspect
                 }
 
                 catch (Exception ex)

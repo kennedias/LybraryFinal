@@ -31,9 +31,6 @@ namespace AITLibrary
                     labelSystemMessage.Text = isbn;
                     int reserveId = 0;
 
-                    
-
-
                     BookLogic bookLogic = new BookLogic();
                     int resultOperation = bookLogic.DeleteBookReserved(reserveId);
                     if (resultOperation == 0)
@@ -47,10 +44,21 @@ namespace AITLibrary
                         labelSystemMessage.Text = "Reserve canceled with success.";
                     }
                 }
-                catch (BookException ex)
+                catch (BusinessLogicException ex)
                 {
+                    //Error log simulate
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.GetBaseException().ToString());
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = ex.Message;
+                    labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+                }
+                catch (Exception ex)
+                {
+                    //Error log simulate
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(ex.GetBaseException().ToString());
+                    labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                    labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
                 }
             }
             else
@@ -62,18 +70,39 @@ namespace AITLibrary
 
         private void ConsultAndCancelBookReservedForm_Load(object sender, EventArgs e)
         {
-            labelSystemMessage.Text = "";
-            BookLogic bookLogic = new BookLogic();
-            dataGridViewBookReserved.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
+            try
+            {
+                labelSystemMessage.Text = "";
+                BookLogic bookLogic = new BookLogic();
+                dataGridViewBookReserved.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
 
-            if (dataGridViewBookReserved.RowCount == 0)
-            {
-                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "There are no book reserved.";
+                if (dataGridViewBookReserved.RowCount == 0)
+                {
+                    labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                    labelSystemMessage.Text = "There are no book reserved.";
+                }
+                else
+                {
+                    dataGridViewBookReserved.Columns["UserName"].Visible = false;
+                }
             }
-            else
+            catch (BusinessLogicException ex)
             {
-                dataGridViewBookReserved.Columns["UserName"].Visible = false;
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                dataGridViewBookReserved.DataSource = null;
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                dataGridViewBookReserved.DataSource = null;
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
             }
         }
     }

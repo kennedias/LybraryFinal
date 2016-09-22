@@ -1,4 +1,4 @@
-﻿/* Contains all business logic of Book 
+﻿ /* Contains all business logic of Book 
  * 
  * Project: Assignment 1 - AIT
  * Developer: Kennedy Oliveira - ID 5399
@@ -47,21 +47,30 @@ namespace BusinessLogic
         /// </summary>
         public BookLogic()
         {
-            _bookDAO = new BookDAO();
-            _listBooksView = new List<ViewBookModel>();
-            _viewBookView = new BookDS.ViewBookDataTable();
-            _listTabReservedModel = new List<TabReservedModel>();
-            _tabReservedDataTable = new BookDS.TabReservedDataTable();
+            try
+            {
+                _bookDAO = new BookDAO();
+                _listBooksView = new List<ViewBookModel>();
+                _viewBookView = new BookDS.ViewBookDataTable();
+                _listTabReservedModel = new List<TabReservedModel>();
+                _tabReservedDataTable = new BookDS.TabReservedDataTable();
 
-            _viewBookAvailableDataTable = new BookDS.ViewBookAvailableDataTable();
-            _listViewBooksAvailableModel = new List<ViewBookAvailableModel>();
+                _viewBookAvailableDataTable = new BookDS.ViewBookAvailableDataTable();
+                _listViewBooksAvailableModel = new List<ViewBookAvailableModel>();
 
-            _viewBookReservedDataTable = new BookDS.ViewBookReservedDataTable();
-            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+                _viewBookReservedDataTable = new BookDS.ViewBookReservedDataTable();
+                _listViewBooksReservedModel = new List<ViewBookReservedModel>();
 
-            _viewBookBorrowedWithUserDataTable = new BookDS.ViewBookBorrowedWithUserDataTable();
-            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
-
+                _viewBookBorrowedWithUserDataTable = new BookDS.ViewBookBorrowedWithUserDataTable();
+                _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         #region Book View
@@ -71,15 +80,25 @@ namespace BusinessLogic
         /// <returns>List<ViewBookModel></returns>
         public List<ViewBookModel> GetAllBooksView()
         {
-            _listBooksView = new List<ViewBookModel>();
-            _viewBookView = _bookDAO.GetAllBooksView();
-
-            foreach (BookDS.ViewBookRow row in _viewBookView.Rows)
+            try
             {
-                _listBooksView.Add(ViewBookModel.Parse(row));
-            }
+                _listBooksView = new List<ViewBookModel>();
+                _viewBookView = _bookDAO.GetAllBooksView();
 
-            return _listBooksView;
+                foreach (BookDS.ViewBookRow row in _viewBookView.Rows)
+                {
+                    _listBooksView.Add(ViewBookModel.Parse(row));
+                }
+
+                return _listBooksView;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -93,23 +112,33 @@ namespace BusinessLogic
         /// <returns>List<ViewBookModel></returns>
         public List<ViewBookModel> BookSearch(string bookISBN, string bookName, string author)
         {
-            _listBooksView = new List<ViewBookModel>();
-
-            if (bookISBN != "")
+            try
             {
-                _viewBookView = _bookDAO.GetAllBooksViewByISBN(bookISBN);
-            }
-            else if (bookName != "" || author != "")
-            {
-                _viewBookView = _bookDAO.GetAllBooksViewByBookNameAndAuthor(bookName, author);
-            }
+                _listBooksView = new List<ViewBookModel>();
 
-            foreach (BookDS.ViewBookRow row in _viewBookView.Rows)
-            {
-                _listBooksView.Add(ViewBookModel.Parse(row));
-            }
+                if (bookISBN != "")
+                {
+                    _viewBookView = _bookDAO.GetAllBooksViewByISBN(bookISBN);
+                }
+                else if (bookName != "" || author != "")
+                {
+                    _viewBookView = _bookDAO.GetAllBooksViewByBookNameAndAuthor(bookName, author);
+                }
 
-            return _listBooksView;
+                foreach (BookDS.ViewBookRow row in _viewBookView.Rows)
+                {
+                    _listBooksView.Add(ViewBookModel.Parse(row));
+                }
+
+                return _listBooksView;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
         #endregion
 
@@ -124,26 +153,31 @@ namespace BusinessLogic
         /// <returns>int rowsAffected</returns>
         public int insertBookReserved(int userId, string isbn, string reservedDate)
         {
-            int resultQuery = 0;
-
-            resultQuery = SelectCountBookReservedByIsbn(isbn);
-            if (resultQuery > 0)
+            try
             {
-                throw new BookException("Book already reserved.");
-            }
+                int resultQuery = 0;
 
-            resultQuery = _bookDAO.InsertBookReserved(userId, isbn, reservedDate);
-            if (resultQuery == 0)
-            {
-                throw new BookException("Reserve not inserted.");
-            }
+                resultQuery = SelectCountBookReservedByIsbn(isbn);
+                if (resultQuery > 0)
+                {
+                    throw new BusinessLogicException("Book already reserved.");
+                }
 
-        /*    catch (Exception ex)
-            {
-                //logging for admin to be inspect
+                resultQuery = _bookDAO.InsertBookReserved(userId, isbn, reservedDate);
+                if (resultQuery == 0)
+                {
+                    throw new BusinessLogicException("Reserve not inserted.");
+                }
+
+                return resultQuery;
             }
-            */
-            return resultQuery;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
 
         }
 
@@ -159,9 +193,12 @@ namespace BusinessLogic
                 _bookDAO = new BookDAO();
                 return _bookDAO.SelectCountBookReservedByIsbn(isbn);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
 
@@ -177,9 +214,12 @@ namespace BusinessLogic
                 _bookDAO = new BookDAO();
                 return _bookDAO.DeleteBookReserved(reservedId);
             }
-            catch
+            catch (Exception ex)
             {
-                throw;
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
 
@@ -203,15 +243,12 @@ namespace BusinessLogic
 
                 return _listTabReservedModel;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
 
@@ -237,15 +274,12 @@ namespace BusinessLogic
 
                 return _listViewBooksAvailableModel;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
 
@@ -271,15 +305,12 @@ namespace BusinessLogic
 
                 return _listViewBooksBorrowedModel;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
 
@@ -296,26 +327,30 @@ namespace BusinessLogic
         public int InsertBorrowBook(int userId, string isbn, string borrowDate, string returnDate, string actualReturnDate, decimal lateFee)
         {
 
-            int resultQuery = 0;
-
-            resultQuery = _bookDAO.SelectCountBookAvailableViewByIsbn(isbn);
-            if (resultQuery > 0)
+            try
             {
-                throw new BookException("Book not available to borrow.");
-            }
+                int resultQuery = 0;
 
-            resultQuery = _bookDAO.InsertBorrowBook(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
-            if (resultQuery == 0)
-            {
-                throw new BookException("Borrow not completed. Contact the Administrator.");
-            }
+                resultQuery = _bookDAO.SelectCountBookAvailableViewByIsbn(isbn);
+                if (resultQuery > 0)
+                {
+                    throw new BusinessLogicException("Book not available to borrow.");
+                }
 
-        /*    catch (Exception ex)
-            {
-                //logging for admin to be inspect
+                resultQuery = _bookDAO.InsertBorrowBook(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
+                if (resultQuery == 0)
+                {
+                    throw new BusinessLogicException("Borrow not completed. Contact the Administrator.");
+                }
+                return resultQuery;
             }
-            */
-            return resultQuery;
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -337,21 +372,14 @@ namespace BusinessLogic
 
                 return _listViewBooksBorrowedModel;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
-                // Error log
+                //Error log simulate
                 Console.WriteLine(ex.ToString());
-                throw;
-            }
-            catch
-            {
-                throw;
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
         }
-
-
-
-
 
 
         #endregion
@@ -363,15 +391,25 @@ namespace BusinessLogic
         /// <returns>List<ViewBookReservedModel></returns>
         public List<ViewBookReservedModel> GetAllBooksReservedView()
         {
-            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
-            _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedView();
-
-            foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+            try
             {
-                _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
-            }
+                _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+                _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedView();
 
-            return _listViewBooksReservedModel;
+                foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+                {
+                    _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
+                }
+
+                return _listViewBooksReservedModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -381,15 +419,25 @@ namespace BusinessLogic
         /// <returns>List<ViewBookReservedModel></returns>
         public List<ViewBookReservedModel> GetAllBooksReservedViewByUserId(int userId)
         {
-            _listViewBooksReservedModel = new List<ViewBookReservedModel>();
-            _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedViewByUserId(userId);
-
-            foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+            try
             {
-                _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
-            }
+                _listViewBooksReservedModel = new List<ViewBookReservedModel>();
+                _viewBookReservedDataTable = _bookDAO.GetAllBooksReservedViewByUserId(userId);
 
-            return _listViewBooksReservedModel;
+                foreach (BookDS.ViewBookReservedRow row in _viewBookReservedDataTable.Rows)
+                {
+                    _listViewBooksReservedModel.Add(ViewBookReservedModel.Parse(row));
+                }
+
+                return _listViewBooksReservedModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         #endregion
@@ -401,15 +449,25 @@ namespace BusinessLogic
         /// <returns>List<ViewBookBorrowedWithUserModel></returns>
         public List<ViewBookBorrowedWithUserModel> GetAllBooksBorrowedWithUserView()
         {
-            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
-            _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserView();
-
-            foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+            try
             {
-                _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
-            }
+                _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+                _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserView();
 
-            return _listViewBooksBorrowedWithUserModel;
+                foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+                {
+                    _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+                }
+
+                return _listViewBooksBorrowedWithUserModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         /// <summary>
@@ -419,15 +477,25 @@ namespace BusinessLogic
         /// <returns>List<ViewBookBorrowedWithUserModel></returns>
         public List<ViewBookBorrowedWithUserModel> GetAllBooksBorrowedWithUserViewByUserId(int userId)
         {
-            _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
-            _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserViewByUserId(userId);
-
-            foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+            try
             {
-                _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
-            }
+                _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+                _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserViewByUserId(userId);
 
-            return _listViewBooksBorrowedWithUserModel;
+                foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+                {
+                    _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+                }
+
+                return _listViewBooksBorrowedWithUserModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
         }
 
         #endregion
