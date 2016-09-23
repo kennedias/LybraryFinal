@@ -42,8 +42,6 @@
   <ItemGroup>
     <Compile Include="BusinessLogicException.cs" />
     <Compile Include="BookLogic.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="AppEnum.cs" />
     <Compile Include="MasterLogic.cs" />
     <Compile Include="TabMasterModel.cs" />
     <Compile Include="ViewBookReservedForUserModel.cs" />
@@ -73,6 +71,10 @@
     <ProjectReference Include="..\..\DataAccessLayer\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{69F68408-A351-4007-B373-065563411E52}</Project>
       <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemFramework\SystemFramework.csproj">
+      <Project>{D4D7BFA7-DCB5-4D70-AEC4-9AFA2723DC4B}</Project>
+      <Name>SystemFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

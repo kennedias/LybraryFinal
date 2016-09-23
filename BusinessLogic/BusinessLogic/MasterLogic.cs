@@ -43,7 +43,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -55,6 +55,7 @@ namespace BusinessLogic
         /// <param name="authorName">string authorName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int insertAuthor(string authorName)
         {
             try
@@ -80,7 +81,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -90,7 +91,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="authorName">string authorName</param>
         /// <returns>int numbers of registers found</returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountAuthorByName(string authorName)
         {
             try
@@ -103,7 +104,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -113,6 +114,7 @@ namespace BusinessLogic
         /// <param name="authorId">int authorId</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteAuthor(int authorId)
         {
             try
@@ -143,6 +145,7 @@ namespace BusinessLogic
         /// <param name="authorName">string authorName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int updateAuthor(string authorName, int authorId)
         {
             try
@@ -168,7 +171,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -177,7 +180,7 @@ namespace BusinessLogic
         /// Return authors.
         /// </summary>
         /// <returns>List<TabMasterModel></returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public List<TabMasterModel> GetAllAuthors()
         {
             try
@@ -197,7 +200,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -211,6 +214,7 @@ namespace BusinessLogic
         /// <param name="categoryName">string categoryName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int insertCategory(string categoryName)
         {
             try
@@ -236,7 +240,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -246,7 +250,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="categoryName">string categoryName</param>
         /// <returns>int numbers of registers found</returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountCategoryByName(string categoryName)
         {
             try
@@ -259,7 +263,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -269,6 +273,7 @@ namespace BusinessLogic
         /// <param name="categoryId">int categoryId</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteCategory(int categoryId)
         {
             try
@@ -276,12 +281,19 @@ namespace BusinessLogic
                 _masterDAO = new MasterDAO();
                 return _masterDAO.DeleteCategory(categoryId);
             }
-            catch (Exception ex)
+            catch (DataAccessLayerException ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 throw new BusinessLogicException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
             }
         }
 
@@ -292,6 +304,7 @@ namespace BusinessLogic
         /// <param name="categoryName">string categoryName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int updateCategory(string categoryName, int categoryId)
         {
             try
@@ -317,7 +330,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -326,7 +339,7 @@ namespace BusinessLogic
         /// Return Categories.
         /// </summary>
         /// <returns>List<TabMasterModel></returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public List<TabMasterModel> GetAllCategories()
         {
             try
@@ -346,7 +359,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -360,6 +373,7 @@ namespace BusinessLogic
         /// <param name="languageName">string languageName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int insertLanguage(string languageName)
         {
             try
@@ -385,7 +399,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -395,7 +409,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="languageName">string languageName</param>
         /// <returns>int numbers of registers found</returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountLanguageByName(string languageName)
         {
             try
@@ -408,7 +422,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -418,6 +432,7 @@ namespace BusinessLogic
         /// <param name="languageId">int languageId</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteLanguage(int languageId)
         {
             try
@@ -425,12 +440,19 @@ namespace BusinessLogic
                 _masterDAO = new MasterDAO();
                 return _masterDAO.DeleteLanguage(languageId);
             }
-            catch (Exception ex)
+            catch (DataAccessLayerException ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 throw new BusinessLogicException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
             }
         }
 
@@ -441,6 +463,7 @@ namespace BusinessLogic
         /// <param name="languageName">string languageName</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int updateLanguage(string languageName, int languageId)
         {
             try
@@ -466,7 +489,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
 
         }
@@ -475,7 +498,7 @@ namespace BusinessLogic
         /// Return Languages.
         /// </summary>
         /// <returns>List<TabMasterModel></returns>
-        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public List<TabMasterModel> GetAllLanguages()
         {
             try
@@ -495,7 +518,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 

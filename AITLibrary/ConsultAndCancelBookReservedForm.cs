@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
-
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -35,23 +35,23 @@ namespace AITLibrary
                     if (resultOperation == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Reserve could not be canceled. Contact the System Administrator.";
+                        labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                     }
                     else
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                        labelSystemMessage.Text = "Reserve canceled with success.";
+                        labelSystemMessage.Text = Constants.msgOperationCompleted;
                         dataGridViewBookReserved.Refresh();
                         dataGridViewBookReserved.RefreshEdit();
                         dataGridViewBookReserved.Update();
-                        //TODO
+                        //TODO uopdate datagridview after 
 
                     }
                 }
                 else
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "You need to select a book first.";
+                    labelSystemMessage.Text = Constants.msgSelectRecord;
                 }
             }
             catch (BusinessLogicException ex)
@@ -60,7 +60,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -83,13 +83,13 @@ namespace AITLibrary
                 if (dataGridViewBookReserved.RowCount == 0)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "There are no book reserved.";
+                    labelSystemMessage.Text = Constants.msgNoMatchesFound;
                 }
                 else
                 {
-                    dataGridViewBookReserved.Columns["User"].Visible = false;
-                    dataGridViewBookReserved.Columns["ReserveId"].Visible = false;
-                    dataGridViewBookReserved.Columns["UserId"].Visible = false;
+                    dataGridViewBookReserved.Columns[Constants.fieldUser].Visible = false;
+                    dataGridViewBookReserved.Columns[Constants.fieldReserveId].Visible = false;
+                    dataGridViewBookReserved.Columns[Constants.fieldUserId].Visible = false;
                 }
             }
             catch (BusinessLogicException ex)
@@ -99,7 +99,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewBookReserved.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -108,7 +108,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewBookReserved.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
     }

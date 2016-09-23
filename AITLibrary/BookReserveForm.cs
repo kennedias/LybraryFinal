@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -37,7 +38,7 @@ namespace AITLibrary
             if (textBoxISBN.Text.Length == 0 && textBoxBookName.Text.Length == 0 && textBoxAuthor.Text.Length == 0)
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "No search criteria was informed.";
+                labelSystemMessage.Text = Constants.msgNoSearchCriteria;
             }
             else
             {
@@ -47,7 +48,7 @@ namespace AITLibrary
                 if (dataGridViewListBooks.RowCount == 0)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "No matches found.";
+                    labelSystemMessage.Text = Constants.msgNoMatchesFound;
                 }
             }
         }
@@ -85,18 +86,18 @@ namespace AITLibrary
                     if (resultOperation == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Reserve could not be included. Contact the System Administrator.";
+                        labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                     }
                     else
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                        labelSystemMessage.Text = "Reserve included with success.";
+                        labelSystemMessage.Text = Constants.msgOperationCompleted;
                     }
                 }
                 else
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "You need to select a book first.";
+                    labelSystemMessage.Text = Constants.msgSelectRecord;
                 }
             }
             catch (BusinessLogicException ex)
@@ -105,7 +106,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -113,7 +114,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
 
         }

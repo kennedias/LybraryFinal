@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -21,7 +22,7 @@ namespace AITLibrary
         {
             try
             {
-                labelMessageForUser.Text = "[...]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
                 textBoxISBN.Text = "";
                 textBoxBookName.Text = "";
                 textBoxAuthor.Text = "";
@@ -36,7 +37,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewListBooks.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -45,7 +46,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewListBooks.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -56,7 +57,7 @@ namespace AITLibrary
                 if (textBoxISBN.Text.Length == 0 && textBoxBookName.Text.Length == 0 && textBoxAuthor.Text.Length == 0)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "No search criteria was informed.";
+                    labelSystemMessage.Text = Constants.msgNoSearchCriteria;
                 }
                 else
                 {
@@ -78,7 +79,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewListBooks.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -87,7 +88,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewListBooks.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 

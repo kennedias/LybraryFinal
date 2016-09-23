@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -32,7 +33,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewBookBrowse.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -41,7 +42,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewBookBrowse.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
     }

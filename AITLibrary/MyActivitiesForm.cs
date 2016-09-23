@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -46,7 +47,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewUserBookActivity.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -55,7 +56,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewUserBookActivity.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
 
 
@@ -65,15 +66,15 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "[..]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                 dataGridViewUserBookActivity.DataSource = null;
 
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewUserBookActivity.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
-                dataGridViewUserBookActivity.Columns["User"].Visible = false;
-                dataGridViewUserBookActivity.Columns["ReserveId"].Visible = false;
-                dataGridViewUserBookActivity.Columns["UserId"].Visible = false;
+                dataGridViewUserBookActivity.Columns[Constants.fieldUser].Visible = false;
+                dataGridViewUserBookActivity.Columns[Constants.fieldReserveId].Visible = false;
+                dataGridViewUserBookActivity.Columns[Constants.fieldUserId].Visible = false;
             }
             catch (BusinessLogicException ex)
             {
@@ -82,7 +83,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewUserBookActivity.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red; 
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -91,7 +92,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewUserBookActivity.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red; 
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
     }

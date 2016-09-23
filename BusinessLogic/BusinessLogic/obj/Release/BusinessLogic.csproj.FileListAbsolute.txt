@@ -34,3 +34,5 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\R
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.csproj.GenerateResource.Cache
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.dll
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\obj\Release\BusinessLogic.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\SystemFramework.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\BusinessLogic\BusinessLogic\bin\Release\SystemFramework.pdb

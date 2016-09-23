@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using DataAccessLayer;
 using System.Text.RegularExpressions;
+using SystemFramework;
 
 namespace BusinessLogic
 {
@@ -38,6 +39,7 @@ namespace BusinessLogic
         /// Returns all users data from table User.
         /// </summary>
         /// <returns>List<TabUserModel></returns>
+        /// <exception cref="ex">Exception</exception>
         public List<TabUserModel> GetAllUser()
         {
             try
@@ -56,7 +58,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -65,6 +67,7 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="username">string username</param>
         /// <returns>List<TabUserModel></returns>
+        /// <exception cref="ex">Exception</exception>
         public List<TabUserModel> GetUsersByName(string username)
         {
             try
@@ -84,7 +87,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -94,6 +97,7 @@ namespace BusinessLogic
         /// <param name="username">string username</param>
         /// <param name="password">string password</param>
         /// <returns>List<TabUserModel></returns>
+        /// <exception cref="ex">Exception</exception>
         public List<TabUserModel> PerformLogin(string username, string password)
         {
             try
@@ -113,7 +117,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -125,6 +129,8 @@ namespace BusinessLogic
         /// <param name="userLevel">string userLevelDescription</param>
         /// <param name="userID">int userID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int updateUser(string userName, string password, string userLevelDescription, int userID)
         {
             try
@@ -152,7 +158,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -161,7 +167,8 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="int">int userLevelCode</param>
         /// <returns>string userLevelDescription</returns>
-        ///<exception cref="UserException">Thrown when user level code is invalid.</exception>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public String getUserLevelDescriptionByLevelCode(int userLevelCode)
         {
             try
@@ -188,7 +195,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 
@@ -197,7 +204,8 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="string">string userLevelDescription</param>
         /// <returns>int userLevelCode</returns>
-        ///<exception cref="UserException">Thrown when user level description is invalid.</exception>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int getUserLevelCodeByLevelDescription(string userLevelDescription)
         {
             try
@@ -224,7 +232,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
     }

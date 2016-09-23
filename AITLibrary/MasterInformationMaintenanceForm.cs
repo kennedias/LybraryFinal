@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -21,7 +22,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "[...]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                 textBoxName.Text = "";
 
@@ -50,7 +51,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -58,7 +59,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -97,7 +98,7 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                labelSystemMessage.Text = "[...]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
 
                 if (radioInsert.Checked)
                 {
@@ -227,7 +228,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -235,7 +236,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -243,7 +244,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "[...]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                 textBoxName.Text = "";
 
@@ -272,7 +273,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -280,7 +281,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 

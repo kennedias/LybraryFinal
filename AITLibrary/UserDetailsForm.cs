@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -42,7 +43,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -58,7 +59,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -81,7 +82,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -93,7 +94,7 @@ namespace AITLibrary
 
                 if (textBoxUserName.Text == null)
                 {
-                    labelSystemMessage.Text = "User Name is blank.";
+                    labelSystemMessage.Text = Constants.msgUserNameBlank;
                 }
                 else
                 {
@@ -101,12 +102,11 @@ namespace AITLibrary
                     int returnOperation = userLogic.updateUser(textBoxUserName.Text, staticUserPassword, comboBoxUserLevel.Text, staticUserID);
                     if (returnOperation < 1)
                     {
-                        labelSystemMessage.Text = "No record were updated!";
-                        // throw new UserException("No record were updated.");
+                        labelSystemMessage.Text = Constants.msgNoRecordUpdated;
                     }
                     else
                     {
-                        labelSystemMessage.Text = "Operation completed with success!";
+                        labelSystemMessage.Text = Constants.msgOperationCompleted;
                         staticUserName = textBoxUserName.Text;
                     }
                 }
@@ -117,7 +117,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
     }

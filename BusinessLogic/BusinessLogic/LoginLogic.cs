@@ -36,6 +36,8 @@ namespace BusinessLogic
         /// </summary>
         /// <param name="password">string password</param>
         /// <returns>Boolean</returns>
+        /// <exception cref="ex">BusinessException</exception>
+        /// <exception cref="ex">Exception</exception>
         public Boolean passwordFormatValidation(string password)
         {
             try
@@ -55,21 +57,25 @@ namespace BusinessLogic
                 {
                     passwordFormatIsValid = false;
                     messageOfValidation = "Password format invalid. It must have at least " + passwordMinLenght + " characters.";
+                    throw new BusinessLogicException(messageOfValidation);
                 }
                 else if (password.Length > passwordMaxLenght)
                 {
                     passwordFormatIsValid = false;
                     messageOfValidation = "Password format invalid. It must have at most " + passwordMaxLenght + " characters.";
+                    throw new BusinessLogicException(messageOfValidation);
                 }
                 else if (regexContainLetter.Matches(password).Count < passwordMinOfLetters)
                 {
                     passwordFormatIsValid = false;
                     messageOfValidation = "Password format invalid. It must have at least" + passwordMinOfLetters + " letters.";
+                    throw new BusinessLogicException(messageOfValidation);
                 }
                 else if (regexContainNumber.Matches(password).Count < passwordMinOfNumbers)
                 {
                     passwordFormatIsValid = false;
                     messageOfValidation = "Password format invalid. It must have at least" + passwordMinOfNumbers + " numbers.";
+                    throw new BusinessLogicException(messageOfValidation);
                 }
                 else //login format is valid
                 {
@@ -84,7 +90,7 @@ namespace BusinessLogic
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new BusinessLogicException(ex.Message);
+                throw;
             }
         }
 

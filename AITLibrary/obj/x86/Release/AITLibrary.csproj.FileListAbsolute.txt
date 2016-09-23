@@ -72,3 +72,5 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLib
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.MyActivitiesForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.LybraryTemplateForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookBrowseForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Release\SystemFramework.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Release\SystemFramework.pdb

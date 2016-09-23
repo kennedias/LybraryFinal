@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
@@ -27,20 +28,20 @@ namespace AITLibrary
                 if (textBoxBookName.Text.Length == 0)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "No search criteria was informed.";
+                    labelSystemMessage.Text = Constants.msgNoSearchCriteria;
                 }
                 else
                 {
                     BookLogic bookLogic = new BookLogic();
                     dataGridViewBooksBorrowed.DataSource = bookLogic.GetBooksBorrowedViewByName(textBoxBookName.Text);
-                    dataGridViewBooksBorrowed.Columns["UserId"].Visible = false;
-                    dataGridViewBooksBorrowed.Columns["BorrowId"].Visible = false;
-                    dataGridViewBooksBorrowed.Columns["Latefee"].Visible = false;
+                    dataGridViewBooksBorrowed.Columns[Constants.fieldUserId].Visible = false;
+                    dataGridViewBooksBorrowed.Columns[Constants.fieldBorrowId].Visible = false;
+                    dataGridViewBooksBorrowed.Columns[Constants.fieldLatefee].Visible = false; 
 
                     if (dataGridViewBooksBorrowed.RowCount == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "No matches found.";
+                        labelSystemMessage.Text = Constants.msgNoMatchesFound;
                     }
                 }
 
@@ -51,7 +52,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -59,7 +60,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
 
         }
@@ -72,14 +73,14 @@ namespace AITLibrary
                 labelSystemMessage.Text = "";
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewBooksBorrowed.DataSource = bookLogic.GetAllBooksBorrowedWithUserView();
-                dataGridViewBooksBorrowed.Columns["UserId"].Visible = false;
-                dataGridViewBooksBorrowed.Columns["BorrowId"].Visible = false;
-                dataGridViewBooksBorrowed.Columns["Latefee"].Visible = false;
+                dataGridViewBooksBorrowed.Columns[Constants.fieldUserId].Visible = false;
+                dataGridViewBooksBorrowed.Columns[Constants.fieldBorrowId].Visible = false;
+                dataGridViewBooksBorrowed.Columns[Constants.fieldLatefee].Visible = false; 
 
                 if (dataGridViewBooksBorrowed.RowCount == 0)
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "No matches found.";
+                    labelSystemMessage.Text = Constants.msgNoMatchesFound;
                 }
             }
             catch (BusinessLogicException ex)
@@ -88,7 +89,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -96,7 +97,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -121,18 +122,18 @@ namespace AITLibrary
                     if (resultOperation == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Book could not be returned. Contact the System Administrator.";
+                        labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                     }
                     else
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                        labelSystemMessage.Text = "Return done with success.";
+                        labelSystemMessage.Text = Constants.msgOperationCompleted;
                     }
                 }
                 else
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = "You need to select a book first.";
+                    labelSystemMessage.Text = Constants.msgSelectRecord;
                 }
 
             }
@@ -142,7 +143,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {
@@ -150,7 +151,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
         }        
     }
