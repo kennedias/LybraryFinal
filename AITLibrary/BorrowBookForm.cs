@@ -83,16 +83,19 @@ namespace AITLibrary
         private void buttonBorrowBook_Click(object sender, EventArgs e)
         {
             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-            labelSystemMessage.Text = "";
+            labelSystemMessage.Text = "[...]";
 
-            if (dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0)
+            try
             {
-                try
+                if ((dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0) &&
+                    (dataGridViewUser.DataSource != null && dataGridViewUser.SelectedRows.Count > 0))
                 {
+
                     String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
+                    int userId = (int) dataGridViewUser.SelectedRows[0].Cells[(int)AppEnum.TabUser.ID].Value;
 
                     BookLogic bookLogic = new BookLogic();
-                    int resultOperation = bookLogic.InsertBorrowBook(staticUserID, isbn, DateTime.Today.ToString(), DateTime.Today.AddDays(7).ToString(), Constants.actualDateReturnForInsert, Constants.lateFee);
+                    int resultOperation = bookLogic.InsertBorrowBook(userId, isbn);
 
                     if (resultOperation == 0)
                     {
@@ -105,16 +108,27 @@ namespace AITLibrary
                         labelSystemMessage.Text = "Borrow included with success.";
                     }
                 }
-                catch (BusinessLogicException ex)
+                else
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = ex.Message;
+                    labelSystemMessage.Text = "You need to select a student and a book first.";
                 }
             }
-            else
+            catch (BusinessLogicException ex)
             {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "You need to select a book first.";
+                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
             }
         }
 

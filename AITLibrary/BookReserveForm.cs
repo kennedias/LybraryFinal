@@ -70,13 +70,12 @@ namespace AITLibrary
 
         private void buttonReserve_Click(object sender, EventArgs e)
         {
-            labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-            labelSystemMessage.Text = "";
-
-            if (dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0)
+            try
             {
+                labelSystemMessage.ForeColor = System.Drawing.Color.Black;
+                labelSystemMessage.Text = "";
 
-                try
+                if (dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0)
                 {
                     String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
                     labelSystemMessage.Text = isbn;
@@ -94,21 +93,29 @@ namespace AITLibrary
                         labelSystemMessage.Text = "Reserve included with success.";
                     }
                 }
-                catch (BusinessLogicException ex)
+                else
                 {
                     labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                    labelSystemMessage.Text = ex.Message;
+                    labelSystemMessage.Text = "You need to select a book first.";
                 }
             }
-            else
+            catch (BusinessLogicException ex)
             {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "You need to select a book first.";
+                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
             }
-           
-            
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
+            }
+
         }
-
-
     }
 }

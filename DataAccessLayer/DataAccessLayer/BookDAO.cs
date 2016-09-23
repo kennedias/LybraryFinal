@@ -299,6 +299,28 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Update a book borrow into Borrow table.
+        /// </summary>
+        /// <param name="bid">int bid</param>
+        /// <param name="actualReturnDate">string actualReturnDate</param>
+        /// <param name="lateFee">decimal lateFee</param>
+        /// <returns>int rowsAffected</returns>
+        public int UpdateBookBorrowed(int bid, string actualReturnDate, decimal lateFee)
+        {
+            try
+            {
+                return _tabBorrowTableAdapter.UpdateBookBorrowed(actualReturnDate, lateFee, bid);  
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
+        }
+
         #endregion 
 
         #region Available Book View
@@ -390,6 +412,29 @@ namespace DataAccessLayer
                 throw new DataAccessLayerException(ex.Message);
             }
         }
+
+        /// <summary>
+        /// Returns all registers from Borrowed Book view by Book Name.
+        /// </summary>
+        /// <param name="bookName">string bookName</param>
+        /// <returns>BookDS.ViewBookBorrowedWithUserDataTable</returns>
+        public BookDS.ViewBookBorrowedWithUserDataTable GetBooksBorrowedViewByName(string bookName)
+        {
+            try
+            {
+                bookName = "%" + bookName + "%";
+                _viewBookBorrowedWithUserTableAdapter.FillAllBorrowedBooksByBookName(_bookDataSet.ViewBookBorrowedWithUser, bookName);
+                return _bookDataSet.ViewBookBorrowedWithUser;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new DataAccessLayerException(ex.Message);
+            }
+        }
+
         #endregion
 
         #region BookBorrowedWithUserView

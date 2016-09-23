@@ -1519,22 +1519,22 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TabAuthor] WHERE (([AID] = @Original_AID) AND ([AuthorName] = " +
-                "@Original_AuthorName))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TabAuthor] WHERE (([AID] = @Original_AID) AND ([AuthorName] = @Origi" +
+                "nal_AuthorName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AuthorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AuthorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TabAuthor] ([AuthorName]) VALUES (@AuthorName);\r\nSELECT AID, A" +
-                "uthorName FROM TabAuthor WHERE (AID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [TabAuthor] ([AuthorName]) VALUES (@AuthorName);\r\nSELECT AID, AuthorN" +
+                "ame FROM TabAuthor WHERE (AID = SCOPE_IDENTITY()) ORDER BY AuthorName";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AuthorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AuthorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TabAuthor] SET [AuthorName] = @AuthorName WHERE (([AID] = @Original" +
-                "_AID) AND ([AuthorName] = @Original_AuthorName));\r\nSELECT AID, AuthorName FROM T" +
-                "abAuthor WHERE (AID = @AID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [TabAuthor] SET [AuthorName] = @AuthorName WHERE (([AID] = @Original_AID) " +
+                "AND ([AuthorName] = @Original_AuthorName));\r\nSELECT AID, AuthorName FROM TabAuth" +
+                "or WHERE (AID = @AID) ORDER BY AuthorName";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AuthorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AuthorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1555,7 +1555,7 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT AID, AuthorName FROM dbo.TabAuthor";
+            this._commandCollection[0].CommandText = "SELECT        AID, AuthorName\r\nFROM            TabAuthor\r\nORDER BY AuthorName";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -1979,22 +1979,23 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TabCategory] WHERE (([CID] = @Original_CID) AND ([CategoryName" +
-                "] = @Original_CategoryName))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TabCategory] WHERE (([CID] = @Original_CID) AND ([CategoryName] = @O" +
+                "riginal_CategoryName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CategoryName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TabCategory] ([CategoryName]) VALUES (@CategoryName);\r\nSELECT " +
-                "CID, CategoryName FROM TabCategory WHERE (CID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [TabCategory] ([CategoryName]) VALUES (@CategoryName);\r\nSELECT CID, C" +
+                "ategoryName FROM TabCategory WHERE (CID = SCOPE_IDENTITY()) ORDER BY CategoryNam" +
+                "e";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TabCategory] SET [CategoryName] = @CategoryName WHERE (([CID] = @Or" +
-                "iginal_CID) AND ([CategoryName] = @Original_CategoryName));\r\nSELECT CID, Categor" +
-                "yName FROM TabCategory WHERE (CID = @CID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [TabCategory] SET [CategoryName] = @CategoryName WHERE (([CID] = @Original" +
+                "_CID) AND ([CategoryName] = @Original_CategoryName));\r\nSELECT CID, CategoryName " +
+                "FROM TabCategory WHERE (CID = @CID) ORDER BY CategoryName";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2015,7 +2016,8 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CID, CategoryName FROM dbo.TabCategory";
+            this._commandCollection[0].CommandText = "SELECT        CID, CategoryName\r\nFROM            TabCategory\r\nORDER BY CategoryNa" +
+                "me";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -2439,22 +2441,23 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TabLanguage] WHERE (([LID] = @Original_LID) AND ([LanguageName" +
-                "] = @Original_LanguageName))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TabLanguage] WHERE (([LID] = @Original_LID) AND ([LanguageName] = @O" +
+                "riginal_LanguageName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LanguageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LanguageName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TabLanguage] ([LanguageName]) VALUES (@LanguageName);\r\nSELECT " +
-                "LID, LanguageName FROM TabLanguage WHERE (LID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [TabLanguage] ([LanguageName]) VALUES (@LanguageName);\r\nSELECT LID, L" +
+                "anguageName FROM TabLanguage WHERE (LID = SCOPE_IDENTITY()) ORDER BY LanguageNam" +
+                "e";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LanguageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LanguageName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TabLanguage] SET [LanguageName] = @LanguageName WHERE (([LID] = @Or" +
-                "iginal_LID) AND ([LanguageName] = @Original_LanguageName));\r\nSELECT LID, Languag" +
-                "eName FROM TabLanguage WHERE (LID = @LID)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [TabLanguage] SET [LanguageName] = @LanguageName WHERE (([LID] = @Original" +
+                "_LID) AND ([LanguageName] = @Original_LanguageName));\r\nSELECT LID, LanguageName " +
+                "FROM TabLanguage WHERE (LID = @LID) ORDER BY LanguageName";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LanguageName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LanguageName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2475,7 +2478,8 @@ namespace DataAccessLayer.MasterDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT LID, LanguageName FROM dbo.TabLanguage";
+            this._commandCollection[0].CommandText = "SELECT        LID, LanguageName\r\nFROM            TabLanguage\r\nORDER BY LanguageNa" +
+                "me";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

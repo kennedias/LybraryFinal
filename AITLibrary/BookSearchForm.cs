@@ -51,14 +51,43 @@ namespace AITLibrary
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            labelMessageForUser.Text = "";
-            BookLogic bookLogic = new BookLogic();
-            dataGridViewListBooks.DataSource = bookLogic.BookSearch(textBoxISBN.Text, textBoxBookName.Text, textBoxAuthor.Text);
-
-            if (dataGridViewListBooks.RowCount == 0)
+            try
             {
-                labelMessageForUser.ForeColor = System.Drawing.Color.Red;
-                labelMessageForUser.Text = "No matches found.";
+                if (textBoxISBN.Text.Length == 0 && textBoxBookName.Text.Length == 0 && textBoxAuthor.Text.Length == 0)
+                {
+                    labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                    labelSystemMessage.Text = "No search criteria was informed.";
+                }
+                else
+                {
+                    labelMessageForUser.Text = "";
+                    BookLogic bookLogic = new BookLogic();
+                    dataGridViewListBooks.DataSource = bookLogic.BookSearch(textBoxISBN.Text, textBoxBookName.Text, textBoxAuthor.Text);
+
+                    if (dataGridViewListBooks.RowCount == 0)
+                    {
+                        labelMessageForUser.ForeColor = System.Drawing.Color.Red;
+                        labelMessageForUser.Text = "No matches found.";
+                    }
+                }
+            }
+            catch (BusinessLogicException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                dataGridViewListBooks.DataSource = null;
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                dataGridViewListBooks.DataSource = null;
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = "Sorry, something went wrong! Please contact the system support team.";
             }
         }
 

@@ -24,7 +24,9 @@ namespace BusinessLogic
         public const int userCode = 1;
         public const int supervisorCode = 2;
         public const int administratorCode = 3;
-        public const decimal lateFee = 2;
+        public const decimal lateFeeToInsert = 0;
         public const string actualDateReturnForInsert = "2001-01-01";
+        public const int daysOfBorrowingBook = 7;
+        public const decimal lateFeePerDay = 2;
     }
 }

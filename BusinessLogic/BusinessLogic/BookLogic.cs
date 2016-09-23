@@ -321,7 +321,7 @@ namespace BusinessLogic
         #region Book Borrowed
 
         /// <summary>
-        /// Return all registers from Book Borrowed.
+        /// Return all registers from Book Borrowed View.
         /// </summary>
         /// <returns>List<ViewBookBorrowedModel></returns>
         public List<ViewBookBorrowedModel> GetAllBorrowedBooks()
@@ -348,29 +348,58 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// Insert a book borrow into Borrow.
+        /// Returns all registers from Borrowed Book view  by Book Name.
+        /// </summary>
+        /// <param name="bookName">string bookName</param>
+        /// <returns>List<ViewBookBorrowedWithUserModel></returns>
+        public List<ViewBookBorrowedWithUserModel> GetBooksBorrowedViewByName(string bookName)
+        {
+            try
+            {
+                _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+                _viewBookBorrowedWithUserDataTable = _bookDAO.GetBooksBorrowedViewByName(bookName);
+
+                foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+                {
+                    _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+                }
+
+                return _listViewBooksBorrowedWithUserModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// Insert a book borrow into Borrow Book.
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <param name="isbn">string isbn</param>
-        /// <param name="borrowDate">string borrowDate</param>
-        /// <param name="returnDate">string returnDate</param>
-        /// <param name="actualReturnDate">string actualReturnDate</param>
-        /// <param name="lateFee">decimal lateFee</param>
         /// <returns>int rowsAffected</returns>
-        public int InsertBorrowBook(int userId, string isbn, string borrowDate, string returnDate, string actualReturnDate, decimal lateFee)
+        public int InsertBorrowBook(int userId, string isbn)
         {
-
             try
             {
-                int resultQuery = 0;
+                /* Borrow book business logic that is done here.
+                 * It centralize the logic here and can not be in UI layers such as Forms and Webpages.
+                 * 
+                 * borrow date = today
+                 * return date = today + constant that represents the amount of days that the book can be borrowed
+                 * actual return date = constant that represents a actual date return to be used in the insert, once the field is mandatory in DB.
+                 * late fee = constant that represents a late fee to be used in the insert, once the field is mandatory in DB.
+                 * */
+                string borrowDate = DateTime.Today.ToString();
+                string returnDate = DateTime.Today.AddDays(Constants.daysOfBorrowingBook).ToString();
+                string actualReturnDate = Constants.actualDateReturnForInsert;
+                decimal lateFee = Constants.lateFeeToInsert;
 
-                resultQuery = _bookDAO.SelectCountBookAvailableViewByIsbn(isbn);
-                if (resultQuery > 0)
-                {
-                    throw new BusinessLogicException("Book not available to borrow.");
-                }
-
-                resultQuery = _bookDAO.InsertBorrowBook(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
+                int resultQuery = _bookDAO.InsertBorrowBook(userId, isbn, borrowDate, returnDate, actualReturnDate, lateFee);
                 if (resultQuery == 0)
                 {
                     throw new BusinessLogicException("Borrow not completed. Contact the Administrator.");
@@ -412,6 +441,58 @@ namespace BusinessLogic
                 Console.WriteLine(ex.GetBaseException().ToString());
                 throw new BusinessLogicException(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Return a book borrowed book.
+        /// </summary>
+        /// <param name="bid">int bid</param>
+        /// <param name="returnDate">string returnDate</param>
+        /// <returns>int rowsAffected</returns>
+        public int ReturnBorrowBook(int bid, string returnDate)
+        {
+            try
+            {
+                /* Return borrow book business logic that is done here.
+                 * It centralize the logic here and can not be in UI layers such as Forms and Webpages.
+                 * 
+                 * return date = Maximun date when the book have to be returned.
+                 * actual return date = today
+                 * late fee = if the actual return date is after return date, the late fee have to be applied diary. The total of
+                 *            late days have to be multiplied for the constant that represents the late fee per day late.
+                 * */
+                DateTime actualReturnDate = DateTime.Today;
+                DateTime correctReturnDate = DateTime.Parse(returnDate);
+                decimal lateFee = 0;
+                TimeSpan daysOfReturnLate = actualReturnDate - correctReturnDate;
+
+                /* Get the days of difference between the correct date that have to be returned and the actual return date.
+                 * If the correct day of return is after the actual, the difference of days is negative.
+                 * If the correct day of return is before the actual, the difference is positive and then the days of
+                 * difference is used to apply the daily fee.
+                 **/
+                if (daysOfReturnLate.Days > 0)
+                {
+                    lateFee = Constants.lateFeePerDay * daysOfReturnLate.Days;
+                }
+                                
+                int resultQuery = _bookDAO.UpdateBookBorrowed(bid, actualReturnDate.ToString(), lateFee);
+                if (resultQuery == 0)
+                {
+                    throw new BusinessLogicException("Return book was not completed. Contact the Administrator.");
+                }
+                return resultQuery;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+
+
+
         }
 
 

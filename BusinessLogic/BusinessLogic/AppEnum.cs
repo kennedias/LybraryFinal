@@ -27,14 +27,30 @@ namespace BusinessLogic
             User,
             ReserveDate,
             ReserveId,
-            UserId,
+            UserId
 
         }
 
-        /*
-         * label.text = dataGridView.SelectedRows[].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
-         * 
-         * strok
-         */
+        public enum TabUser
+        {
+            ID,
+            Name,
+            LevelCode,
+            LevelDescription
+        }
+
+
+        public enum ViewBookBorrowedWithUserModel
+        {
+            ISBN,
+            Name,
+            Author,
+            User,
+            Borrow,
+            Return,
+            LateFee,
+            UserId,
+            BorrowId
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace BusinessLogic
         private DateTime _bookBorrowedReturnDate;
         private decimal _bookBorrowedLateFee;
         private int     _bookBorrowedUserId;
+        private int     _bookBorrowedBorrowId;
  
         #endregion
 
@@ -82,6 +83,12 @@ namespace BusinessLogic
             set { _bookBorrowedUserId = value; }
             get { return _bookBorrowedUserId; }
         }
+
+        public int BorrowId
+        {
+            set { _bookBorrowedUserId = value; }
+            get { return _bookBorrowedUserId; }
+        }
         #endregion
 
         #region Methods
@@ -107,6 +114,7 @@ namespace BusinessLogic
                 viewBookBorrowedWithUserModel._bookBorrowedReturnDate = row.ReturnDate;
                 viewBookBorrowedWithUserModel._bookBorrowedLateFee = row.LateFee;
                 viewBookBorrowedWithUserModel._bookBorrowedUserId = row.UID;
+                viewBookBorrowedWithUserModel._bookBorrowedBorrowId = row.BID;
                 return viewBookBorrowedWithUserModel;
             }
         }
