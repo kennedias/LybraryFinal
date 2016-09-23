@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataAccessLayer;
-using System.Data.SqlClient;
 
 namespace BusinessLogic
 {
@@ -45,6 +44,7 @@ namespace BusinessLogic
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <exception cref="ex">BusinessLogicException</exception>
         public BookLogic()
         {
             try
@@ -151,13 +151,14 @@ namespace BusinessLogic
         /// <param name="isbn">string isbn</param>
         /// <param name="reservedDate">string reservedDate</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinessLogicException</exception>
         public int insertBookReserved(int userId, string isbn, string reservedDate)
         {
             try
             {
                 int resultQuery = 0;
 
-                resultQuery = SelectCountBookReservedByIsbn(isbn);
+                resultQuery = this.SelectCountBookReservedByIsbn(isbn);
                 if (resultQuery > 0)
                 {
                     throw new BusinessLogicException("Book already reserved.");

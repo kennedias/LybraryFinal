@@ -51,7 +51,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
             }
             catch (Exception ex)
             {
@@ -142,7 +142,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
             }
             catch (Exception ex)
             {

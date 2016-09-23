@@ -41,6 +41,7 @@ namespace DataAccessLayer
         /// Returns all registers from User table.
         /// </summary>
         /// <returns>UserDS.TabUserDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public UserDS.TabUserDataTable GetAllUser()
         {
             try
@@ -54,7 +55,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -64,6 +65,7 @@ namespace DataAccessLayer
         /// <param name="userName">string userName</param>
         /// <param name="password">string password</param>
         /// <returns>UserDS.TabUserDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public UserDS.TabUserDataTable GetLogin(string userName, string password)
         {
             try
@@ -77,7 +79,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -86,18 +88,35 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">DataAccessLayerException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteUser(int userId)
         {
             try
             {
                 return _tabUserTableAdapter.DeleteUser(userId);
             }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
             catch (Exception ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -108,6 +127,7 @@ namespace DataAccessLayer
         /// <param name="password">string password</param>
         /// <param name="userLevel">int userLevel</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertUser(string userName, string userPassword, int userLevel)
         {
             try
@@ -119,7 +139,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -131,6 +151,7 @@ namespace DataAccessLayer
         /// <param name="userLevel">int userLevel</param>
         /// <param name="userId">int userId</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int UpdateUser(string userName, string userPassword, int userLevel, int userId)
         {
             try
@@ -142,7 +163,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -153,6 +174,7 @@ namespace DataAccessLayer
         /// <param name="userName">string userName</param>
         /// <param name="userID">int userID</param>
         /// <returns>int countResult</returns>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountUserByName(string userName, int userID)
         {
             try
@@ -164,7 +186,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -173,6 +195,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userName">string userName</param>
         /// <returns>UserDS.TabUserDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public UserDS.TabUserDataTable GetUsersByUserName(string userName)
         {
             try
@@ -187,7 +210,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
     }

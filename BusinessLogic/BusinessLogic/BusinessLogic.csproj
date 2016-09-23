@@ -44,6 +44,8 @@
     <Compile Include="BookLogic.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="AppEnum.cs" />
+    <Compile Include="MasterLogic.cs" />
+    <Compile Include="TabMasterModel.cs" />
     <Compile Include="ViewBookReservedForUserModel.cs" />
     <Compile Include="ViewBookReservedModel.cs" />
     <Compile Include="ViewBookBorrowedModel.cs" />

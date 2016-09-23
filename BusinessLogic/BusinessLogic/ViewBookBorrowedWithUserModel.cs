@@ -86,8 +86,8 @@ namespace BusinessLogic
 
         public int BorrowId
         {
-            set { _bookBorrowedUserId = value; }
-            get { return _bookBorrowedUserId; }
+            set { _bookBorrowedBorrowId = value; }
+            get { return _bookBorrowedBorrowId; }
         }
         #endregion
 

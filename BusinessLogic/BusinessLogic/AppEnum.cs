@@ -52,5 +52,11 @@ namespace BusinessLogic
             UserId,
             BorrowId
         }
+
+        public enum TabMasterModel
+        {
+            ID,
+            Description
+        }
     }
 }

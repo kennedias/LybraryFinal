@@ -46,6 +46,7 @@ namespace DataAccessLayer
         /// Returns all registers from TabAuthor
         /// </summary>
         /// <returns>MasterDS.TabAuthorDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public MasterDS.TabAuthorDataTable GetAllAuthors()
         {
             try
@@ -58,30 +59,45 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
 
         }
 
         /// <summary>
         /// Delete register from TabAuthor.
-        /// It HAVE to be done a select first in the Book table to certificate that the Author
-        /// is not in use for any register.        
         /// </summary>
         /// <param name="authorID">int authorID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">DataAccessLayerException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteAuthor(int authorID)
         {
             try
             {
                 return (int)_tabAuthorTableAdapter.DeleteAuthor(authorID);
             }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                }
+                else
+                {
+                    throw; 
+                }                
+            }
             catch (Exception ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -90,6 +106,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="authorName">string authorName</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertAuthor(string authorName)
         {
             try
@@ -101,7 +118,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -110,7 +127,8 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="authorName">string authorName</param>
         /// <returns>int countResult</returns>
-        public int SelectCountUserByAuthorName(string authorName)
+        /// <exception cref="ex">Exception</exception>
+        public int SelectCountByAuthorName(string authorName)
         {
             try
             {
@@ -121,7 +139,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -132,6 +150,7 @@ namespace DataAccessLayer
         /// <param name="authorName">string authorName</param>
         /// <param name="authorID">int authorID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int UpdateAuthor(string authorName, int authorID)
         {
             try
@@ -143,7 +162,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -155,6 +174,7 @@ namespace DataAccessLayer
         /// Returns all registers from TabCategory
         /// </summary>
         /// <returns>MasterDS.TabCategoryDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public MasterDS.TabCategoryDataTable GetAllCategories()
         {
             try
@@ -167,29 +187,44 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         /// <summary>
-        /// Delete register from TabCategory.
-        /// It HAVE to be done a select first in the Book table to certificate that the Category
-        /// is not in use for any register.        
+        /// Delete register from TabCategory.   
         /// </summary>
         /// <param name="categoryID">int categoryID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">DataAccessLayerException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteCategory(int categoryID)
         {
             try
             {
                 return (int)_tabCategoryTableAdapter.DeleteCategory(categoryID);
             }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
             catch (Exception ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -198,6 +233,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="categoryName">string categoryName</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertCategory(string categoryName)
         {
             try
@@ -209,7 +245,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -218,7 +254,8 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="categoryName">string categoryName</param>
         /// <returns>int countResult</returns>
-        public int SelectCountUserByCategoryName(string categoryName)
+        /// <exception cref="ex">Exception</exception>
+        public int SelectCountByCategoryName(string categoryName)
         {
             try
             {
@@ -229,7 +266,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -240,6 +277,7 @@ namespace DataAccessLayer
         /// <param name="categoryName">string categoryName</param>
         /// <param name="authorID">int authorID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int UpdateCategory(string categoryName, int authorID)
         {
             try
@@ -251,7 +289,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -263,6 +301,7 @@ namespace DataAccessLayer
         /// Returns all registers from TabLanguage
         /// </summary>
         /// <returns>MasterDS.TabLanguageDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public MasterDS.TabLanguageDataTable GetAllLanguages()
         {
             try
@@ -275,29 +314,44 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         /// <summary>
-        /// Delete register from TabLanguage.
-        /// It HAVE to be done a select first in the Book table to certificate that the Category
-        /// is not in use for any register.        
+        /// Delete register from TabLanguage.     
         /// </summary>
         /// <param name="languageID">int languageID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">DataAccessLayerException</exception>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteLanguage(int languageID)
         {
             try
             {
                 return (int)_tabLanguageTableAdapter.DeleteLanguage(languageID);
             }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
             catch (Exception ex)
             {
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -306,6 +360,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="languageName">string languageName</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertLanguage(string languageName)
         {
             try
@@ -317,7 +372,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -326,7 +381,8 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="languageName">string languageName</param>
         /// <returns>int countResult</returns>
-        public int SelectCountUserByLanguageName(string languageName)
+        /// <exception cref="ex">Exception</exception>
+        public int SelectCountByLanguageName(string languageName)
         {
             try
             {
@@ -337,7 +393,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -348,6 +404,7 @@ namespace DataAccessLayer
         /// <param name="languageName">string languageName</param>
         /// <param name="languageID">int languageID</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int UpdateLanguage(string languageName, int languageID)
         {
             try
@@ -359,9 +416,8 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
-
     }
 }

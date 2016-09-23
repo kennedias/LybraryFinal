@@ -32,7 +32,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.GetBaseException().ToString());
                 dataGridViewBookBrowse.DataSource = null;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                labelSystemMessage.Text = "This action can not be completed! Please contact the system support team.";
+                labelSystemMessage.Text = "This action can not be completed! " + ex.Message;
             }
             catch (Exception ex)
             {

@@ -53,12 +53,13 @@ namespace DataAccessLayer
             _viewBookReservedTableAdapter = new ViewBookReservedTableAdapter();
         }
 
-        #region Book View
+        #region BookView
 
         /// <summary>
         /// Returns all registers from Book view.
         /// </summary>
         /// <returns>BookDS.ViewBookDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookDataTable GetAllBooksView()
         {
             try
@@ -71,7 +72,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -82,6 +83,7 @@ namespace DataAccessLayer
         /// <param name="bookName">string bookName</param>
         /// <param name="author">string author</param>
         /// <returns>BookDS.ViewBookDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookDataTable GetAllBooksViewByBookNameAndAuthor(string bookName, string author)
         {
             try
@@ -96,7 +98,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -105,6 +107,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="isbn">string isbn</param>
         /// <returns>BookDS.ViewBookDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookDataTable GetAllBooksViewByISBN(string isbn)
         {
             try
@@ -117,18 +120,19 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         #endregion
 
-        #region Reserved Book
+        #region ReservedBook
 
         /// <summary>
         /// Return all registers from Reserved table.
         /// </summary>
         /// <returns>BookDS.TabReservedDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.TabReservedDataTable GetAllReservedBooks()
         {
             try
@@ -141,7 +145,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -150,6 +154,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="reservedId">int reservedId</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int DeleteBookReserved(int reservedId)
         {
             try
@@ -161,7 +166,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -170,6 +175,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>BookDS.TabReservedDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.TabReservedDataTable GetAllReservedBooksByUserId(int userId)
         {
             try
@@ -183,7 +189,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -194,6 +200,7 @@ namespace DataAccessLayer
         /// <param name="isbn">string isbn</param>
         /// <param name="reservedDate">string reservedDate</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertBookReserved(int userId, string isbn, string reservedDate)
         {
             try
@@ -205,7 +212,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -214,6 +221,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="isbn">string isbn</param>
         /// <returns>int numbers of registers found</returns>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountBookReservedByIsbn(string isbn)
         {
             try
@@ -225,18 +233,19 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         #endregion
 
-        #region Borrowed Book
+        #region BorrowedBook
 
         /// <summary>
         /// Return all registers from Borrow.
         /// </summary>
         /// <returns>BookDS.TabBorrowDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.TabBorrowDataTable GetAllBorrowedBooks()
         {
             try
@@ -249,7 +258,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -258,6 +267,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>BookDS.TabBorrowDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.TabBorrowDataTable GetAllBorrowedBooksByUserId(int userId)
         {
             try
@@ -270,7 +280,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -284,6 +294,7 @@ namespace DataAccessLayer
         /// <param name="actualReturnDate">string actualReturnDate</param>
         /// <param name="lateFee">decimal lateFee</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int InsertBorrowBook(int userId, string isbn, string borrowDate, string returnDate, string actualReturnDate, decimal lateFee)
         {
             try
@@ -295,7 +306,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -306,6 +317,7 @@ namespace DataAccessLayer
         /// <param name="actualReturnDate">string actualReturnDate</param>
         /// <param name="lateFee">decimal lateFee</param>
         /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
         public int UpdateBookBorrowed(int bid, string actualReturnDate, decimal lateFee)
         {
             try
@@ -317,18 +329,19 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         #endregion 
 
-        #region Available Book View
+        #region AvailableBookView
 
         /// <summary>
         /// Returns all registers from Available Book view.
         /// </summary>
         /// <returns>BookDS.ViewBookAvailableDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookAvailableDataTable  GetAllBooksAvailableView()
         {
             try
@@ -341,7 +354,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -351,6 +364,7 @@ namespace DataAccessLayer
         /// <param name="bookname">string bookName</param>
         /// <param name="authorname">string author</param>
         /// <returns>BookDS.ViewBookAvailableDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookAvailableDataTable GetAllBooksAvailableByBookNameAndAuthorView(string bookName, string author)
         {
             try
@@ -365,7 +379,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -374,6 +388,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="isbn">string isbn</param>
         /// <returns>int numbers of registers found</returns>
+        /// <exception cref="ex">Exception</exception>
         public int SelectCountBookAvailableViewByIsbn(string isbn)
         {
             try
@@ -385,18 +400,19 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
         #endregion
 
-        #region Borrowed Book View
+        #region BorrowedBookView
    
         /// <summary>
         /// Returns all registers from Borrowed Book view.
         /// </summary>
         /// <returns>BookDS.ViewBookDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookBorrowedDataTable GetAllBooksBorrowedView()
         {
             try
@@ -409,7 +425,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -418,6 +434,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="bookName">string bookName</param>
         /// <returns>BookDS.ViewBookBorrowedWithUserDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookBorrowedWithUserDataTable GetBooksBorrowedViewByName(string bookName)
         {
             try
@@ -431,7 +448,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -443,6 +460,7 @@ namespace DataAccessLayer
         /// Returns all registers from Borrowed BookBorrowedWithUser view.
         /// </summary>
         /// <returns>BookDS.ViewBookBorrowedWithUser</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookBorrowedWithUserDataTable GetAllBooksBorrowedWithUserView()
         {
             try
@@ -455,7 +473,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -464,6 +482,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>BookDS.ViewBookBorrowedWithUser</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookBorrowedWithUserDataTable GetAllBooksBorrowedWithUserViewByUserId(int userId)
         {
             try
@@ -476,13 +495,11 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
-
         #endregion
-
 
         #region BookReservedView
 
@@ -490,6 +507,7 @@ namespace DataAccessLayer
         /// Returns all registers from BookReserved view.
         /// </summary>
         /// <returns>BookDS.ViewBookReservedDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookReservedDataTable GetAllBooksReservedView()
         {
             try
@@ -502,7 +520,7 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
             }
         }
 
@@ -511,6 +529,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="userId">int userId</param>
         /// <returns>BookDS.ViewBookReservedDataTable</returns>
+        /// <exception cref="ex">Exception</exception>
         public BookDS.ViewBookReservedDataTable GetAllBooksReservedViewByUserId(int userId)
         {
             try
@@ -524,7 +543,103 @@ namespace DataAccessLayer
                 //Error log simulate
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
-                throw new DataAccessLayerException(ex.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region BookTable
+
+        /// <summary>
+        /// Delete register from TabBook.
+        /// </summary>
+        /// <param name="isbn">string isbn</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">DataAccessLayerException</exception>
+        /// <exception cref="ex">Exception</exception>
+        public int DeleteBook(string isbn)
+        {
+            try
+            {
+                return (int)_tabBookTableAdapter.DeleteBook(isbn);
+            }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insert register into TabBook.
+        /// </summary>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">int author</param>
+        /// <param name="category">int category</param>
+        /// <param name="language">int language</param>
+        /// <param name="publishYear">int publishYear</param>
+        /// <param name="pages">int pages</param>
+        /// <param name="publisher">string publisher</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
+        public int InsertBook(string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
+        {
+            try
+            {
+                return (int)_tabBookTableAdapter.InsertBook(bookName, author, category, language, publishYear, pages, publisher);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Update register from TabBook.
+        /// </summary>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">int author</param>
+        /// <param name="category">int category</param>
+        /// <param name="language">int language</param>
+        /// <param name="publishYear">int publishYear</param>
+        /// <param name="pages">int pages</param>
+        /// <param name="publisher">string publisher</param>
+        /// <param name="isbn">string isbn</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
+        public int UpdateBook(string bookName, int author, int category, int language, int publishYear, int pages, string publisher, string isbn)
+        {
+            try
+            {
+                return (int)_tabBookTableAdapter.UpdateBook(bookName, author, category, language, publishYear, pages, publisher, isbn);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
             }
         }
 
