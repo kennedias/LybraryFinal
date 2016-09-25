@@ -47,6 +47,8 @@
             this.bookToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.informationMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMaintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maintenanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookBorrowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelSystemMessage = new System.Windows.Forms.Label();
@@ -201,10 +203,27 @@
             // 
             // userMaintenanceToolStripMenuItem
             // 
+            this.userMaintenanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.maintenanceToolStripMenuItem,
+            this.listToolStripMenuItem});
             this.userMaintenanceToolStripMenuItem.Name = "userMaintenanceToolStripMenuItem";
             this.userMaintenanceToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.userMaintenanceToolStripMenuItem.Text = "Users";
             this.userMaintenanceToolStripMenuItem.Click += new System.EventHandler(this.userMaintenanceToolStripMenuItem_Click);
+            // 
+            // maintenanceToolStripMenuItem
+            // 
+            this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maintenanceToolStripMenuItem.Text = "Maintenance";
+            this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
+            // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -270,5 +289,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bookBorrowedToolStripMenuItem;
         public System.Windows.Forms.Label labelSystemMessage;
+        private System.Windows.Forms.ToolStripMenuItem maintenanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
     }
 }

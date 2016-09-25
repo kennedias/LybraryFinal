@@ -22,9 +22,12 @@ namespace AITLibrary
         {
             try
             {
+                radioInsert.Checked = false;
+                radioUpdate.Checked = false;
+                radioDelete.Checked = false;
                 labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                textBoxName.Text = "";
+                textBoxName.Text = null;
 
                 dataGridViewMasterInformation.DataSource = null;
                 MasterLogic masterLogic = new MasterLogic();
@@ -42,7 +45,7 @@ namespace AITLibrary
                         break;
                 }
 
-                dataGridViewMasterInformation.Columns["ID"].Visible = false;
+                dataGridViewMasterInformation.Columns[Constants.fieldID].Visible = false;
 
             }
             catch (BusinessLogicException ex)
@@ -75,22 +78,25 @@ namespace AITLibrary
 
         private void refreshNameTexBox()
         {
-            textBoxName.Text = "";
+            textBoxName.Text = null;
             if (dataGridViewMasterInformation.DataSource != null && dataGridViewMasterInformation.SelectedRows.Count > 0)
             {
                 int descriptionColumnIndex = (int)AppEnum.TabMasterModel.Description;
                 textBoxName.Text = dataGridViewMasterInformation.SelectedRows[0].Cells[descriptionColumnIndex].Value.ToString();
+                radioInsert.Checked = false;
+                radioUpdate.Checked = false;
+                radioDelete.Checked = false;
             }
         }
 
         private void dataGridViewMasterInformation_Click(object sender, EventArgs e)
         {
-            refreshNameTexBox();
+            this.refreshNameTexBox();
         }
 
         private void radioInsert_Click(object sender, EventArgs e)
         {
-            textBoxName.Text = "";
+            textBoxName.Text = null;
         }
 
         private void buttonExecute_Click(object sender, EventArgs e)
@@ -105,7 +111,7 @@ namespace AITLibrary
                     if (textBoxName.Text.Length == 0)
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Please, insert a name to continue.";
+                        labelSystemMessage.Text = Constants.msgValidInformation;
                     }
                     else
                     {
@@ -127,12 +133,12 @@ namespace AITLibrary
                         if (resultOperation == 0)
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                            labelSystemMessage.Text = "Name could not be inserted. Contact the System Administrator.";
+                            labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                         }
                         else
                         {
-                            labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                            labelSystemMessage.Text = "Name inserted with success.";
+                            labelSystemMessage.Text = Constants.msgOperationCompleted;
+                            this.buttonList_Click(sender, e);
                         }
                     }
                 }
@@ -142,7 +148,7 @@ namespace AITLibrary
                         (dataGridViewMasterInformation.DataSource == null && dataGridViewMasterInformation.SelectedRows.Count == 0))
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Please, select one register to continue.";
+                        labelSystemMessage.Text = Constants.msgSelectRecord; 
                     }
                     else
                     {
@@ -167,12 +173,13 @@ namespace AITLibrary
                         if (resultOperation == 0)
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                            labelSystemMessage.Text = "Name could not be updated. Contact the System Administrator.";
+                            labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                         }
                         else
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                            labelSystemMessage.Text = "Name updated with success.";
+                            labelSystemMessage.Text = Constants.msgOperationCompleted;
+                            this.buttonList_Click(sender, e);
                         }
                     }
 
@@ -183,7 +190,7 @@ namespace AITLibrary
                         (dataGridViewMasterInformation.DataSource == null && dataGridViewMasterInformation.SelectedRows.Count == 0))
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                        labelSystemMessage.Text = "Please, select one register to continue.";
+                        labelSystemMessage.Text = Constants.msgSelectRecord;                        
                     }
                     else
                     {
@@ -208,18 +215,19 @@ namespace AITLibrary
                         if (resultOperation == 0)
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Red;
-                            labelSystemMessage.Text = "Name could not be deleted. Contact the System Administrator.";
+                            labelSystemMessage.Text = Constants.msgErrorBusinessToUser;
                         }
                         else
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                            labelSystemMessage.Text = "Name deleted with success.";
+                            labelSystemMessage.Text = Constants.msgOperationCompleted;
+                            this.buttonList_Click(sender, e);
                         }
                     }
                 }
                 else
                 {
-                    labelSystemMessage.Text = "Please, select an action to execute.";
+                    labelSystemMessage.Text = Constants.msgSelectRecord;
                 }
             }
             catch (BusinessLogicException ex)
@@ -244,9 +252,12 @@ namespace AITLibrary
         {
             try
             {
+                radioInsert.Checked = false;
+                radioUpdate.Checked = false;
+                radioDelete.Checked = false;
                 labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                textBoxName.Text = "";
+                textBoxName.Text = null;
 
                 dataGridViewMasterInformation.DataSource = null;
                 MasterLogic masterLogic = new MasterLogic();
@@ -264,7 +275,7 @@ namespace AITLibrary
                         break;
                 }
 
-                dataGridViewMasterInformation.Columns["ID"].Visible = false;
+                dataGridViewMasterInformation.Columns[Constants.fieldID].Visible = false;
 
             }
             catch (BusinessLogicException ex)

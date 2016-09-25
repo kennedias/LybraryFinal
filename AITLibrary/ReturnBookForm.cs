@@ -23,7 +23,7 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (textBoxBookName.Text.Length == 0)
                 {
@@ -69,8 +69,8 @@ namespace AITLibrary
         {
             try
             {
-                textBoxBookName.Text = "";
-                labelSystemMessage.Text = "";
+                textBoxBookName.Text = null;
+                labelSystemMessage.Text = null;
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewBooksBorrowed.DataSource = bookLogic.GetAllBooksBorrowedWithUserView();
                 dataGridViewBooksBorrowed.Columns[Constants.fieldUserId].Visible = false;
@@ -106,7 +106,7 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (dataGridViewBooksBorrowed.DataSource != null && dataGridViewBooksBorrowed.SelectedRows.Count > 0)
                 {
@@ -128,6 +128,7 @@ namespace AITLibrary
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                         labelSystemMessage.Text = Constants.msgOperationCompleted;
+                        dataGridViewBooksBorrowed.DataSource = null;
                     }
                 }
                 else

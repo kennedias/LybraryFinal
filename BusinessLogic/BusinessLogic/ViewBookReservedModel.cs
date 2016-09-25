@@ -83,7 +83,7 @@ namespace BusinessLogic
         /// Parse of data from the DS object to the model object.
         /// Returns null if the row is null.
         /// </summary>
-        /// <param name="row">BookDS.ViewBookReserved row</param>
+        /// <param name="row">BookDS.ViewBookReservedModel row</param>
         /// <returns>ViewBookReservedModel</returns>
         public static ViewBookReservedModel Parse(BookDS.ViewBookReservedRow row)
         {

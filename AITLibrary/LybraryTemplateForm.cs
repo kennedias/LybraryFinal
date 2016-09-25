@@ -169,9 +169,7 @@ namespace AITLibrary
 
         private void userMaintenanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread threadUserMaintenanceBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenUserMaintenanceForm));
-            threadUserMaintenanceBookForm.Start();
-            this.Close();
+
         }
 
         private void OpenUserMaintenanceForm()
@@ -189,6 +187,25 @@ namespace AITLibrary
         private void OpenReportBookBorrowedForm()
         {
             Application.Run(new ReportBookBorrowedForm());
+        }
+
+        private void maintenanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadUserMaintenanceBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenUserMaintenanceForm));
+            threadUserMaintenanceBookForm.Start();
+            this.Close();
+        }
+
+        private void listToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread threadUserListForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenUserListForm));
+            threadUserListForm.Start();
+            this.Close();
+        }
+
+        private void OpenUserListForm()
+        {
+            Application.Run(new UserListForm());
         }
     }
 }

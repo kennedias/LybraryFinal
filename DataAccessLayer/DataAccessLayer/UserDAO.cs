@@ -168,6 +168,29 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        /// Update a user from User table without field password.
+        /// </summary>
+        /// <param name="userName">string userName</param>
+        /// <param name="userLevel">int userLevel</param>
+        /// <param name="userId">int userId</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
+        public int UpdateUserWithoutPassword(string userName, int userLevel, int userId)
+        {
+            try
+            {
+                return _tabUserTableAdapter.UpdateUserWithoutPassword(userName, userLevel, userId);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
         /// Select count in User table by userName.
         /// The count search for user name despite the name of the actual userID.
         /// </summary>

@@ -121,12 +121,6 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LybraryBaseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LybraryBaseForm.Designer.cs">
-      <DependentUpon>LybraryBaseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="LybraryPrincipalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,11 +165,11 @@
     <Compile Include="UserDetailsForm.Designer.cs">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserForm.cs">
+    <Compile Include="UserListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserForm.Designer.cs">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <Compile Include="UserListForm.Designer.cs">
+      <DependentUpon>UserListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UserMaintenanceForm.cs">
       <SubType>Form</SubType>
@@ -213,9 +207,6 @@
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LybraryBaseForm.resx">
-      <DependentUpon>LybraryBaseForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="LybraryTemplateForm.resx">
       <DependentUpon>LybraryTemplateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,8 +234,8 @@
     <EmbeddedResource Include="UserDetailsForm.resx">
       <DependentUpon>UserDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm.resx">
-      <DependentUpon>UserForm.cs</DependentUpon>
+    <EmbeddedResource Include="UserListForm.resx">
+      <DependentUpon>UserListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMaintenanceForm.resx">
       <DependentUpon>UserMaintenanceForm.cs</DependentUpon>

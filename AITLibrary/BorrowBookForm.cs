@@ -22,7 +22,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewListBooks.DataSource = bookLogic.GetAllBooksAvailableByBookNameAndAuthor(textBoxBookName.Text, textBoxAuthor.Text);
 
@@ -54,9 +54,9 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
-                textBoxBookName.Text = "";
-                textBoxAuthor.Text = "";
+                labelSystemMessage.Text = null;
+                textBoxBookName.Text = null;
+                textBoxAuthor.Text = null;
                 dataGridViewListBooks.DataSource = null;
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewListBooks.DataSource = bookLogic.GetAllAvailableBooks();
@@ -92,8 +92,8 @@ namespace AITLibrary
                     (dataGridViewUser.DataSource != null && dataGridViewUser.SelectedRows.Count > 0))
                 {
 
-                    String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
-                    int userId = (int) dataGridViewUser.SelectedRows[0].Cells[(int)AppEnum.TabUser.ID].Value;
+                    String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBookModel.Isbn].Value.ToString();
+                    int userId = (int) dataGridViewUser.SelectedRows[0].Cells[(int)AppEnum.TabUserModel.ID].Value;
 
                     BookLogic bookLogic = new BookLogic();
                     int resultOperation = bookLogic.InsertBorrowBook(userId, isbn);
@@ -107,6 +107,8 @@ namespace AITLibrary
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                         labelSystemMessage.Text = Constants.msgOperationCompleted;
+                        dataGridViewListBooks.DataSource = null;
+                        dataGridViewUser.DataSource = null;
                     }
                 }
                 else
@@ -137,7 +139,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (textBoxUserName.Text == "")
                 {

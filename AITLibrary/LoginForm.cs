@@ -22,7 +22,7 @@ namespace AITLibrary
         {
             try
             {
-                labelReturnMsg.Text = "";
+                labelReturnMsg.Text = null;
                 LoginLogic loginLogic = new LoginLogic();
 
                 if ((textBoxUserName.Text == "") && (textBoxPassword.Text == ""))

@@ -23,9 +23,9 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.Text = Constants.msgLabelDefault;
-                textBoxISBN.Text = "";
-                textBoxBookName.Text = "";
-                textBoxAuthor.Text = "";
+                textBoxISBN.Text = null;
+                textBoxBookName.Text = null;
+                textBoxAuthor.Text = null;
                 dataGridViewListBooks.DataSource = null;
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewListBooks.DataSource = bookLogic.GetAllBooksView();
@@ -61,7 +61,7 @@ namespace AITLibrary
                 }
                 else
                 {
-                    labelMessageForUser.Text = "";
+                    labelMessageForUser.Text = null;
                     BookLogic bookLogic = new BookLogic();
                     dataGridViewListBooks.DataSource = bookLogic.BookSearch(textBoxISBN.Text, textBoxBookName.Text, textBoxAuthor.Text);
 
@@ -94,18 +94,18 @@ namespace AITLibrary
 
         private void textBoxISBN_TextChanged(object sender, EventArgs e)
         {
-            textBoxBookName.Text = "";
-            textBoxAuthor.Text = "";
+            textBoxBookName.Text = null;
+            textBoxAuthor.Text = null;
         }
 
         private void textBoxAuthor_TextChanged(object sender, EventArgs e)
         {
-            textBoxISBN.Text = "";
+            textBoxISBN.Text = null;
         }
 
         private void textBoxBookName_TextChanged(object sender, EventArgs e)
         {
-            textBoxISBN.Text = "";
+            textBoxISBN.Text = null;
         }
 
 

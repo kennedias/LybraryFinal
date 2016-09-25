@@ -122,7 +122,7 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// Update a user from User table.
+        /// Update a user.
         /// </summary>
         /// <param name="username">string username</param>
         /// <param name="password">string password</param>
@@ -141,7 +141,7 @@ namespace BusinessLogic
 
                 if (resultQuery > 0)
                 {
-                    throw new BusinessLogicException("User name is already in use.");
+                    throw new BusinessLogicException(Constants.msgNameDescriptionInUse);
                 }
 
                 resultQuery = 0;
@@ -149,7 +149,120 @@ namespace BusinessLogic
                 resultQuery = _userDAO.UpdateUser(userName, password, userLevelCode, userID);
                 if (resultQuery < 1)
                 {
-                    throw new BusinessLogicException("No record were updated.");
+                    throw new BusinessLogicException(Constants.msgNoRecordUpdated);
+                }
+                return resultQuery;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insert a user.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="userLevel">string userLevelDescription</param>
+        /// <param name="userID">int userID</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
+        public int insertUser(string userName, string userLevelDescription)
+        {
+            try
+            {
+                int resultQuery;
+
+                resultQuery = _userDAO.SelectCountUserByName(userName, Constants.numberZero);
+
+                if (resultQuery > 0)
+                {
+                    throw new BusinessLogicException(Constants.msgNameDescriptionInUse);
+                }
+
+                resultQuery = 0;
+                int userLevelCode = getUserLevelCodeByLevelDescription(userLevelDescription);
+
+                /* User is inserted with the default password, that is already expiraded and have to be 
+                 * changed on the first login                 * 
+                 * **/
+                resultQuery = _userDAO.InsertUser(userName, Constants.userPasswordDefault, userLevelCode);
+                if (resultQuery < 1)
+                {
+                    throw new BusinessLogicException(Constants.msgNoRecordInserted);
+                }
+                return resultQuery;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Update a user without password.
+        /// </summary>
+        /// <param name="username">string username</param>
+        /// <param name="userLevel">string userLevelDescription</param>
+        /// <param name="userID">int userID</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
+        public int updateUserWithoutUser(string userName, string userLevelDescription, int userID)
+        {
+            try
+            {
+                int resultQuery;
+
+                resultQuery = _userDAO.SelectCountUserByName(userName, userID);
+
+                if (resultQuery > 0)
+                {
+                    throw new BusinessLogicException(Constants.msgNameDescriptionInUse);
+                }
+
+                resultQuery = 0;
+                int userLevelCode = getUserLevelCodeByLevelDescription(userLevelDescription);
+                resultQuery = _userDAO.UpdateUserWithoutPassword(userName, userLevelCode, userID);
+                if (resultQuery < 1)
+                {
+                    throw new BusinessLogicException(Constants.msgNoRecordUpdated);
+                }
+                return resultQuery;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Delete a user.
+        /// </summary>
+        /// <param name="userID">int userID</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinessLogicException</exception>
+        /// <exception cref="ex">Exception</exception>
+        public int deleteUser(int userID)
+        {
+            try
+            {
+                int resultQuery;
+
+                resultQuery = _userDAO.DeleteUser(userID);
+                if (resultQuery < 1)
+                {
+                    throw new BusinessLogicException(Constants.msgNoRecordDeleted);
                 }
                 return resultQuery;
             }
@@ -186,7 +299,7 @@ namespace BusinessLogic
                         userLevelDescription = Constants.userDescription;
                         break;
                     default:
-                        throw new BusinessLogicException("Invalid user level code for the code: " + userLevelCode);
+                        throw new BusinessLogicException(Constants.msgInvalidUserCode + userLevelCode);
                 }
                 return userLevelDescription;
             }
@@ -223,7 +336,7 @@ namespace BusinessLogic
                         userLevelCode = Constants.userCode;
                         break;
                     default:
-                        throw new BusinessLogicException("Invalid user level description for the description: " + userLevelDescription);
+                        throw new BusinessLogicException(Constants.msgInvalidNameDescription + userLevelDescription);
                 }
                 return userLevelCode;
             }

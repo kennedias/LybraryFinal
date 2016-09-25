@@ -33,7 +33,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "[..]";
+                labelSystemMessage.Text = Constants.msgLabelDefault;
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                 dataGridViewUserBookActivity.DataSource = null;
 

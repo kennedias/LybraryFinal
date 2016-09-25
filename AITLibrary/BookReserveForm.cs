@@ -21,10 +21,10 @@ namespace AITLibrary
         private void buttonListAllBooks_Click(object sender, EventArgs e)
         {
             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-            labelSystemMessage.Text = "";
-            textBoxISBN.Text = "";
-            textBoxBookName.Text = "";
-            textBoxAuthor.Text = "";
+            labelSystemMessage.Text = null;
+            textBoxISBN.Text = null;
+            textBoxBookName.Text = null;
+            textBoxAuthor.Text = null;
 
             BookLogic bookLogic = new BookLogic();
             dataGridViewListBooks.DataSource = bookLogic.GetAllBooksView();
@@ -33,7 +33,7 @@ namespace AITLibrary
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-            labelSystemMessage.Text = "";
+            labelSystemMessage.Text = null;
 
             if (textBoxISBN.Text.Length == 0 && textBoxBookName.Text.Length == 0 && textBoxAuthor.Text.Length == 0)
             {
@@ -55,18 +55,18 @@ namespace AITLibrary
 
         private void textBoxISBN_KeyDown(object sender, KeyEventArgs e)
         {
-            textBoxBookName.Text = "";
-            textBoxAuthor.Text = "";
+            textBoxBookName.Text = null;
+            textBoxAuthor.Text = null;
         }
 
         private void textBoxBookName_KeyDown(object sender, KeyEventArgs e)
         {
-            textBoxISBN.Text = "";
+            textBoxISBN.Text = null;
         }
 
         private void textBoxAuthor_KeyDown(object sender, KeyEventArgs e)
         {
-            textBoxISBN.Text = "";
+            textBoxISBN.Text = null;
         }
 
         private void buttonReserve_Click(object sender, EventArgs e)
@@ -74,11 +74,11 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (dataGridViewListBooks.DataSource != null && dataGridViewListBooks.SelectedRows.Count > 0)
                 {
-                    String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBook.Isbn].Value.ToString();
+                    String isbn = dataGridViewListBooks.SelectedRows[0].Cells[(int)AppEnum.ViewBookModel.Isbn].Value.ToString();
                     labelSystemMessage.Text = isbn;
 
                     BookLogic bookLogic = new BookLogic();
@@ -92,6 +92,7 @@ namespace AITLibrary
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                         labelSystemMessage.Text = Constants.msgOperationCompleted;
+                        dataGridViewListBooks.DataSource = null;
                     }
                 }
                 else

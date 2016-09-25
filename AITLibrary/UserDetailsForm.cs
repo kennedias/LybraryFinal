@@ -33,7 +33,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
                 System.Threading.Thread threadForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenChangePasswordForm));
                 threadForm.Start();
             }
@@ -67,14 +67,16 @@ namespace AITLibrary
         {
             try
             {
-                /* User can not change his User Level */
+                comboBoxUserLevel.DataSource = Constants.userLevelList;
+
+                /* User level can not change his level */
                 if (staticUserLevelCode == Constants.userCode)
                 {
                     comboBoxUserLevel.Enabled = false;
                 }
 
                 textBoxUserName.Text = staticUserName;
-                comboBoxUserLevel.SelectedText = staticUserLevelDescription;
+                comboBoxUserLevel.SelectedItem = staticUserLevelDescription;
             }
             catch (Exception ex)
             {
@@ -90,7 +92,7 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (textBoxUserName.Text == null)
                 {
@@ -110,6 +112,14 @@ namespace AITLibrary
                         staticUserName = textBoxUserName.Text;
                     }
                 }
+            }
+            catch (BusinessLogicException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                labelSystemMessage.ForeColor = System.Drawing.Color.Red;
+                labelSystemMessage.Text = Constants.msgErrorBusinessToUser + ex.Message;
             }
             catch (Exception ex)
             {

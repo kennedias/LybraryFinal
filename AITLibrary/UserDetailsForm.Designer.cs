@@ -35,10 +35,8 @@
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.labelUserLevel = new System.Windows.Forms.Label();
             this.labelUserName = new System.Windows.Forms.Label();
-
             this.groupBoxUserInformation.SuspendLayout();
             this.SuspendLayout();
-
             // 
             // groupBoxUserInformation
             // 
@@ -57,11 +55,8 @@
             // 
             // comboBoxUserLevel
             // 
+            this.comboBoxUserLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUserLevel.FormattingEnabled = true;
-            this.comboBoxUserLevel.Items.AddRange(new object[] {
-            "Administrator",
-            "Supervisor",
-            "User"});
             this.comboBoxUserLevel.Location = new System.Drawing.Point(86, 67);
             this.comboBoxUserLevel.Name = "comboBoxUserLevel";
             this.comboBoxUserLevel.Size = new System.Drawing.Size(121, 21);
@@ -121,9 +116,8 @@
             this.Name = "UserDetailsForm";
             this.Text = "UserDetailsForm";
             this.Load += new System.EventHandler(this.UserDetailsForm_Load);
-
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
             this.Controls.SetChildIndex(this.groupBoxUserInformation, 0);
-
             this.groupBoxUserInformation.ResumeLayout(false);
             this.groupBoxUserInformation.PerformLayout();
             this.ResumeLayout(false);

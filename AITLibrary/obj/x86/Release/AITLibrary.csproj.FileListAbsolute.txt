@@ -51,12 +51,10 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLib
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.AdminForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.LoginForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.Properties.Resources.resources
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.UserForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.csproj.GenerateResource.Cache
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.exe
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.pdb
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ChangePasswordForm.resources
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.LybraryBaseForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.UserDetailsForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookReserveForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.ConsultAndCancelBookReservedForm.resources
@@ -74,3 +72,4 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLib
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.BookBrowseForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Release\SystemFramework.dll
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Release\SystemFramework.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Release\AITLibrary.UserListForm.resources

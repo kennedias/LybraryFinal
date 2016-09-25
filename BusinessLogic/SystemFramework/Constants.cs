@@ -29,6 +29,10 @@ namespace SystemFramework
         public const string actualDateReturnForInsert = "2001-01-01";
         public const int daysOfBorrowingBook = 7;
         public const decimal lateFeePerDay = 2;
+        public const string userLevel = "Administrator,Supervisor,User";
+        public static readonly string[] userLevelList = userLevel.Split(',');
+        public static string userPasswordDefault = "aitLybrary1";
+        public static int numberZero = 0;
         #endregion
 
         #region SystemsMessages
@@ -39,8 +43,14 @@ namespace SystemFramework
         public const string msgLabelDefault = "[...]";
         public const string msgUserNameBlank = "User Name is blank.";
         public const string msgNoRecordUpdated = "No record were updated!";
+        public const string msgNoRecordDeleted = "No record were deleted!";
+        public const string msgNoRecordInserted = "No record were inserted!";
         public const string msgOperationCompleted = "Operation completed with success!";
         public const string msgSelectRecord = "Please, select a record first.";
+        public const string msgValidInformation = "Please, inform a valid information.";
+        public const string msgNameDescriptionInUse = "Name/Description already in use. Change a new one";
+        public const string msgInvalidNameDescription = "Invalid Name/Description. ";
+        public const string msgInvalidUserCode = "Invalid user level code for the code. ";
         #endregion
 
         #region DataFiels
@@ -52,7 +62,8 @@ namespace SystemFramework
         public const string fieldLatefee = "Latefee";
         public const string fieldUser = "User";
         public const string fieldReserveId = "ReserveId";
-
         #endregion
+
+
     }
 }

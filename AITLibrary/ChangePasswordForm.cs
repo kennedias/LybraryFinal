@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BusinessLogic;
+using SystemFramework;
 
 namespace AITLibrary
 {
-    public partial class ChangePasswordForm : LybraryBaseForm
+    public partial class ChangePasswordForm : LybraryPrincipalForm
     {
         public ChangePasswordForm()
         {
@@ -21,7 +22,7 @@ namespace AITLibrary
         {
             try
             {
-                labelReturnMsg.Text = "";
+                labelReturnMsg.Text = null;
                 LoginLogic loginLogic = new LoginLogic();
 
                 if (textBoxNewPassword.Text == staticUserPassword)
@@ -57,7 +58,7 @@ namespace AITLibrary
                     int resultQuery = userLogic.updateUser(staticUserName, textBoxNewPassword.Text, staticUserLevelDescription, staticUserID);
                     if (resultQuery < 1)
                     {
-                        throw new BusinessLogicException("No record were updated.");
+                        labelReturnMsg.Text = Constants.msgErrorBusinessToUser;                        
                     }
                     else
                     {
@@ -72,7 +73,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelReturnMsg.ForeColor = System.Drawing.Color.Red;
-                labelReturnMsg.Text = "This action can not be completed! Please contact the system support team.";
+                labelReturnMsg.Text = Constants.msgErrorBusinessToUser;
             }
             catch (Exception ex)
             {
@@ -80,15 +81,15 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelReturnMsg.ForeColor = System.Drawing.Color.Red;
-                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelReturnMsg.Text = Constants.msgErrorSystemToUser;
             }
         }
 
-        public void OpenBookForm()
+        public void OpenTemplateForm()
         {
             try
             {
-                Application.Run(new BookSearchForm());
+                Application.Run(new LybraryTemplateForm());
             }
             catch (Exception ex)
             {
@@ -96,7 +97,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelReturnMsg.ForeColor = System.Drawing.Color.Red;
-                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelReturnMsg.Text = Constants.msgErrorSystemToUser;
             }
         }
 
@@ -112,7 +113,7 @@ namespace AITLibrary
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 labelReturnMsg.ForeColor = System.Drawing.Color.Red;
-                labelReturnMsg.Text = "Sorry, something went wrong! Please contact the system support team.";
+                labelReturnMsg.Text = Constants.msgErrorSystemToUser;
             }
         }
     }

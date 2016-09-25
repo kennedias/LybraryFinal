@@ -23,11 +23,11 @@ namespace AITLibrary
             try
             {
                 labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                labelSystemMessage.Text = "";
+                labelSystemMessage.Text = null;
 
                 if (dataGridViewBookReserved.DataSource != null && dataGridViewBookReserved.SelectedRows.Count > 0)
                 {
-                    int reserveId = (int) dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBookReserved.ReserveId].Value;
+                    int reserveId = (int) dataGridViewBookReserved.SelectedRows[0].Cells[(int)AppEnum.ViewBookReservedModel.ReserveId].Value;
                     labelSystemMessage.Text = reserveId.ToString();
 
                     BookLogic bookLogic = new BookLogic();
@@ -41,10 +41,7 @@ namespace AITLibrary
                     {
                         labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                         labelSystemMessage.Text = Constants.msgOperationCompleted;
-                        dataGridViewBookReserved.Refresh();
-                        dataGridViewBookReserved.RefreshEdit();
-                        dataGridViewBookReserved.Update();
-                        //TODO uopdate datagridview after 
+                        this.ConsultAndCancelBookReservedForm_Load(sender,  e);                       
 
                     }
                 }
@@ -76,7 +73,6 @@ namespace AITLibrary
         {
             try
             {
-                labelSystemMessage.Text = "";
                 BookLogic bookLogic = new BookLogic();
                 dataGridViewBookReserved.DataSource = bookLogic.GetAllBooksReservedViewByUserId(staticUserID);
 

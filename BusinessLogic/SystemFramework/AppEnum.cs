@@ -7,7 +7,7 @@ namespace SystemFramework
 {
     public static class AppEnum
     {
-        public enum ViewBook
+        public enum ViewBookModel
         {
             Isbn,
             BookName,
@@ -19,7 +19,7 @@ namespace SystemFramework
             Language
         }
 
-        public enum ViewBookReserved
+        public enum ViewBookReservedModel
         {
             Isbn,
             Name,
@@ -31,7 +31,7 @@ namespace SystemFramework
 
         }
 
-        public enum TabUser
+        public enum TabUserModel
         {
             ID,
             Name,

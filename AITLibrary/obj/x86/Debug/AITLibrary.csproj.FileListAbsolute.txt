@@ -52,10 +52,8 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibra
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.AdminForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LoginForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.Properties.Resources.resources
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.ChangePasswordForm.resources
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LybraryBaseForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserDetailsForm.resources
 C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.exe
 C:\Users\5399\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.pdb
@@ -72,3 +70,6 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibra
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.MyActivitiesForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LybraryTemplateForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.BookBrowseForm.resources
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Debug\SystemFramework.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Debug\SystemFramework.pdb
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.UserListForm.resources
