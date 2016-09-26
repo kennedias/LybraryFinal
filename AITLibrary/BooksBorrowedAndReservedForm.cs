@@ -27,7 +27,10 @@ namespace AITLibrary
                 dataGridViewBooks.DataSource = null;
 
                 BookLogic bookLogic = new BookLogic();
-                dataGridViewBooks.DataSource = bookLogic.GetAllBorrowedBooks();
+                dataGridViewBooks.DataSource = bookLogic.GetAllBorrowedBooksWithUser();
+                dataGridViewBooks.Columns[Constants.fieldBorrowId].Visible = false;
+                dataGridViewBooks.Columns[Constants.fieldLatefee].Visible = false;
+                dataGridViewBooks.Columns[Constants.fieldUserId].Visible = false;
             }
             catch (BusinessLogicException ex)
             {

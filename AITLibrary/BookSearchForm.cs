@@ -92,18 +92,24 @@ namespace AITLibrary
             }
         }
 
-        private void textBoxISBN_TextChanged(object sender, EventArgs e)
+        private void textBoxISBN_KeyPress(object sender, KeyPressEventArgs e)
         {
+            char character = e.KeyChar;
+
+            if (!Char.IsDigit(character) && character != 8)
+            {
+                e.Handled = true;
+            }
             textBoxBookName.Text = null;
             textBoxAuthor.Text = null;
         }
 
-        private void textBoxAuthor_TextChanged(object sender, EventArgs e)
+        private void textBoxBookName_KeyDown(object sender, KeyEventArgs e)
         {
             textBoxISBN.Text = null;
         }
 
-        private void textBoxBookName_TextChanged(object sender, EventArgs e)
+        private void textBoxAuthor_KeyDown(object sender, KeyEventArgs e)
         {
             textBoxISBN.Text = null;
         }

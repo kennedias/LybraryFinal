@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using DataAccessLayer.UserDSTableAdapters;
 using System.Data.SqlClient;
+using SystemFramework;
 
 namespace DataAccessLayer
 {
@@ -104,7 +105,7 @@ namespace DataAccessLayer
 
                 if (ex.Number == 547)
                 {
-                    throw new DataAccessLayerException("Register is in use and can not be deleted.");
+                    throw new DataAccessLayerException(Constants.msgExceptionRegisterInUse);
                 }
                 else
                 {

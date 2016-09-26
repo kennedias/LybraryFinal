@@ -114,6 +114,12 @@
       <DependentUpon>UserDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessLogic\SystemFramework\SystemFramework.csproj">
+      <Project>{D4D7BFA7-DCB5-4D70-AEC4-9AFA2723DC4B}</Project>
+      <Name>SystemFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

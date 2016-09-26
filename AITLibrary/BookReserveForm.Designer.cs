@@ -44,7 +44,6 @@
             this.groupBoxSearchBooks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.SuspendLayout();
-
             // 
             // groupBoxSearchBooks
             // 
@@ -143,7 +142,7 @@
             this.textBoxISBN.Name = "textBoxISBN";
             this.textBoxISBN.Size = new System.Drawing.Size(134, 20);
             this.textBoxISBN.TabIndex = 1;
-            this.textBoxISBN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxISBN_KeyDown);
+            this.textBoxISBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxISBN_KeyPress);
             // 
             // labelISBN
             // 
@@ -188,11 +187,10 @@
             this.Controls.Add(this.groupBoxSearchBooks);
             this.Name = "BookReserveForm";
             this.Text = "BookReserveForm";
-
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
             this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
             this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.buttonReserve, 0);
-
             this.groupBoxSearchBooks.ResumeLayout(false);
             this.groupBoxSearchBooks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();

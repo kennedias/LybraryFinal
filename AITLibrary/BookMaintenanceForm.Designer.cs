@@ -45,28 +45,23 @@
             this.textBoxNameMaintenance = new System.Windows.Forms.TextBox();
             this.labelNameMaintenance = new System.Windows.Forms.Label();
             this.labelISBNMaintenance = new System.Windows.Forms.Label();
-            this.radioButtonDelete = new System.Windows.Forms.RadioButton();
+            this.radioDelete = new System.Windows.Forms.RadioButton();
             this.radioUpdate = new System.Windows.Forms.RadioButton();
             this.radioInsert = new System.Windows.Forms.RadioButton();
             this.buttonExecute = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewListBooks = new System.Windows.Forms.DataGridView();
             this.groupBoxBookSearch = new System.Windows.Forms.GroupBox();
-            this.buttonSearchStudent = new System.Windows.Forms.Button();
-            this.textBoxStudentId = new System.Windows.Forms.TextBox();
+            this.buttonSearchBook = new System.Windows.Forms.Button();
+            this.textBoxISBNSearch = new System.Windows.Forms.TextBox();
             this.labelISBN = new System.Windows.Forms.Label();
-            this.textBoxStudentName = new System.Windows.Forms.TextBox();
+            this.textBoxBookNameSearch = new System.Windows.Forms.TextBox();
             this.labelOrStudentSearch = new System.Windows.Forms.Label();
             this.labelBookName = new System.Windows.Forms.Label();
             this.labelSearchStudentby = new System.Windows.Forms.Label();
-            
             this.groupBoxUserMaintenance.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.groupBoxBookSearch.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBoxSystemMessage
-            // 
-            
             // 
             // groupBoxUserMaintenance
             // 
@@ -86,11 +81,11 @@
             this.groupBoxUserMaintenance.Controls.Add(this.textBoxNameMaintenance);
             this.groupBoxUserMaintenance.Controls.Add(this.labelNameMaintenance);
             this.groupBoxUserMaintenance.Controls.Add(this.labelISBNMaintenance);
-            this.groupBoxUserMaintenance.Controls.Add(this.radioButtonDelete);
+            this.groupBoxUserMaintenance.Controls.Add(this.radioDelete);
             this.groupBoxUserMaintenance.Controls.Add(this.radioUpdate);
             this.groupBoxUserMaintenance.Controls.Add(this.radioInsert);
             this.groupBoxUserMaintenance.Controls.Add(this.buttonExecute);
-            this.groupBoxUserMaintenance.Location = new System.Drawing.Point(242, 189);
+            this.groupBoxUserMaintenance.Location = new System.Drawing.Point(195, 315);
             this.groupBoxUserMaintenance.Name = "groupBoxUserMaintenance";
             this.groupBoxUserMaintenance.Size = new System.Drawing.Size(666, 197);
             this.groupBoxUserMaintenance.TabIndex = 19;
@@ -120,6 +115,7 @@
             this.textBoxPages.Name = "textBoxPages";
             this.textBoxPages.Size = new System.Drawing.Size(41, 20);
             this.textBoxPages.TabIndex = 24;
+            this.textBoxPages.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPages_KeyPress);
             // 
             // labelPages
             // 
@@ -132,6 +128,7 @@
             // 
             // comboBoxLanguage
             // 
+            this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLanguage.FormattingEnabled = true;
             this.comboBoxLanguage.Items.AddRange(new object[] {
             "Administrator",
@@ -153,6 +150,7 @@
             // 
             // comboBoxCategory
             // 
+            this.comboBoxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategory.FormattingEnabled = true;
             this.comboBoxCategory.Items.AddRange(new object[] {
             "Administrator",
@@ -174,6 +172,7 @@
             // 
             // comboBoxAuthor
             // 
+            this.comboBoxAuthor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAuthor.FormattingEnabled = true;
             this.comboBoxAuthor.Items.AddRange(new object[] {
             "Administrator",
@@ -200,6 +199,7 @@
             this.textBoxYear.Name = "textBoxYear";
             this.textBoxYear.Size = new System.Drawing.Size(41, 20);
             this.textBoxYear.TabIndex = 16;
+            this.textBoxYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxYear_KeyPress);
             // 
             // labelYear
             // 
@@ -214,8 +214,9 @@
             // 
             this.textBoxISBNMaintenace.Location = new System.Drawing.Point(103, 25);
             this.textBoxISBNMaintenace.Name = "textBoxISBNMaintenace";
-            this.textBoxISBNMaintenace.Size = new System.Drawing.Size(230, 20);
+            this.textBoxISBNMaintenace.Size = new System.Drawing.Size(136, 20);
             this.textBoxISBNMaintenace.TabIndex = 14;
+            this.textBoxISBNMaintenace.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxISBNMaintenace_KeyPress);
             // 
             // textBoxNameMaintenance
             // 
@@ -242,16 +243,16 @@
             this.labelISBNMaintenance.TabIndex = 13;
             this.labelISBNMaintenance.Text = "ISBN";
             // 
-            // radioButtonDelete
+            // radioDelete
             // 
-            this.radioButtonDelete.AutoSize = true;
-            this.radioButtonDelete.Location = new System.Drawing.Point(291, 168);
-            this.radioButtonDelete.Name = "radioButtonDelete";
-            this.radioButtonDelete.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonDelete.TabIndex = 12;
-            this.radioButtonDelete.TabStop = true;
-            this.radioButtonDelete.Text = "Delete";
-            this.radioButtonDelete.UseVisualStyleBackColor = true;
+            this.radioDelete.AutoSize = true;
+            this.radioDelete.Location = new System.Drawing.Point(291, 168);
+            this.radioDelete.Name = "radioDelete";
+            this.radioDelete.Size = new System.Drawing.Size(56, 17);
+            this.radioDelete.TabIndex = 12;
+            this.radioDelete.TabStop = true;
+            this.radioDelete.Text = "Delete";
+            this.radioDelete.UseVisualStyleBackColor = true;
             // 
             // radioUpdate
             // 
@@ -263,6 +264,8 @@
             this.radioUpdate.TabStop = true;
             this.radioUpdate.Text = "Update";
             this.radioUpdate.UseVisualStyleBackColor = true;
+            this.radioUpdate.CheckedChanged += new System.EventHandler(this.radioUpdate_CheckedChanged);
+            this.radioUpdate.Click += new System.EventHandler(this.radioUpdate_Click);
             // 
             // radioInsert
             // 
@@ -274,6 +277,8 @@
             this.radioInsert.TabStop = true;
             this.radioInsert.Text = "Insert";
             this.radioInsert.UseVisualStyleBackColor = true;
+            this.radioInsert.CheckedChanged += new System.EventHandler(this.radioInsert_CheckedChanged);
+            this.radioInsert.Click += new System.EventHandler(this.radioInsert_Click);
             // 
             // buttonExecute
             // 
@@ -283,70 +288,77 @@
             this.buttonExecute.TabIndex = 7;
             this.buttonExecute.Text = "Execute";
             this.buttonExecute.UseVisualStyleBackColor = true;
+            this.buttonExecute.Click += new System.EventHandler(this.buttonExecute_Click);
             // 
-            // dataGridView1
+            // dataGridViewListBooks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(242, 36);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 134);
-            this.dataGridView1.TabIndex = 18;
+            this.dataGridViewListBooks.AllowUserToAddRows = false;
+            this.dataGridViewListBooks.AllowUserToDeleteRows = false;
+            this.dataGridViewListBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListBooks.Location = new System.Drawing.Point(194, 36);
+            this.dataGridViewListBooks.MultiSelect = false;
+            this.dataGridViewListBooks.Name = "dataGridViewListBooks";
+            this.dataGridViewListBooks.ReadOnly = true;
+            this.dataGridViewListBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewListBooks.Size = new System.Drawing.Size(878, 273);
+            this.dataGridViewListBooks.TabIndex = 18;
+            this.dataGridViewListBooks.Click += new System.EventHandler(this.dataGridViewListBooks_Click);
             // 
             // groupBoxBookSearch
             // 
-            this.groupBoxBookSearch.Controls.Add(this.buttonSearchStudent);
-            this.groupBoxBookSearch.Controls.Add(this.textBoxStudentId);
+            this.groupBoxBookSearch.Controls.Add(this.buttonSearchBook);
+            this.groupBoxBookSearch.Controls.Add(this.textBoxISBNSearch);
             this.groupBoxBookSearch.Controls.Add(this.labelISBN);
-            this.groupBoxBookSearch.Controls.Add(this.textBoxStudentName);
+            this.groupBoxBookSearch.Controls.Add(this.textBoxBookNameSearch);
             this.groupBoxBookSearch.Controls.Add(this.labelOrStudentSearch);
             this.groupBoxBookSearch.Controls.Add(this.labelBookName);
             this.groupBoxBookSearch.Controls.Add(this.labelSearchStudentby);
             this.groupBoxBookSearch.Location = new System.Drawing.Point(18, 36);
             this.groupBoxBookSearch.Name = "groupBoxBookSearch";
-            this.groupBoxBookSearch.Size = new System.Drawing.Size(214, 134);
+            this.groupBoxBookSearch.Size = new System.Drawing.Size(170, 134);
             this.groupBoxBookSearch.TabIndex = 17;
             this.groupBoxBookSearch.TabStop = false;
             this.groupBoxBookSearch.Text = "Book Search";
             // 
-            // buttonSearchStudent
+            // buttonSearchBook
             // 
-            this.buttonSearchStudent.Location = new System.Drawing.Point(104, 103);
-            this.buttonSearchStudent.Name = "buttonSearchStudent";
-            this.buttonSearchStudent.Size = new System.Drawing.Size(102, 23);
-            this.buttonSearchStudent.TabIndex = 14;
-            this.buttonSearchStudent.Text = "Search";
-            this.buttonSearchStudent.UseVisualStyleBackColor = true;
+            this.buttonSearchBook.Location = new System.Drawing.Point(58, 103);
+            this.buttonSearchBook.Name = "buttonSearchBook";
+            this.buttonSearchBook.Size = new System.Drawing.Size(102, 23);
+            this.buttonSearchBook.TabIndex = 14;
+            this.buttonSearchBook.Text = "Search";
+            this.buttonSearchBook.UseVisualStyleBackColor = true;
+            this.buttonSearchBook.Click += new System.EventHandler(this.buttonSearchBook_Click);
             // 
-            // textBoxStudentId
+            // textBoxISBNSearch
             // 
-            this.textBoxStudentId.Location = new System.Drawing.Point(70, 36);
-            this.textBoxStudentId.Name = "textBoxStudentId";
-            this.textBoxStudentId.Size = new System.Drawing.Size(136, 20);
-            this.textBoxStudentId.TabIndex = 8;
+            this.textBoxISBNSearch.Location = new System.Drawing.Point(40, 36);
+            this.textBoxISBNSearch.Name = "textBoxISBNSearch";
+            this.textBoxISBNSearch.Size = new System.Drawing.Size(121, 20);
+            this.textBoxISBNSearch.TabIndex = 8;
+            this.textBoxISBNSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxISBNSearch_KeyPress);
             // 
             // labelISBN
             // 
             this.labelISBN.AutoSize = true;
-            this.labelISBN.Location = new System.Drawing.Point(37, 39);
+            this.labelISBN.Location = new System.Drawing.Point(5, 39);
             this.labelISBN.Name = "labelISBN";
             this.labelISBN.Size = new System.Drawing.Size(32, 13);
             this.labelISBN.TabIndex = 13;
             this.labelISBN.Text = "ISBN";
             // 
-            // textBoxStudentName
+            // textBoxBookNameSearch
             // 
-            this.textBoxStudentName.Location = new System.Drawing.Point(70, 77);
-            this.textBoxStudentName.Name = "textBoxStudentName";
-            this.textBoxStudentName.Size = new System.Drawing.Size(136, 20);
-            this.textBoxStudentName.TabIndex = 12;
+            this.textBoxBookNameSearch.Location = new System.Drawing.Point(38, 77);
+            this.textBoxBookNameSearch.Name = "textBoxBookNameSearch";
+            this.textBoxBookNameSearch.Size = new System.Drawing.Size(123, 20);
+            this.textBoxBookNameSearch.TabIndex = 12;
+            this.textBoxBookNameSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBookNameSearch_KeyDown);
             // 
             // labelOrStudentSearch
             // 
             this.labelOrStudentSearch.AutoSize = true;
-            this.labelOrStudentSearch.Location = new System.Drawing.Point(69, 59);
+            this.labelOrStudentSearch.Location = new System.Drawing.Point(37, 59);
             this.labelOrStudentSearch.Name = "labelOrStudentSearch";
             this.labelOrStudentSearch.Size = new System.Drawing.Size(16, 13);
             this.labelOrStudentSearch.TabIndex = 11;
@@ -355,7 +367,7 @@
             // labelBookName
             // 
             this.labelBookName.AutoSize = true;
-            this.labelBookName.Location = new System.Drawing.Point(33, 80);
+            this.labelBookName.Location = new System.Drawing.Point(1, 80);
             this.labelBookName.Name = "labelBookName";
             this.labelBookName.Size = new System.Drawing.Size(35, 13);
             this.labelBookName.TabIndex = 9;
@@ -376,16 +388,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 611);
             this.Controls.Add(this.groupBoxUserMaintenance);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewListBooks);
             this.Controls.Add(this.groupBoxBookSearch);
             this.Name = "BookMaintenanceForm";
             this.Text = "BookMaintenanceForm";
+            this.Load += new System.EventHandler(this.BookMaintenanceForm_Load);
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
             this.Controls.SetChildIndex(this.groupBoxBookSearch, 0);
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.groupBoxUserMaintenance, 0);
             this.groupBoxUserMaintenance.ResumeLayout(false);
             this.groupBoxUserMaintenance.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();
             this.groupBoxBookSearch.ResumeLayout(false);
             this.groupBoxBookSearch.PerformLayout();
             this.ResumeLayout(false);
@@ -402,18 +416,18 @@
         private System.Windows.Forms.Label labelYear;
         private System.Windows.Forms.TextBox textBoxISBNMaintenace;
         private System.Windows.Forms.Label labelISBNMaintenance;
-        private System.Windows.Forms.RadioButton radioButtonDelete;
+        private System.Windows.Forms.RadioButton radioDelete;
         private System.Windows.Forms.RadioButton radioUpdate;
         private System.Windows.Forms.RadioButton radioInsert;
         private System.Windows.Forms.TextBox textBoxNameMaintenance;
         private System.Windows.Forms.Label labelNameMaintenance;
         private System.Windows.Forms.Button buttonExecute;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewListBooks;
         private System.Windows.Forms.GroupBox groupBoxBookSearch;
-        private System.Windows.Forms.Button buttonSearchStudent;
-        private System.Windows.Forms.TextBox textBoxStudentId;
+        private System.Windows.Forms.Button buttonSearchBook;
+        private System.Windows.Forms.TextBox textBoxISBNSearch;
         private System.Windows.Forms.Label labelISBN;
-        private System.Windows.Forms.TextBox textBoxStudentName;
+        private System.Windows.Forms.TextBox textBoxBookNameSearch;
         private System.Windows.Forms.Label labelOrStudentSearch;
         private System.Windows.Forms.Label labelBookName;
         private System.Windows.Forms.Label labelSearchStudentby;

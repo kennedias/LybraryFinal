@@ -33,6 +33,7 @@ namespace SystemFramework
         public static readonly string[] userLevelList = userLevel.Split(',');
         public static string userPasswordDefault = "aitLybrary1";
         public static int numberZero = 0;
+        public static int minYearOfBook = 1900;
         #endregion
 
         #region SystemsMessages
@@ -51,6 +52,8 @@ namespace SystemFramework
         public const string msgNameDescriptionInUse = "Name/Description already in use. Change a new one";
         public const string msgInvalidNameDescription = "Invalid Name/Description. ";
         public const string msgInvalidUserCode = "Invalid user level code for the code. ";
+        public const string msgExceptionRegisterInUse = "Register is in use and can not be deleted.";
+        public const string msgExceptionISBNInUse = "This ISBN is already in use.";
         #endregion
 
         #region DataFiels

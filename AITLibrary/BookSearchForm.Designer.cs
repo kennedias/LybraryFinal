@@ -41,11 +41,9 @@
             this.textBoxISBN = new System.Windows.Forms.TextBox();
             this.labelISBN = new System.Windows.Forms.Label();
             this.labelMessageForUser = new System.Windows.Forms.Label();
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).BeginInit();
             this.groupBoxSearchBooks.SuspendLayout();
             this.SuspendLayout();
-
             // 
             // dataGridViewListBooks
             // 
@@ -104,7 +102,7 @@
             this.textBoxAuthor.Name = "textBoxAuthor";
             this.textBoxAuthor.Size = new System.Drawing.Size(134, 20);
             this.textBoxAuthor.TabIndex = 7;
-            this.textBoxAuthor.TextChanged += new System.EventHandler(this.textBoxBookName_TextChanged);
+            this.textBoxAuthor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxAuthor_KeyDown);
             // 
             // labelAuthor
             // 
@@ -121,7 +119,7 @@
             this.textBoxBookName.Name = "textBoxBookName";
             this.textBoxBookName.Size = new System.Drawing.Size(134, 20);
             this.textBoxBookName.TabIndex = 5;
-            this.textBoxBookName.TextChanged += new System.EventHandler(this.textBoxAuthor_TextChanged);
+            this.textBoxBookName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxBookName_KeyDown);
             // 
             // labelBookName
             // 
@@ -156,7 +154,7 @@
             this.textBoxISBN.Name = "textBoxISBN";
             this.textBoxISBN.Size = new System.Drawing.Size(134, 20);
             this.textBoxISBN.TabIndex = 1;
-            this.textBoxISBN.TextChanged += new System.EventHandler(this.textBoxISBN_TextChanged);
+            this.textBoxISBN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxISBN_KeyPress);
             // 
             // labelISBN
             // 
@@ -187,11 +185,10 @@
             this.Controls.Add(this.dataGridViewListBooks);
             this.Name = "BookSearchForm";
             this.Text = "Book";
-
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
             this.Controls.SetChildIndex(this.dataGridViewListBooks, 0);
             this.Controls.SetChildIndex(this.groupBoxSearchBooks, 0);
             this.Controls.SetChildIndex(this.labelMessageForUser, 0);
-
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListBooks)).EndInit();
             this.groupBoxSearchBooks.ResumeLayout(false);
             this.groupBoxSearchBooks.PerformLayout();

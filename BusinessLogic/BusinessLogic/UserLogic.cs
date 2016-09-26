@@ -215,7 +215,7 @@ namespace BusinessLogic
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">BusinessLogicException</exception>
         /// <exception cref="ex">Exception</exception>
-        public int updateUserWithoutUser(string userName, string userLevelDescription, int userID)
+        public int updateUserWithoutPassword(string userName, string userLevelDescription, int userID)
         {
             try
             {
@@ -265,6 +265,13 @@ namespace BusinessLogic
                     throw new BusinessLogicException(Constants.msgNoRecordDeleted);
                 }
                 return resultQuery;
+            }
+            catch (DataAccessLayerException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
             }
             catch (Exception ex)
             {

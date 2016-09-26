@@ -57,7 +57,7 @@ namespace AITLibrary
                 radioUpdate.Checked = false;
                 radioDelete.Checked = false;
                 comboBoxUserLevel.Enabled = false;
-                labelSystemMessage.Text = null;
+                labelSystemMessage.Text = Constants.msgLabelDefault;
 
                 if (textBoxNameForSearch.Text == "")
                 {
@@ -167,6 +167,7 @@ namespace AITLibrary
                         {
                             labelSystemMessage.Text = Constants.msgOperationCompleted;
                             this.UserMaintenanceForm_Load(sender, e);
+                            dataGridViewListUsers.DataSource = null;
                         }
                     }
                 }
@@ -185,7 +186,7 @@ namespace AITLibrary
                         int iDColumnIndex = (int)AppEnum.TabUserModel.ID;
                         int informationID = (int)dataGridViewListUsers.SelectedRows[0].Cells[iDColumnIndex].Value;
 
-                        resultOperation = userLogic.updateUserWithoutUser(textBoxName.Text, comboBoxUserLevel.Text, iDColumnIndex);
+                        resultOperation = userLogic.updateUserWithoutPassword(textBoxName.Text, comboBoxUserLevel.Text, informationID);
 
                         if (resultOperation == 0)
                         {
@@ -195,8 +196,8 @@ namespace AITLibrary
                         else
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
-                            labelSystemMessage.Text = Constants.msgOperationCompleted;
-                            this.UserMaintenanceForm_Load(sender, e);
+                            labelSystemMessage.Text = Constants.msgOperationCompleted;                            
+                            dataGridViewListUsers.DataSource = null;
                         }
                     }
 
@@ -216,7 +217,7 @@ namespace AITLibrary
                         int iDColumnIndex = (int)AppEnum.TabUserModel.ID;
                         int informationID = (int)dataGridViewListUsers.SelectedRows[0].Cells[iDColumnIndex].Value;
 
-                        resultOperation = userLogic.deleteUser(iDColumnIndex);
+                        resultOperation = userLogic.deleteUser(informationID);
 
                         if (resultOperation == 0)
                         {
@@ -227,7 +228,7 @@ namespace AITLibrary
                         {
                             labelSystemMessage.ForeColor = System.Drawing.Color.Black;
                             labelSystemMessage.Text = Constants.msgOperationCompleted;
-                            this.UserMaintenanceForm_Load(sender, e);
+                            dataGridViewListUsers.DataSource = null;
                         }
                     }
                 }

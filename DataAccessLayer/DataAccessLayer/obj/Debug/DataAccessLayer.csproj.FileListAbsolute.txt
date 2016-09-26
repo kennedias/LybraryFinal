@@ -20,3 +20,5 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\b
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Debug\SystemFramework.dll
+C:\Users\Kennedy\Documents\GitHub\LybraryFinal\DataAccessLayer\DataAccessLayer\bin\Debug\SystemFramework.pdb

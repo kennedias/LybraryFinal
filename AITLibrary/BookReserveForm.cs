@@ -53,12 +53,6 @@ namespace AITLibrary
             }
         }
 
-        private void textBoxISBN_KeyDown(object sender, KeyEventArgs e)
-        {
-            textBoxBookName.Text = null;
-            textBoxAuthor.Text = null;
-        }
-
         private void textBoxBookName_KeyDown(object sender, KeyEventArgs e)
         {
             textBoxISBN.Text = null;
@@ -118,6 +112,18 @@ namespace AITLibrary
                 labelSystemMessage.Text = Constants.msgErrorSystemToUser;
             }
 
+        }
+
+        private void textBoxISBN_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char character = e.KeyChar;
+
+            if (!Char.IsDigit(character) && character != 8)
+            {
+                e.Handled = true;
+            }
+            textBoxBookName.Text = null;
+            textBoxAuthor.Text = null;
         }
     }
 }

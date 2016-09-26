@@ -25,6 +25,8 @@ namespace BusinessLogic
         private BookDS.ViewBookDataTable _viewBookView;
         private List<ViewBookModel> _listBooksView;
 
+        private BookDS.TabReservedDataTable _tabBookDataTable;
+
         private BookDS.TabReservedDataTable _tabReservedDataTable;
         private List<TabReservedModel> _listTabReservedModel;
 
@@ -51,8 +53,11 @@ namespace BusinessLogic
             try
             {
                 _bookDAO = new BookDAO();
+                _tabBookDataTable = new BookDS.TabReservedDataTable();
+
                 _listBooksView = new List<ViewBookModel>();
                 _viewBookView = new BookDS.ViewBookDataTable();
+
                 _listTabReservedModel = new List<TabReservedModel>();
                 _tabReservedDataTable = new BookDS.TabReservedDataTable();
 
@@ -320,7 +325,7 @@ namespace BusinessLogic
 
         #endregion
 
-        #region Book Borrowed
+        #region BookBorrowed
 
         /// <summary>
         /// Return all registers from Book Borrowed View.
@@ -339,6 +344,33 @@ namespace BusinessLogic
                 }
 
                 return _listViewBooksBorrowedModel;
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Return all registers from Book Borrowed View.
+        /// </summary>
+        /// <returns>List<ViewBookBorrowedWithUserModel></returns>
+        public List<ViewBookBorrowedWithUserModel> GetAllBorrowedBooksWithUser()
+        {
+            try
+            {
+                _listViewBooksBorrowedWithUserModel = new List<ViewBookBorrowedWithUserModel>();
+                _viewBookBorrowedWithUserDataTable = _bookDAO.GetAllBooksBorrowedWithUserView();
+
+                foreach (BookDS.ViewBookBorrowedWithUserRow row in _viewBookBorrowedWithUserDataTable.Rows)
+                {
+                    _listViewBooksBorrowedWithUserModel.Add(ViewBookBorrowedWithUserModel.Parse(row));
+                }
+
+                return _listViewBooksBorrowedWithUserModel;
             }
             catch (Exception ex)
             {
@@ -611,6 +643,113 @@ namespace BusinessLogic
                 Console.WriteLine(ex.ToString());
                 Console.WriteLine(ex.GetBaseException().ToString());
                 throw new BusinessLogicException(ex.Message);
+            }
+        }
+
+        #endregion
+
+
+        #region Book
+
+        /// <summary>
+        /// Delete a book.
+        /// </summary>
+        /// <param name="isbn">string isbn</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">BusinnessException</exception>
+        /// <exception cref="ex">Exception</exception>
+        public int DeleteBook(string isbn)
+        {
+            try
+            {
+                _bookDAO = new BookDAO();
+                return _bookDAO.DeleteBook(isbn);
+            }
+            catch (DataAccessLayerException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insert a book.
+        /// </summary>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">int author</param>
+        /// <param name="category">int category</param>
+        /// <param name="language">int language</param>
+        /// <param name="publishYear">int publishYear</param>
+        /// <param name="pages">int pages</param>
+        /// <param name="publisher">string publisher</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
+        public int InsertBook(string isbn, string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
+        {
+            try
+            {
+                _bookDAO = new BookDAO();
+                return _bookDAO.InsertBook(isbn, bookName, author, category, language, publishYear, pages, publisher);
+            }
+            catch (DataAccessLayerException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Update register from TabBook.
+        /// <summary>
+        /// <param name="isbn">string isbn</param>
+        /// <param name="bookName">string bookName</param>
+        /// <param name="author">int author</param>
+        /// <param name="category">int category</param>
+        /// <param name="language">int language</param>
+        /// <param name="publishYear">int publishYear</param>
+        /// <param name="pages">int pages</param>
+        /// <param name="publisher">string publisher</param>
+        /// <returns>int rowsAffected</returns>
+        /// <exception cref="ex">Exception</exception>
+        public int UpdateBook(string isbn, string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
+        {
+            try
+            {
+                _bookDAO = new BookDAO();
+                return _bookDAO.UpdateBook(isbn, bookName, author, category, language, publishYear, pages, publisher);
+            }
+            catch (DataAccessLayerException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw new BusinessLogicException(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+                throw;
             }
         }
 

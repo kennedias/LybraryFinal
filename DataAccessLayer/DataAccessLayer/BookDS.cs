@@ -2,6 +2,10 @@
     
     
     public partial class BookDS {
+        partial class TabBookDataTable
+        {
+        }
+    
         partial class TabReservedDataTable
         {
         }

@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using DataAccessLayer.BookDSTableAdapters;
 using System.Data.SqlClient;
-
+using SystemFramework;
 
 
 namespace DataAccessLayer
@@ -591,6 +591,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Insert register into TabBook.
         /// </summary>
+        /// <param name="isbn">string isbn</param>
         /// <param name="bookName">string bookName</param>
         /// <param name="author">int author</param>
         /// <param name="category">int category</param>
@@ -600,11 +601,30 @@ namespace DataAccessLayer
         /// <param name="publisher">string publisher</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">Exception</exception>
-        public int InsertBook(string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
+        public int InsertBook(string isbn, string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
         {
             try
             {
-                return (int)_tabBookTableAdapter.InsertBook(bookName, author, category, language, publishYear, pages, publisher);
+                return (int)_tabBookTableAdapter.InsertBook(isbn, bookName, author, category, language, publishYear, pages, publisher);
+            }
+            catch (SqlException ex)
+            {
+                //Error log simulate
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.GetBaseException().ToString());
+
+                if (ex.Number == 547)
+                {
+                    throw new DataAccessLayerException(Constants.msgExceptionRegisterInUse);
+                }
+                else if (ex.Number == 2627)
+                {
+                    throw new DataAccessLayerException(Constants.msgExceptionISBNInUse);
+                }
+                else
+                {
+                    throw;
+                }
             }
             catch (Exception ex)
             {
@@ -618,6 +638,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Update register from TabBook.
         /// </summary>
+        /// <param name="isbn">string updatedIsbn</param>
         /// <param name="bookName">string bookName</param>
         /// <param name="author">int author</param>
         /// <param name="category">int category</param>
@@ -625,14 +646,15 @@ namespace DataAccessLayer
         /// <param name="publishYear">int publishYear</param>
         /// <param name="pages">int pages</param>
         /// <param name="publisher">string publisher</param>
-        /// <param name="isbn">string isbn</param>
+        /// <param name="isbn">string Isbn</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">Exception</exception>
-        public int UpdateBook(string bookName, int author, int category, int language, int publishYear, int pages, string publisher, string isbn)
+        public int UpdateBook(string updatedIsbn, string bookName, int author, int category, int language, int publishYear,
+                              int pages, string publisher, string isbn)
         {
             try
             {
-                return (int)_tabBookTableAdapter.UpdateBook(bookName, author, category, language, publishYear, pages, publisher, isbn);
+                return (int)_tabBookTableAdapter.UpdateBook(updatedIsbn, bookName, author, category, language, publishYear, pages, publisher, isbn);
             }
             catch (Exception ex)
             {
