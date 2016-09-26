@@ -49,7 +49,6 @@ C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Debug\DataAccessLa
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Debug\BusinessLogic.pdb
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\bin\Debug\DataAccessLayer.pdb
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.csprojResolveAssemblyReference.cache
-C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.AdminForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.LoginForm.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.Properties.Resources.resources
 C:\Users\Kennedy\Documents\GitHub\LybraryFinal\AITLibrary\obj\x86\Debug\AITLibrary.csproj.GenerateResource.Cache

@@ -38,6 +38,7 @@ namespace AITLibrary
                 comboBoxLanguage.ValueMember = "ID";
 
                 this.disableComboBoxes();
+                this.disableFieldsOfMaintenance();
                 
                 this.clearAllFields();
 
@@ -70,11 +71,9 @@ namespace AITLibrary
                 radioInsert.Checked = false;
                 radioUpdate.Checked = false;
                 radioDelete.Checked = false;
-                comboBoxAuthor.Enabled = false;
-                comboBoxCategory.Enabled = false;
-                comboBoxLanguage.Enabled = false;
+                this.disableFieldsOfMaintenance();
+                this.disableComboBoxes();
                 labelSystemMessage.Text = Constants.msgLabelDefault;
-
 
                 if (textBoxISBNSearch.Text.Length == 0 && textBoxBookNameSearch.Text.Length == 0)
                 {
@@ -156,12 +155,14 @@ namespace AITLibrary
         {
             this.clearAllFields();
             this.enableComboBoxes();
+            this.enableFieldsOfMaintenance();
         }
 
         private void radioInsert_CheckedChanged(object sender, EventArgs e)
         {
             this.clearAllFields();
             this.enableComboBoxes();
+            this.enableFieldsOfMaintenance();
         }
 
         private void clearAllFields()
@@ -194,6 +195,24 @@ namespace AITLibrary
             comboBoxAuthor.Enabled = false;
             comboBoxCategory.Enabled = false;
             comboBoxLanguage.Enabled = false;
+        }
+
+        private void disableFieldsOfMaintenance()
+        {
+            textBoxNameMaintenance.Enabled = false;
+            textBoxISBNMaintenace.Enabled = false;
+            textBoxYear.Enabled = false;
+            textBoxPages.Enabled = false;
+            textBoxPublisher.Enabled = false;
+        }
+
+        private void enableFieldsOfMaintenance()
+        {
+            textBoxNameMaintenance.Enabled = true;
+            textBoxISBNMaintenace.Enabled = true;
+            textBoxYear.Enabled = true;
+            textBoxPages.Enabled = true;
+            textBoxPublisher.Enabled = true;
         }
 
         private void textBoxISBNSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -298,10 +317,13 @@ namespace AITLibrary
                     }
                     else if (radioUpdate.Checked)
                     {
-                        resultOperation = BookLogic.UpdateBook(textBoxISBNMaintenace.Text, textBoxNameMaintenance.Text, 
+                        int isbnColumnIndex = (int)AppEnum.ViewBookModel.Isbn;
+                        String isbn = dataGridViewListBooks.SelectedRows[0].Cells[isbnColumnIndex].Value.ToString();
+                        String updatedIsbn = textBoxISBNMaintenace.Text;
+                        resultOperation = BookLogic.UpdateBook(updatedIsbn, textBoxNameMaintenance.Text, 
                                                                (int)comboBoxAuthor.SelectedValue,(int)comboBoxCategory.SelectedValue, 
-                                                               (int)comboBoxLanguage.SelectedValue, Int32.Parse(textBoxYear.Text), 
-                                                               Int32.Parse(textBoxPages.Text), textBoxPublisher.Text);
+                                                               (int)comboBoxLanguage.SelectedValue, Int32.Parse(textBoxYear.Text),
+                                                               Int32.Parse(textBoxPages.Text), textBoxPublisher.Text, isbn);
                     }
                     else if (radioDelete.Checked)
                     {
@@ -345,11 +367,13 @@ namespace AITLibrary
         private void radioUpdate_CheckedChanged(object sender, EventArgs e)
         {
             this.enableComboBoxes();
+            this.enableFieldsOfMaintenance();
         }
 
         private void radioUpdate_Click(object sender, EventArgs e)
         {
             this.enableComboBoxes();
+            this.enableFieldsOfMaintenance();
         }
 
    }

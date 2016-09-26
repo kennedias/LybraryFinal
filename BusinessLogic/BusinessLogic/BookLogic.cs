@@ -720,7 +720,7 @@ namespace BusinessLogic
         /// <summary>
         /// Update register from TabBook.
         /// <summary>
-        /// <param name="isbn">string isbn</param>
+        /// <param name="updatedIsbn">string updatedIsbn</param>
         /// <param name="bookName">string bookName</param>
         /// <param name="author">int author</param>
         /// <param name="category">int category</param>
@@ -728,14 +728,16 @@ namespace BusinessLogic
         /// <param name="publishYear">int publishYear</param>
         /// <param name="pages">int pages</param>
         /// <param name="publisher">string publisher</param>
+        /// <param name="isbn">string isbn</param>
         /// <returns>int rowsAffected</returns>
         /// <exception cref="ex">Exception</exception>
-        public int UpdateBook(string isbn, string bookName, int author, int category, int language, int publishYear, int pages, string publisher)
+        public int UpdateBook(string updatedIsbn, string bookName, int author, int category, int language, int publishYear,
+                              int pages, string publisher, string isbn)
         {
             try
             {
                 _bookDAO = new BookDAO();
-                return _bookDAO.UpdateBook(isbn, bookName, author, category, language, publishYear, pages, publisher);
+                return _bookDAO.UpdateBook(updatedIsbn, bookName, author, category, language, publishYear, pages, publisher, isbn);
             }
             catch (DataAccessLayerException ex)
             {

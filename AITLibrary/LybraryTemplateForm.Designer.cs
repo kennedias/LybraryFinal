@@ -122,14 +122,14 @@
             // borrowToolStripMenuItem1
             // 
             this.borrowToolStripMenuItem1.Name = "borrowToolStripMenuItem1";
-            this.borrowToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.borrowToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.borrowToolStripMenuItem1.Text = "Borrow";
             this.borrowToolStripMenuItem1.Click += new System.EventHandler(this.borrowToolStripMenuItem1_Click);
             // 
             // returnToolStripMenuItem
             // 
             this.returnToolStripMenuItem.Name = "returnToolStripMenuItem";
-            this.returnToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.returnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.returnToolStripMenuItem.Text = "Return";
             this.returnToolStripMenuItem.Click += new System.EventHandler(this.returnToolStripMenuItem_Click);
             // 
@@ -214,14 +214,14 @@
             // maintenanceToolStripMenuItem
             // 
             this.maintenanceToolStripMenuItem.Name = "maintenanceToolStripMenuItem";
-            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maintenanceToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.maintenanceToolStripMenuItem.Text = "Maintenance";
             this.maintenanceToolStripMenuItem.Click += new System.EventHandler(this.maintenanceToolStripMenuItem_Click);
             // 
             // listToolStripMenuItem
             // 
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.listToolStripMenuItem.Text = "List";
             this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
             // 
@@ -258,6 +258,7 @@
             this.Controls.Add(this.menuStripSystemLybrary);
             this.Name = "LybraryTemplateForm";
             this.Text = "LybraryTemplateForm";
+            this.Load += new System.EventHandler(this.LybraryTemplateForm_Load);
             this.menuStripSystemLybrary.ResumeLayout(false);
             this.menuStripSystemLybrary.PerformLayout();
             this.ResumeLayout(false);

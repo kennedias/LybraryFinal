@@ -15,10 +15,6 @@ namespace AITLibrary
         public LybraryTemplateForm()
         {
             InitializeComponent();
-            staticUserID = 1;
-            staticUserName = "user";
-            staticUserLevelCode = 1;
-            staticUserLevelDescription = "User";
         }
 
         private void toolStripMenuItemUserDetails_Click(object sender, EventArgs e)
@@ -47,12 +43,12 @@ namespace AITLibrary
 
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread threadBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookForm));
-            threadBookForm.Start();
+            System.Threading.Thread threadBookSearchForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBookSearchForm));
+            threadBookSearchForm.Start();
             this.Close();
         }
 
-        private void OpenBookForm()
+        private void OpenBookSearchForm()
         {
             Application.Run(new BookSearchForm());
         }
@@ -83,9 +79,12 @@ namespace AITLibrary
 
         private void borrowToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Threading.Thread threadBorrowBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBorrowBookForm));
-            threadBorrowBookForm.Start();
-            this.Close();
+            if (staticUserLevelCode == Constants.administratorCode || staticUserLevelCode == Constants.supervisorCode)
+            {
+                System.Threading.Thread threadBorrowBookForm = new System.Threading.Thread(new System.Threading.ThreadStart(OpenBorrowBookForm));
+                threadBorrowBookForm.Start();
+                this.Close();
+            }
         }
 
         private void OpenBorrowBookForm()
@@ -206,6 +205,18 @@ namespace AITLibrary
         private void OpenUserListForm()
         {
             Application.Run(new UserListForm());
+        }
+
+        private void LybraryTemplateForm_Load(object sender, EventArgs e)
+        {
+            if (staticUserLevelCode != Constants.administratorCode && staticUserLevelCode != Constants.supervisorCode)
+            {
+                borrowToolStripMenuItem.Visible = false;
+                viewBorrowedReservedToolStripMenuItem.Visible = false;
+                administrationToolStripMenuItem.Visible = false;
+                reportsToolStripMenuItem.Visible = false;
+            }
+                
         }
     }
 }

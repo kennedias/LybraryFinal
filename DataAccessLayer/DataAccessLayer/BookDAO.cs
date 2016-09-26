@@ -638,7 +638,7 @@ namespace DataAccessLayer
         /// <summary>
         /// Update register from TabBook.
         /// </summary>
-        /// <param name="isbn">string updatedIsbn</param>
+        /// <param name="updatedIsbn">string updatedIsbn</param>
         /// <param name="bookName">string bookName</param>
         /// <param name="author">int author</param>
         /// <param name="category">int category</param>

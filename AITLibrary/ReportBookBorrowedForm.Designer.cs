@@ -28,36 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewBorrowedBooks = new System.Windows.Forms.DataGridView();
+            this.labelReportDescription = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrowedBooks)).BeginInit();
             this.SuspendLayout();
-
             // 
-            // dataGridView1
+            // dataGridViewBorrowedBooks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 40);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1052, 381);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridViewBorrowedBooks.AllowUserToAddRows = false;
+            this.dataGridViewBorrowedBooks.AllowUserToDeleteRows = false;
+            this.dataGridViewBorrowedBooks.AllowUserToOrderColumns = true;
+            this.dataGridViewBorrowedBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBorrowedBooks.Location = new System.Drawing.Point(12, 62);
+            this.dataGridViewBorrowedBooks.Name = "dataGridViewBorrowedBooks";
+            this.dataGridViewBorrowedBooks.ReadOnly = true;
+            this.dataGridViewBorrowedBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBorrowedBooks.Size = new System.Drawing.Size(1052, 506);
+            this.dataGridViewBorrowedBooks.TabIndex = 2;
+            // 
+            // labelReportDescription
+            // 
+            this.labelReportDescription.AutoSize = true;
+            this.labelReportDescription.Location = new System.Drawing.Point(13, 43);
+            this.labelReportDescription.Name = "labelReportDescription";
+            this.labelReportDescription.Size = new System.Drawing.Size(208, 13);
+            this.labelReportDescription.TabIndex = 3;
+            this.labelReportDescription.Text = "Borrowed Books Ordered by Book Name.  ";
             // 
             // ReportBookBorrowedForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 611);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.labelReportDescription);
+            this.Controls.Add(this.dataGridViewBorrowedBooks);
             this.Name = "ReportBookBorrowedForm";
             this.Text = "ReportBookBorrowedForm";
-
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ReportBookBorrowedForm_Load);
+            this.Controls.SetChildIndex(this.labelSystemMessage, 0);
+            this.Controls.SetChildIndex(this.dataGridViewBorrowedBooks, 0);
+            this.Controls.SetChildIndex(this.labelReportDescription, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBorrowedBooks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -65,6 +76,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewBorrowedBooks;
+        private System.Windows.Forms.Label labelReportDescription;
     }
 }
